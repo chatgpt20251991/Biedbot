@@ -1,0 +1,12 @@
+BiedBot Edge: demonstratie-installatie. Geen automatische afschrijving of echte verkopers.
+INSTALLATIE_GESTOPT: De digitale handtekening van de opgegeven runtime is niet geldig. Er wordt niets uitgevoerd.
+Diagnoselog: C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot\.windows-acceptance\run-8PrWUm\Gebruiker Zoë 李 & Co\Lokale App\logs\install-20260908-041424-974.txt
+De digitale handtekening van de opgegeven runtime is niet geldig. Er wordt niets uitgevoerd.
+At C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot\.windows-acceptance\run-8Pr
+WUm\Gebruiker Zoë 李 & Co\uitgepakt pakket\BiedBot_Edge\scripts\Install.ps1:72 char:83
++ ...  'Valid') { throw 'De digitale handtekening van de opgegeven runtime  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (De digitale han...ets uitgevoerd.:String) [], RuntimeException
+    + FullyQualifiedErrorId : De digitale handtekening van de opgegeven runtime is niet geldig. Er wordt niets uitgevo 
+   erd.
+ 

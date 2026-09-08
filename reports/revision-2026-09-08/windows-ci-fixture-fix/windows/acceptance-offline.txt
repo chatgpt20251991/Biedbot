@@ -1,0 +1,13 @@
+BiedBot Edge: demonstratie-installatie. Geen automatische afschrijving of echte verkopers.
+INSTALLATIE_GESTOPT: OFFLINE_RUNTIME_ONTBREEKT: geen lokale runtime. Verbind met internet en voer de installer opnieuw uit, of geef een officieel ondertekende node.exe via -RuntimePath.
+Diagnoselog: C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot\.windows-acceptance\run-8PrWUm\Gebruiker Zoë 李 & Co\Lokale App\logs\install-20260908-041423-452.txt
+OFFLINE_RUNTIME_ONTBREEKT: geen lokale runtime. Verbind met internet en voer de installer opnieuw uit, of geef een offi
+cieel ondertekende node.exe via -RuntimePath.
+At C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot\.windows-acceptance\run-8Pr
+WUm\Gebruiker Zoë 李 & Co\uitgepakt pakket\BiedBot_Edge\scripts\Install.ps1:77 char:21
++ ... $Offline) { throw 'OFFLINE_RUNTIME_ONTBREEKT: geen lokale runtime. Ve ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (OFFLINE_RUNTIME...a -RuntimePath.:String) [], RuntimeException
+    + FullyQualifiedErrorId : OFFLINE_RUNTIME_ONTBREEKT: geen lokale runtime. Verbind met internet en voer de installe 
+   r opnieuw uit, of geef een officieel ondertekende node.exe via -RuntimePath.
+ 

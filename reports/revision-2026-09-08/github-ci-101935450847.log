@@ -1,0 +1,260 @@
+﻿2026-09-08T04:16:07.7272180Z Current runner version: '2.337.0'
+2026-09-08T04:16:07.7638948Z ##[group]Runner Image Provisioner
+2026-09-08T04:16:07.7640346Z Hosted Compute Agent
+2026-09-08T04:16:07.7641039Z Version: 20260819.586
+2026-09-08T04:16:07.7641789Z Commit: 3cc4a88dfa507ef76119ad1bb3eccc6378bb2b76
+2026-09-08T04:16:07.7642594Z Build Date: 2026-08-18T23:20:18Z
+2026-09-08T04:16:07.7643318Z Worker ID: {e451f6ef-7976-4e1f-bd6e-49ecd4731f9d}
+2026-09-08T04:16:07.7644067Z Azure Region: eastus
+2026-09-08T04:16:07.7644661Z ##[endgroup]
+2026-09-08T04:16:07.7646153Z ##[group]Operating System
+2026-09-08T04:16:07.7646846Z Microsoft Windows Server 2025
+2026-09-08T04:16:07.7647467Z 10.0.26100
+2026-09-08T04:16:07.7648047Z Datacenter
+2026-09-08T04:16:07.7648574Z ##[endgroup]
+2026-09-08T04:16:07.7649161Z ##[group]Runner Image
+2026-09-08T04:16:07.7649832Z Image: windows-2025-vs2026
+2026-09-08T04:16:07.7650449Z Version: 20260824.214.3
+2026-09-08T04:16:07.7652034Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20260824.214/images/windows/Windows2025-VS2026-Readme.md
+2026-09-08T04:16:07.7653800Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20260824.214
+2026-09-08T04:16:07.7654838Z ##[endgroup]
+2026-09-08T04:16:07.7655969Z ##[group]GITHUB_TOKEN Permissions
+2026-09-08T04:16:07.7658561Z Contents: read
+2026-09-08T04:16:07.7659549Z Metadata: read
+2026-09-08T04:16:07.7660227Z ##[endgroup]
+2026-09-08T04:16:07.7662636Z Secret source: Actions
+2026-09-08T04:16:07.7663911Z Prepare workflow directory
+2026-09-08T04:16:07.9438867Z Prepare all required actions
+2026-09-08T04:16:07.9487189Z Getting action download info
+2026-09-08T04:16:08.1079490Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-09-08T04:16:08.3455444Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-09-08T04:16:08.6277079Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-09-08T04:16:09.5936384Z Complete job name: browser-windows
+2026-09-08T04:16:10.5468594Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-08T04:16:10.5480309Z ##[group]Run actions/checkout@v4
+2026-09-08T04:16:10.5481634Z with:
+2026-09-08T04:16:10.5482445Z   repository: chatgpt20251991/Biedbot
+2026-09-08T04:16:10.5490671Z   token: ***
+2026-09-08T04:16:10.5491473Z   ssh-strict: true
+2026-09-08T04:16:10.5492264Z   ssh-user: git
+2026-09-08T04:16:10.5493087Z   persist-credentials: true
+2026-09-08T04:16:10.5493987Z   clean: true
+2026-09-08T04:16:10.5494801Z   sparse-checkout-cone-mode: true
+2026-09-08T04:16:10.5495761Z   fetch-depth: 1
+2026-09-08T04:16:10.5496560Z   fetch-tags: false
+2026-09-08T04:16:10.5497405Z   show-progress: true
+2026-09-08T04:16:10.5498218Z   lfs: false
+2026-09-08T04:16:10.5499022Z   submodules: false
+2026-09-08T04:16:10.5499842Z   set-safe-directory: true
+2026-09-08T04:16:10.5500789Z   allow-unsafe-pr-checkout: false
+2026-09-08T04:16:10.5502007Z env:
+2026-09-08T04:16:10.5502761Z   BIEDBOT_AI_PROVIDER: offline
+2026-09-08T04:16:10.5504078Z ##[endgroup]
+2026-09-08T04:16:10.7983730Z Syncing repository: chatgpt20251991/Biedbot
+2026-09-08T04:16:10.7986541Z ##[group]Getting Git version info
+2026-09-08T04:16:10.7987662Z Working directory is 'D:\a\Biedbot\Biedbot'
+2026-09-08T04:16:10.9162455Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-09-08T04:16:11.3713628Z git version 2.55.0.windows.5
+2026-09-08T04:16:11.3766469Z ##[endgroup]
+2026-09-08T04:16:11.3908679Z Temporarily overriding HOME='D:\a\_temp\68a04884-7f07-4f73-8f1b-d147a3e78b3e' before making global git config changes
+2026-09-08T04:16:11.3911112Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-08T04:16:11.4291778Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\Biedbot\Biedbot
+2026-09-08T04:16:11.4678302Z Deleting the contents of 'D:\a\Biedbot\Biedbot'
+2026-09-08T04:16:11.4685330Z ##[group]Initializing the repository
+2026-09-08T04:16:11.4694676Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\Biedbot\Biedbot
+2026-09-08T04:16:11.5678217Z Initialized empty Git repository in D:/a/Biedbot/Biedbot/.git/
+2026-09-08T04:16:11.5724049Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/chatgpt20251991/Biedbot
+2026-09-08T04:16:11.6400940Z ##[endgroup]
+2026-09-08T04:16:11.6403214Z ##[group]Disabling automatic garbage collection
+2026-09-08T04:16:11.6409642Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-09-08T04:16:11.6801231Z ##[endgroup]
+2026-09-08T04:16:11.6803601Z ##[group]Setting up auth
+2026-09-08T04:16:11.6815088Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-09-08T04:16:11.7126021Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-09-08T04:16:13.3941123Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-08T04:16:13.4235877Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-09-08T04:16:13.9661493Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-08T04:16:13.9978699Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-09-08T04:16:14.5422839Z [command]"C:\Program Files\Git\bin\git.exe" config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-09-08T04:16:14.5624850Z ##[endgroup]
+2026-09-08T04:16:14.5625590Z ##[group]Fetching the repository
+2026-09-08T04:16:14.5638375Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +c25fe7de14cfa280122ea7958ac8c572b55833c6:refs/remotes/origin/main
+2026-09-08T04:16:15.7665939Z From https://github.com/chatgpt20251991/Biedbot
+2026-09-08T04:16:15.7666774Z  * [new ref]         c25fe7de14cfa280122ea7958ac8c572b55833c6 -> origin/main
+2026-09-08T04:16:15.7708332Z ##[endgroup]
+2026-09-08T04:16:15.7708957Z ##[group]Determining the checkout info
+2026-09-08T04:16:15.7711960Z ##[endgroup]
+2026-09-08T04:16:15.7721637Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-09-08T04:16:15.8284269Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-09-08T04:16:15.8584791Z ##[group]Checking out the ref
+2026-09-08T04:16:15.8593800Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B main refs/remotes/origin/main
+2026-09-08T04:16:15.9806576Z Switched to a new branch 'main'
+2026-09-08T04:16:15.9876800Z branch 'main' set up to track 'origin/main'.
+2026-09-08T04:16:15.9924413Z ##[endgroup]
+2026-09-08T04:16:16.0305164Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-09-08T04:16:16.0560017Z c25fe7de14cfa280122ea7958ac8c572b55833c6
+2026-09-08T04:16:16.1035465Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-08T04:16:16.1037824Z ##[group]Run actions/setup-node@v4
+2026-09-08T04:16:16.1038857Z with:
+2026-09-08T04:16:16.1039059Z   node-version: 24
+2026-09-08T04:16:16.1039260Z   always-auth: false
+2026-09-08T04:16:16.1039467Z   check-latest: false
+2026-09-08T04:16:16.1041945Z   token: ***
+2026-09-08T04:16:16.1042147Z env:
+2026-09-08T04:16:16.1042357Z   BIEDBOT_AI_PROVIDER: offline
+2026-09-08T04:16:16.1042584Z ##[endgroup]
+2026-09-08T04:16:16.2820180Z Found in cache @ C:\hostedtoolcache\windows\node\24.19.0\x64
+2026-09-08T04:16:16.2827296Z (node:7096) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-08T04:16:16.2828017Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-08T04:16:16.2830648Z ##[group]Environment details
+2026-09-08T04:16:22.7191277Z node: v24.19.0
+2026-09-08T04:16:22.7191536Z npm: 11.17.0
+2026-09-08T04:16:22.7191728Z yarn: 1.22.22
+2026-09-08T04:16:22.7192964Z ##[endgroup]
+2026-09-08T04:16:22.7482171Z ##[group]Run npm run test:dom
+2026-09-08T04:16:22.7482528Z [36;1mnpm run test:dom[0m
+2026-09-08T04:16:22.9617202Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-09-08T04:16:22.9617582Z env:
+2026-09-08T04:16:22.9617782Z   BIEDBOT_AI_PROVIDER: offline
+2026-09-08T04:16:22.9618042Z ##[endgroup]
+2026-09-08T04:16:24.0141469Z 
+2026-09-08T04:16:24.0149849Z > biedbot-edge@0.1.0-pilot.2 test:dom
+2026-09-08T04:16:24.0150471Z > node tests/browser.dom.mjs
+2026-09-08T04:16:24.0150769Z 
+2026-09-08T04:16:29.0432857Z PASS Onboarding-DOM laadt in echte Chromium
+2026-09-08T04:16:29.1611100Z PASS Onboarding-formulier heeft correcte API-velden
+2026-09-08T04:16:29.1626822Z PASS Autopilot-besturing doet API-aanroep zonder berichtgoedkeuring
+2026-09-08T04:16:29.2975250Z PASS Desktopdashboard zonder runtimefouten
+2026-09-08T04:16:29.4185866Z PASS Inbox toont berichten en hard plafond
+2026-09-08T04:16:29.4429334Z PASS Navigatie scout
+2026-09-08T04:16:29.4476435Z PASS Navigatie deals
+2026-09-08T04:16:29.4555997Z PASS Navigatie settings
+2026-09-08T04:16:29.4600665Z PASS Navigatie health
+2026-09-08T04:16:29.4626457Z PASS Navigatie billing
+2026-09-08T04:16:29.4686673Z PASS Navigatie today
+2026-09-08T04:16:29.7168447Z PASS Geen horizontale pagina-overflow op 390px
+2026-09-08T04:16:29.7957273Z PASS Noodstop doet API-aanroep enabled false
+2026-09-08T04:16:29.7966479Z PASS Geen JavaScriptfouten na alle pagina’s
+2026-09-08T04:16:32.0831893Z ##[group]Run npm run test:browser
+2026-09-08T04:16:32.0832250Z [36;1mnpm run test:browser[0m
+2026-09-08T04:16:32.0929680Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-09-08T04:16:32.0930024Z env:
+2026-09-08T04:16:32.0930208Z   BIEDBOT_AI_PROVIDER: offline
+2026-09-08T04:16:32.0930428Z ##[endgroup]
+2026-09-08T04:16:32.7375114Z 
+2026-09-08T04:16:32.7375857Z > biedbot-edge@0.1.0-pilot.2 test:browser
+2026-09-08T04:16:32.7376494Z > node tests/browser.e2e.mjs
+2026-09-08T04:16:32.7376785Z 
+2026-09-08T04:16:34.4352145Z PASS Echte Chromium: fixturecontract scant kandidaat
+2026-09-08T04:16:34.5550078Z PASS Andere verkoper na chatopening stopt vóór tekstinvoer en verzending
+2026-09-08T04:16:34.6608390Z PASS Echte Chromium: opening invullen, eenmaal versturen, receipt lezen
+2026-09-08T04:16:34.7020418Z PASS Echte Chromium: inbox importeren met stabiele bericht-ID
+2026-09-08T04:16:34.8789656Z PASS Identiek bericht wordt niet blind opnieuw verstuurd
+2026-09-08T04:16:34.9434800Z PASS Afwijkende accountidentiteit blokkeert browseractie
+2026-09-08T04:16:34.9807592Z PASS Platformwaarschuwing blokkeert browseractie
+2026-09-08T04:16:35.0317147Z PASS Andere verkoper blokkeert verzending
+2026-09-08T04:16:35.0344044Z PASS Fixturemodus kan niet naar externe website navigeren
+2026-09-08T04:16:36.2680847Z PASS Onboarding laadt vanuit beveiligde lokale app
+2026-09-08T04:16:36.3552795Z PASS Bedrijfsinstellingen worden daadwerkelijk opgeslagen
+2026-09-08T04:16:40.7660285Z PASS Autopilotknop start echte workerthread, niet alleen animatie
+2026-09-08T04:16:42.8403627Z PASS Desktopdashboard renderen zonder JavaScriptfouten
+2026-09-08T04:16:42.9389852Z PASS Gesprekkenpagina heeft automatische berichten en prijsplafond
+2026-09-08T04:16:42.9925770Z PASS Alle navigatiepagina’s zijn bruikbaar
+2026-09-08T04:16:43.3318512Z PASS Mobiel formaat: geen horizontale pagina-overflow
+2026-09-08T04:16:43.4122659Z PASS Noodstop zet worker werkelijk uit
+2026-09-08T04:16:43.5539583Z PASS Volledige backupknop gebruikt herstelbaar formaat zonder bestandsdownload in test
+2026-09-08T04:16:43.6463831Z PASS Gespreksinhoud wissen werkt via interface en bewaart niet-benaderenstatus
+2026-09-08T04:16:43.6473300Z PASS Geen runtimefouten na navigatie en noodstop
+2026-09-08T04:16:45.7175168Z ##[group]Run npm run test:windows
+2026-09-08T04:16:45.7175534Z [36;1mnpm run test:windows[0m
+2026-09-08T04:16:45.7273413Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-09-08T04:16:45.7273754Z env:
+2026-09-08T04:16:45.7273938Z   BIEDBOT_AI_PROVIDER: offline
+2026-09-08T04:16:45.7274165Z ##[endgroup]
+2026-09-08T04:16:46.3679069Z 
+2026-09-08T04:16:46.3680642Z > biedbot-edge@0.1.0-pilot.2 test:windows
+2026-09-08T04:16:46.3681333Z > node tests/windows.acceptance.mjs
+2026-09-08T04:16:46.3681671Z 
+2026-09-08T04:17:04.3495792Z [
+2026-09-08T04:17:04.3496193Z   {
+2026-09-08T04:17:04.3497472Z     "check": "offline without runtime stops before activation",
+2026-09-08T04:17:04.3498395Z     "status": "passed"
+2026-09-08T04:17:04.3498767Z   },
+2026-09-08T04:17:04.3499069Z   {
+2026-09-08T04:17:04.3499542Z     "check": "unsigned runtime refused before execution",
+2026-09-08T04:17:04.3500123Z     "status": "passed"
+2026-09-08T04:17:04.3500478Z   },
+2026-09-08T04:17:04.3500890Z   {
+2026-09-08T04:17:04.3502023Z     "check": "failed local activation restores previous installation and removes staged version",
+2026-09-08T04:17:04.3502870Z     "status": "passed"
+2026-09-08T04:17:04.3503233Z   },
+2026-09-08T04:17:04.3503520Z   {
+2026-09-08T04:17:04.3504124Z     "check": "missing browser stops before launch with a persisted diagnostic",
+2026-09-08T04:17:04.3504865Z     "status": "passed"
+2026-09-08T04:17:04.3505228Z   },
+2026-09-08T04:17:04.3505521Z   {
+2026-09-08T04:17:04.3506212Z     "check": "UTF-16 VBS starts real HTTP agent and worker in Unicode/space/ampersand path",
+2026-09-08T04:17:04.3507309Z     "status": "passed",
+2026-09-08T04:17:04.3507701Z     "pid": 8588
+2026-09-08T04:17:04.3508129Z   },
+2026-09-08T04:17:04.3508423Z   {
+2026-09-08T04:17:04.3508840Z     "check": "uninstall refuses a running agent",
+2026-09-08T04:17:04.3509369Z     "status": "passed"
+2026-09-08T04:17:04.3509737Z   },
+2026-09-08T04:17:04.3510007Z   {
+2026-09-08T04:17:04.3510689Z     "check": "uninstall removes isolated app/shortcut and preserves data by default",
+2026-09-08T04:17:04.3511446Z     "status": "passed"
+2026-09-08T04:17:04.3511811Z   },
+2026-09-08T04:17:04.3512101Z   {
+2026-09-08T04:17:04.3512615Z     "check": "explicit second confirmation removes isolated data",
+2026-09-08T04:17:04.3513234Z     "status": "passed"
+2026-09-08T04:17:04.3513653Z   }
+2026-09-08T04:17:04.3513998Z ]
+2026-09-08T04:17:04.4247490Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-08T04:17:04.4248874Z ##[group]Run actions/upload-artifact@v4
+2026-09-08T04:17:04.4249131Z with:
+2026-09-08T04:17:04.4249317Z   name: windows-acceptance
+2026-09-08T04:17:04.4249559Z   path: reports/revision-2026-09-08/
+2026-09-08T04:17:04.4249815Z   if-no-files-found: warn
+2026-09-08T04:17:04.4250031Z   compression-level: 6
+2026-09-08T04:17:04.4250230Z   overwrite: false
+2026-09-08T04:17:04.4250428Z   include-hidden-files: false
+2026-09-08T04:17:04.4250643Z env:
+2026-09-08T04:17:04.4250816Z   BIEDBOT_AI_PROVIDER: offline
+2026-09-08T04:17:04.4251028Z ##[endgroup]
+2026-09-08T04:17:04.6343562Z (node:2944) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-08T04:17:04.6345398Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-08T04:17:04.6687619Z With the provided path, there will be 83 files uploaded
+2026-09-08T04:17:04.6695590Z Artifact name is valid!
+2026-09-08T04:17:04.6698043Z Root directory input is valid!
+2026-09-08T04:17:04.8824090Z Beginning upload of artifact content to blob storage
+2026-09-08T04:17:05.0047679Z (node:2944) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-08T04:17:05.1205289Z Uploaded bytes 335127
+2026-09-08T04:17:05.1422672Z Finished uploading artifact content to blob storage!
+2026-09-08T04:17:05.1423848Z SHA256 digest of uploaded artifact zip is 336697509c2af08576549eb384bd31124c205cb29e7623da1606d05638f0d329
+2026-09-08T04:17:05.1426645Z Finalizing artifact upload
+2026-09-08T04:17:05.3421397Z Artifact windows-acceptance.zip successfully finalized. Artifact ID 10040649098
+2026-09-08T04:17:05.3422570Z Artifact windows-acceptance has been successfully uploaded! Final size is 335127 bytes. Artifact ID is 10040649098
+2026-09-08T04:17:05.3433378Z Artifact download URL: https://github.com/chatgpt20251991/Biedbot/actions/runs/34186387488/artifacts/10040649098
+2026-09-08T04:17:05.3794954Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-08T04:17:05.3796281Z Post job cleanup.
+2026-09-08T04:17:05.5361690Z (node:5248) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-08T04:17:05.5362623Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-08T04:17:05.5684969Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-08T04:17:05.5686374Z Post job cleanup.
+2026-09-08T04:17:05.7713252Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-09-08T04:17:05.8005012Z git version 2.55.0.windows.5
+2026-09-08T04:17:05.8079005Z Temporarily overriding HOME='D:\a\_temp\56123b42-3c6c-482d-bb29-6cfa1636eff9' before making global git config changes
+2026-09-08T04:17:05.8080114Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-08T04:17:05.8090173Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\Biedbot\Biedbot
+2026-09-08T04:17:05.8402877Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-09-08T04:17:05.8717694Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-09-08T04:17:06.4533207Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-08T04:17:06.4794985Z http.https://github.com/.extraheader
+2026-09-08T04:17:06.4841477Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all http.https://github.com/.extraheader
+2026-09-08T04:17:06.5154924Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-09-08T04:17:07.0745845Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-08T04:17:07.1078250Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-09-08T04:17:07.6922159Z Cleaning up orphan processes
+2026-09-08T04:17:07.7441707Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

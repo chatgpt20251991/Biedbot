@@ -1,0 +1,54 @@
+{
+  "startedAt": "2026-09-08T04:14:20.436Z",
+  "generatedAt": "2026-09-08T04:14:52.585Z",
+  "status": "passed",
+  "allPassed": true,
+  "platform": "win32",
+  "node": "v24.15.0",
+  "activeCommand": null,
+  "error": null,
+  "scope": "One real Windows host, PowerShell 5.1, existing officially signed Node; extracted ZIP; isolated paths. Headless launcher switch starts real agent without opening a browser window.",
+  "unproven": [
+    "clean Windows 11 without Node",
+    "second independent machine",
+    "real runtime network download",
+    "SmartScreen and antivirus acceptance",
+    "publisher signing",
+    "production update channel and integrated update/rollback acceptance"
+  ],
+  "results": [
+    {
+      "check": "offline without runtime stops before activation",
+      "status": "passed"
+    },
+    {
+      "check": "unsigned runtime refused before execution",
+      "status": "passed"
+    },
+    {
+      "check": "failed local activation restores previous installation and removes staged version",
+      "status": "passed"
+    },
+    {
+      "check": "missing browser stops before launch with a persisted diagnostic",
+      "status": "passed"
+    },
+    {
+      "check": "UTF-16 VBS starts real HTTP agent and worker in Unicode/space/ampersand path",
+      "status": "passed",
+      "pid": 38548
+    },
+    {
+      "check": "uninstall refuses a running agent",
+      "status": "passed"
+    },
+    {
+      "check": "uninstall removes isolated app/shortcut and preserves data by default",
+      "status": "passed"
+    },
+    {
+      "check": "explicit second confirmation removes isolated data",
+      "status": "passed"
+    }
+  ]
+}

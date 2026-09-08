@@ -17,7 +17,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "81953efa52f951161dbcac74c9a2b527a494ed277d04336d9086d624d396393b"
+      "sha256": "2dc46aea1e83a6403e5b92c75d0a7628d3ce4363c3a39ba368ff40bed9a34ae0"
     },
     {
       "path": "START_BiedBot.cmd",
@@ -97,7 +97,7 @@
     },
     {
       "path": "docs/RELEASE_STATUS.md",
-      "sha256": "ff0971ea3042b1a85b6389e554d02524e4765dd247786b3689fc486e1941da3e"
+      "sha256": "4f7904514a63a90b27ddb7549009eb07c91e110333e19dfa50dc73d69030e462"
     },
     {
       "path": "docs/TESTRESULTATEN.html",
@@ -186,6 +186,10 @@
     {
       "path": "reports/gesprekken-desktop.png",
       "sha256": "71b3eb973b85811f75f455ebe271ed69ba946a38337e5273ce530e0cf71fa56f"
+    },
+    {
+      "path": "reports/github-publication-2026-09-08.json",
+      "sha256": "25abacc05496e416070fd16e72b4a5cb5ef25f13d2526e10763c04f16ecfd531"
     },
     {
       "path": "reports/history/core-first.tap",
@@ -278,6 +282,94 @@
     {
       "path": "reports/revision-2026-09-08/verification-summary.json",
       "sha256": "cee0314a899a785a75f7b39e43f44fe25c8ff30120825d37c5b1dc1971894ece"
+    },
+    {
+      "path": "reports/revision-2026-09-08/windows-ci-fixture-fix/summary-regression.json",
+      "sha256": "24f839caabd718c6292ff6e33e8b8a4eaca0c4ee406f4404c9f09056a7e6a759"
+    },
+    {
+      "path": "reports/revision-2026-09-08/windows-ci-fixture-fix/windows/acceptance-activation-rollback.txt",
+      "sha256": "f6fd50f3948979e00795f85e4259b2cd04651f34ed3db89b8a7cf1c681581a1c"
+    },
+    {
+      "path": "reports/revision-2026-09-08/windows-ci-fixture-fix/windows/acceptance-extract.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "reports/revision-2026-09-08/windows-ci-fixture-fix/windows/acceptance-failed-update-package.txt",
+      "sha256": "55c9f9ccb85c09431a0874d3099f085fc7c36eb301dab19352deefa0e2b2d007"
+    },
+    {
+      "path": "reports/revision-2026-09-08/windows-ci-fixture-fix/windows/acceptance-install.txt",
+      "sha256": "7e1e0cd7f2c73c548e2fac94f19ef6b7f3477b732323b6f359d509dfb2d22683"
+    },
+    {
+      "path": "reports/revision-2026-09-08/windows-ci-fixture-fix/windows/acceptance-missing-browser.txt",
+      "sha256": "e61c7fa0023313c8d19c61b2a099b2949ea130bf2e8f56ce9d7ddbb20915c9c7"
+    },
+    {
+      "path": "reports/revision-2026-09-08/windows-ci-fixture-fix/windows/acceptance-offline.txt",
+      "sha256": "b9e5eec0c2c93a4efb74050ceee0e4f893ec4efe7205169a56238739fe4a2569"
+    },
+    {
+      "path": "reports/revision-2026-09-08/windows-ci-fixture-fix/windows/acceptance-package.txt",
+      "sha256": "55c9f9ccb85c09431a0874d3099f085fc7c36eb301dab19352deefa0e2b2d007"
+    },
+    {
+      "path": "reports/revision-2026-09-08/windows-ci-fixture-fix/windows/acceptance-reinstall.txt",
+      "sha256": "7e1e0cd7f2c73c548e2fac94f19ef6b7f3477b732323b6f359d509dfb2d22683"
+    },
+    {
+      "path": "reports/revision-2026-09-08/windows-ci-fixture-fix/windows/acceptance-summary.json",
+      "sha256": "61458bad6d32d3308f76890c8ce22bcf2d64c740eaf8c43bfa5a1b8a9c37a3e6"
+    },
+    {
+      "path": "reports/revision-2026-09-08/windows-ci-fixture-fix/windows/acceptance-unicode-launcher.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "reports/revision-2026-09-08/windows-ci-fixture-fix/windows/acceptance-uninstall-explicit-data.txt",
+      "sha256": "f8ab8f5227f6f7c87e124d106efe2665f29a671cdc688d328363dbb1ce45a98a"
+    },
+    {
+      "path": "reports/revision-2026-09-08/windows-ci-fixture-fix/windows/acceptance-uninstall-preserve-data.txt",
+      "sha256": "f8ab8f5227f6f7c87e124d106efe2665f29a671cdc688d328363dbb1ce45a98a"
+    },
+    {
+      "path": "reports/revision-2026-09-08/windows-ci-fixture-fix/windows/acceptance-uninstall-running.txt",
+      "sha256": "3e5d58b446e2218d6e4a123c73bfff3a54f721f3a0e7a40d4c807bdc142fe1c1"
+    },
+    {
+      "path": "reports/revision-2026-09-08/windows-ci-fixture-fix/windows/acceptance-unsigned-runtime.txt",
+      "sha256": "b7b77d79b6e46bc46203134d1e2f3e77a500ee4847c5768b7cf91f32fd9d5d36"
+    },
+    {
+      "path": "reports/revision-2026-09-08/windows-ci-fixture-fix/windows/installation-logs/install-20260908-041423-452.txt",
+      "sha256": "bd3470a3c9286b8be68587c6d6d9aaa006c79ab9cb9e72ba6312e9bbf1e40932"
+    },
+    {
+      "path": "reports/revision-2026-09-08/windows-ci-fixture-fix/windows/installation-logs/install-20260908-041424-974.txt",
+      "sha256": "ba763f14fee6874d61a7dff48b9de11fbbbc0c2b150e01c73a7d8d4b91d662ee"
+    },
+    {
+      "path": "reports/revision-2026-09-08/windows-ci-fixture-fix/windows/installation-logs/install-20260908-041426-529.txt",
+      "sha256": "ade6c425d2e51136f8b815c9b985655868c6206378992a9c868f842ca0103d3a"
+    },
+    {
+      "path": "reports/revision-2026-09-08/windows-ci-fixture-fix/windows/installation-logs/install-20260908-041435-590.txt",
+      "sha256": "902603d25ec6fd5f647b0f655f8dcd4862dbe5bfa40a823fe69b153a71835174"
+    },
+    {
+      "path": "reports/revision-2026-09-08/windows-ci-fixture-fix/windows/start-logs/20260908-041439-193-failure.txt",
+      "sha256": "76cbe2c7bed752c1c253902aedd0f292100f4c27f9bec853076ca7ea2e03a968"
+    },
+    {
+      "path": "reports/revision-2026-09-08/windows-ci-fixture-fix/windows/start-logs/20260908-041440-066-stderr.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "reports/revision-2026-09-08/windows-ci-fixture-fix/windows/start-logs/20260908-041440-066-stdout.txt",
+      "sha256": "ca17f8875101453b9a8ef8267089a970898376eaad201c4f07fbc3d532dfac1e"
     },
     {
       "path": "reports/revision-2026-09-08/windows/acceptance-activation-rollback.txt",
@@ -693,7 +785,7 @@
     },
     {
       "path": "tests/windows.acceptance.mjs",
-      "sha256": "f2cdb2e35581a612cbe4eee04e5da0bdb6c3519e6e373df5d52d1f15b304fc3d"
+      "sha256": "c13f424d9cc0a59c3713f67b4cb5391d520e16ce1d3a0a3a84283b3f974cc954"
     }
   ]
 }

@@ -2,7 +2,7 @@
 
 **Versie 0.1.0-pilot.2 | herstelbuild 8 september 2026 | DEMO, niet live vrijgegeven**
 
-De herstelopdracht uit `CODEX_START_HIER.md` is lokaal uitgevoerd voor [chatgpt20251991/Biedbot](https://github.com/chatgpt20251991/Biedbot). Publicatie is geblokkeerd door ontbrekende GitHub-schrijftoegang (403); de wijzigingen zijn nog niet gepubliceerd. De zes oorspronkelijke defecten zijn hersteld met regressietests. Alle oorspronkelijke bestanden in `reports/` en `audit-overdracht/` zijn bytegelijk behouden. Nieuwe resultaten staan in gedateerde rapporten. Zie [uitvoeringsoverzicht](docs/UITVOERING_2026-09-08.md) voor opgelost/resterend.
+De herstelopdracht uit `CODEX_START_HIER.md` is uitgevoerd voor [chatgpt20251991/Biedbot](https://github.com/chatgpt20251991/Biedbot). De oorspronkelijke import en herstelbuild zijn op 8 september 2026 gepubliceerd; de eerdere GitHub-toegangsblokkade is opgelost. De zes oorspronkelijke defecten zijn hersteld met regressietests. Alle oorspronkelijke bestanden in `reports/` en `audit-overdracht/` zijn bytegelijk behouden. Nieuwe resultaten staan in gedateerde rapporten. Zie [uitvoeringsoverzicht](docs/UITVOERING_2026-09-08.md) voor opgelost/resterend en [GitHub Actions](https://github.com/chatgpt20251991/Biedbot/actions) voor de controles van gepubliceerde commits.
 
 Dit pakket bevat uitvoerbare applicatiecode, een lokale worker, SQLite-opslag, een dealerinterface, een deterministische onderhandelaar en geautomatiseerde tests. Het is niet alleen een HTML-mockup. De standaarduitvoering gebruikt fictieve advertenties en verkopers. Er wordt niets naar Marktplaats verstuurd.
 

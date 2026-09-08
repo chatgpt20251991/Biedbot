@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-09-08T04:15:15.351Z",
+  "check": "Prior eight-case success is replaced by failure when new acceptance setup cannot find source",
+  "passed": true,
+  "processStatus": 1,
+  "summary": {
+    "startedAt": "2026-09-08T04:15:15.317Z",
+    "generatedAt": "2026-09-08T04:15:15.321Z",
+    "status": "failed",
+    "allPassed": false,
+    "platform": "win32",
+    "node": "v24.15.0",
+    "activeCommand": null,
+    "error": {
+      "name": "Error",
+      "message": "ENOENT: no such file or directory, lstat 'C:\\Users\\Han23\\Documents\\Codex\\2026-09-08\\voer-codex-start-hier-md-volledig\\work\\Biedbot\\work\\windows-summary-regression\\src'",
+      "code": "ENOENT"
+    },
+    "scope": "One real Windows host, PowerShell 5.1, existing officially signed Node; extracted ZIP; isolated paths. Headless launcher switch starts real agent without opening a browser window.",
+    "unproven": [
+      "clean Windows 11 without Node",
+      "second independent machine",
+      "real runtime network download",
+      "SmartScreen and antivirus acceptance",
+      "publisher signing",
+      "production update channel and integrated update/rollback acceptance"
+    ],
+    "results": []
+  }
+}

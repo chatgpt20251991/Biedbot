@@ -1,0 +1,354 @@
+{
+  "verifiedAt": "2026-09-08T04:18:15.966Z",
+  "repository": "https://github.com/chatgpt20251991/Biedbot",
+  "branch": "main",
+  "publicationMethod": "GitHub connector; direct local Git push still lacks credentials.",
+  "baseline": {
+    "localCommit": "a9cb1db05fbcf610220d485196e6b1c2cb2c690d",
+    "remoteCommit": "c1a7ac0e594b9f6970554ce621230a485372bde9",
+    "verifiedIdenticalTree": "10d5aa148da2932bf07594b48f10bbe6377eed73",
+    "files": 81
+  },
+  "repair": {
+    "localCommit": "f63f85bc2a478a38f5a82f4eab00c5233d159042",
+    "remoteCommit": "e02ab477511cd5e8284cf1e0ad83abb2c4ba3799",
+    "verifiedIdenticalTree": "ef2ffce5c71e17797d03e076e17725d265d0de21",
+    "files": 200
+  },
+  "windowsFixtureFix": {
+    "localCommit": "22cc943eb6f7422f78ac4d2c14158169539b25e2",
+    "remoteCommit": "c25fe7de14cfa280122ea7958ac8c572b55833c6",
+    "verifiedIdenticalTree": "a1a9c49ede3a866942b8c9d37760236bb3c98755",
+    "changedCodeFiles": [
+      "tests/windows.acceptance.mjs"
+    ],
+    "localAcceptance": "reports/revision-2026-09-08/windows-ci-fixture-fix/windows/acceptance-summary.json",
+    "originalFailure": {
+      "runId": 34185874074,
+      "url": "https://github.com/chatgpt20251991/Biedbot/actions/runs/34185874074",
+      "conclusion": "failure",
+      "reason": "Windows PowerShell reset ProgramFiles at startup, so the missing-browser negative fixture started Chrome and timed out. Masking is now set inside the initialized PowerShell process. Timeout and stale-success summary handling also fixed."
+    }
+  },
+  "workflow": {
+    "id": 34186387488,
+    "url": "https://github.com/chatgpt20251991/Biedbot/actions/runs/34186387488",
+    "headSha": "c25fe7de14cfa280122ea7958ac8c572b55833c6",
+    "status": "completed",
+    "conclusion": "success",
+    "runAttempt": 1
+  },
+  "jobs": [
+    {
+      "id": 101935450847,
+      "name": "browser-windows",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run test:dom",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run test:browser",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run test:windows",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 101935450970,
+      "name": "core (windows-latest, 22)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run check",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm test",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run evaluate",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run package",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "PowerShell parse check (not installation acceptance)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 101935450987,
+      "name": "core (windows-latest, 24)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run check",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm test",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run evaluate",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run package",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "PowerShell parse check (not installation acceptance)",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 101935451008,
+      "name": "core (ubuntu-latest, 24)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run check",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm test",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run evaluate",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run package",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "PowerShell parse check (not installation acceptance)",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "id": 101935451009,
+      "name": "core (ubuntu-latest, 22)",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run check",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm test",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run evaluate",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run npm run package",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "PowerShell parse check (not installation acceptance)",
+          "status": "completed",
+          "conclusion": "skipped"
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "scope": "Real GitHub hosted Ubuntu and Windows Server 2025 runners. Offline app fixtures and provider mocks only. Not a physical Windows 11 dealer-machine, live platform, AI-provider or payment acceptance. CI log exports normalize line endings; original supplied evidence remains byte-identical."
+}

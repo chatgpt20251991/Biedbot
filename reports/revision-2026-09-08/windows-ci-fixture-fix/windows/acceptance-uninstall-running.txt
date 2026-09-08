@@ -1,0 +1,8 @@
+Sluit BiedBot eerst af via Agent & controle.
+At C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot\.windows-acceptance\run-8Pr
+WUm\Gebruiker Zoë 李 & Co\uitgepakt pakket\BiedBot_Edge\scripts\Uninstall.ps1:29 char:91
++ ... lyContinue)) { throw 'Sluit BiedBot eerst af via Agent & controle.' }
++                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Sluit BiedBot e...ent & controle.:String) [], RuntimeException
+    + FullyQualifiedErrorId : Sluit BiedBot eerst af via Agent & controle.
+ 
