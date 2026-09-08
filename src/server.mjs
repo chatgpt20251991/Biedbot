@@ -12,6 +12,7 @@ import {VERSION} from './core/policy.mjs';
 import {demoCandidates} from './adapters/demo.mjs';
 import {findBrowser} from './adapters/cdp.mjs';
 import {acquireInstance,releaseInstance,validLaunch} from './core/instance.mjs';
+import {createBackup,eraseConversation,runRetention,healthReport,acquireDataLease} from './core/operations.mjs';
 const ROOT=dirname(dirname(fileURLToPath(import.meta.url))), UI=join(ROOT,'src','ui');
 const eq=(a,b)=>typeof a==='string'&&typeof b==='string'&&Buffer.byteLength(a)===Buffer.byteLength(b)&&timingSafeEqual(Buffer.from(a),Buffer.from(b));
 const DATA=process.env.BIEDBOT_DATA_DIR||join(process.env.LOCALAPPDATA||join(homedir(),'.local','share'),'BiedBotEdge');
@@ -24,7 +25,8 @@ async function body(req){
 }
 export async function startServer({dataDir=DATA,port=0,worker=true}={}){
   await mkdir(dataDir,{recursive:true,mode:0o700});
-  const dbPath=join(dataDir,'biedbot-demo.sqlite'),store=new Store(dbPath);
+  const releaseDataLease=acquireDataLease(dataDir),dbPath=join(dataDir,'biedbot-demo.sqlite');let store;
+  try{store=new Store(dbPath);}catch(error){releaseDataLease();throw error;}
   store.setMeta('mode','demo');
   if(!store.getMeta('demoSeeded')){store.addCandidates(demoCandidates());store.setMeta('demoSeeded',true);}
   // Restart always requires one explicit activation. No surprise contacts after a crash/update.
@@ -58,7 +60,7 @@ export async function startServer({dataDir=DATA,port=0,worker=true}={}){
         if(!eq(cookie,sessionToken))return send(401,{error:'Open de app via de snelkoppeling.'});
         if(req.method!=='GET'&&!eq(req.headers['x-biedbot-csrf'],csrf))return send(403,{error:'Beveiligingscode ontbreekt.'});
         if(restarting)return send(409,{error:'Demo wordt herstart. Probeer zo opnieuw.'});
-        if(url.pathname==='/api/state'&&req.method==='GET')return send(200,{...store.dashboard(),version:VERSION,csrf});
+        if(url.pathname==='/api/state'&&req.method==='GET')return send(200,{...store.dashboard(),health:healthReport(store,{workerEnabled:worker}),version:VERSION,csrf});
         if(url.pathname==='/api/settings'&&req.method==='POST'){
           const input=await body(req);if(['autopilot','aiProvider','aiModel','pricingSetup','pricingMonthly','trialDays'].some(k=>Object.hasOwn(input,k)))throw new Error('Gebruik de daarvoor bestemde beheerfunctie; deze instellingen zijn niet vrijgegeven.');const s=store.updateSettings(input);store.rescore();return send(200,{settings:s});
         }
@@ -80,6 +82,16 @@ export async function startServer({dataDir=DATA,port=0,worker=true}={}){
           const b=await body(req);store.takeover(b.id,b.phase);return send(200,{ok:true});
         }
         if(url.pathname==='/api/export'&&req.method==='GET')return send(200,store.exportData(),{'Content-Disposition':'attachment; filename="BiedBot-demo-export.json"'});
+        if(url.pathname==='/api/health'&&req.method==='GET')return send(200,healthReport(store,{workerEnabled:worker}));
+        if(url.pathname==='/api/backup/full'&&req.method==='POST'){
+          const b=await body(req);return send(200,createBackup(store,b.password),{'Content-Disposition':'attachment; filename="BiedBot-volledige-backup.json"'});
+        }
+        if(url.pathname==='/api/data/retention'&&req.method==='POST'){await body(req);return send(200,runRetention(store));}
+        if(url.pathname==='/api/data/erase'&&req.method==='POST'){
+          const b=await body(req);if(b.confirm!=='WIS GESPREKSINHOUD')throw new Error('Bevestiging voor het wissen ontbreekt.');
+          restarting=true;store.updateSettings({autopilot:false});await stopWorker();
+          try{return send(200,eraseConversation(store,b.id));}finally{restarting=false;startWorker();}
+        }
         if(url.pathname==='/api/support'&&req.method==='GET')return send(200,{version:VERSION,platform:process.platform,node:process.version,...store.diagnostics()},{'Content-Disposition':'attachment; filename="BiedBot-support-zonder-gespreksteksten.json"'});
         if(url.pathname==='/api/backup'&&req.method==='POST'){
           const b=await body(req);if(typeof b.password!=='string'||b.password.length<12||b.password.length>200)throw new Error('Gebruik een wachtwoord van minimaal 12 tekens.');
@@ -103,11 +115,13 @@ export async function startServer({dataDir=DATA,port=0,worker=true}={}){
     }catch(e){send(400,{error:noSecrets(e)});}
   });
   server.requestTimeout=15000;server.headersTimeout=10000;server.maxHeadersCount=40;
-  await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(port,'127.0.0.1',resolve);});
+  try{await new Promise((resolve,reject)=>{server.once('error',reject);server.listen(port,'127.0.0.1',resolve);});}catch(error){store.close();releaseDataLease();throw error;}
   origin=`http://127.0.0.1:${server.address().port}`;
   const appUrl=`${origin}/#${bootToken}`;await writeFile(join(dataDir,'launch.json'),JSON.stringify({pid:process.pid,url:appUrl}),{mode:0o600});
+  const maintain=()=>{try{runRetention(store);}catch(error){store.audit('RETENTION_FAILED',noSecrets(error));}};
+  maintain();const maintenance=setInterval(maintain,3600000);maintenance.unref();
   startWorker();
-  async function close(){if(closing)return;closing=true;await stopWorker();await new Promise(resolve=>server.close(resolve));store.close();try{await unlink(join(dataDir,'launch.json'));}catch{}releaseInstance(dataDir);}
+  async function close(){if(closing)return;closing=true;clearInterval(maintenance);await stopWorker();await new Promise(resolve=>server.close(resolve));store.close();try{await unlink(join(dataDir,'launch.json'));}catch{}releaseDataLease();releaseInstance(dataDir);}
   return {origin,appUrl,bootToken,csrf,store,close,server};
 }
 async function openApp(url,dataDir){const b=findBrowser();if(b){const child=spawn(b,[`--app=${url}`,`--user-data-dir=${join(dataDir,'ui-profile')}`,'--no-first-run'],{stdio:'ignore',detached:true});child.on('error',()=>{});child.unref();}}

@@ -1,0 +1,2 @@
+﻿BROWSER_ONTBREEKT: installeer Microsoft Edge of Google Chrome en open BiedBot opnieuw.
+Diagnoselog: C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot\.windows-acceptance\run-AjEc0g\Gebruiker Zoë 李 & Co\Lokale Gegevens\logs

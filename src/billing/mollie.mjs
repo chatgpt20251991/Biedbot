@@ -7,11 +7,13 @@ const id=(s,prefix)=>{if(typeof s!=='string'||!new RegExp('^'+prefix+'_[a-zA-Z0-
 const cents=n=>{if(!Number.isSafeInteger(n)||n<1||n>10000000)throw new Error('Ongeldig bedrag in centen.');return(n/100).toFixed(2);};
 function https(s){const u=new URL(s);if(u.protocol!=='https:'||u.username||u.password||['localhost','127.0.0.1','::1'].includes(u.hostname))throw new Error('Publieke HTTPS-URL vereist.');return u.href;}
 export class MollieGateway {
-  constructor({apiKey,fetchFn=fetch,enableLive=false}={}){if(typeof apiKey!=='string'||! /^(test|live)_[a-zA-Z0-9]+$/.test(apiKey))throw new Error('Mollie-sleutel ontbreekt.');if(apiKey.startsWith('live_')&&!enableLive)throw new Error('Live betalen staat uit.');this.key=apiKey;this.fetch=fetchFn;}
+  #key;
+  get mode(){return this.#key.startsWith('test_')?'test':'live';}
+  constructor({apiKey,fetchFn=fetch,enableLive=false}={}){if(typeof apiKey!=='string'||! /^(test|live)_[a-zA-Z0-9]+$/.test(apiKey))throw new Error('Mollie-sleutel ontbreekt.');if(apiKey.startsWith('live_')&&!enableLive)throw new Error('Live betalen staat uit.');this.#key=apiKey;this.fetch=fetchFn;}
   async request(path,{method='GET',body,operationId}={}){
     if(!/^\/v2\/[a-zA-Z0-9_/-]+$/.test(path))throw new Error('Ongeldig API-pad.');
     if(method!=='GET'&&(!operationId||typeof operationId!=='string'||operationId.length>200))throw new Error('Idempotente operatie-ID vereist.');
-    const r=await this.fetch('https://api.mollie.com'+path,{method,signal:AbortSignal.timeout(15000),headers:{Authorization:'Bearer '+this.key,'Content-Type':'application/json',...(operationId?{'Idempotency-Key':createHash('sha256').update(operationId).digest('hex')}:{})},...(body?{body:JSON.stringify(body)}:{})});
+    const r=await this.fetch('https://api.mollie.com'+path,{method,redirect:'error',signal:AbortSignal.timeout(15000),headers:{Authorization:'Bearer '+this.#key,'Content-Type':'application/json',...(operationId?{'Idempotency-Key':createHash('sha256').update(operationId).digest('hex')}:{})},...(body?{body:JSON.stringify(body)}:{})});
     if(!r.ok)throw new Error(`Mollie HTTP ${r.status}; status ophalen voordat je een betalingsactie herhaalt.`);
     if(r.status===204)return {ok:true};return r.json();
   }
@@ -24,7 +26,8 @@ export class MollieGateway {
   /** A webhook/redirect does not prove payment. Always re-fetch and match your saved order. */
   async verifiedPayment(paymentId,expected){const p=await this.request('/v2/payments/'+id(paymentId,'tr'));
     if(p.id!==paymentId||p.customerId!==expected.customerId||p.metadata?.dealerId!==expected.dealerId||p.metadata?.orderId!==expected.orderId||p.amount?.currency!=='EUR'||p.amount?.value!==cents(expected.totalCents))throw new Error('Betaling komt niet overeen met de opgeslagen bestelling.');
-    const reversal=[p.amountRefunded,p.amountChargedBack].some(a=>{if(!a)return false;const n=Number(a.value);if(a.currency!=='EUR'||!Number.isFinite(n)||n<0)throw new Error('Ongeldige terugboekingsinformatie.');return n>0;});
+    if(['hasChargebacks','hasRefunds'].some(key=>p[key]!==undefined&&typeof p[key]!=='boolean'))throw new Error('Ongeldige terugboekingsinformatie.');
+    const reversal=[p.amountRefunded,p.amountChargedBack].some(a=>{if(!a)return false;if(a.currency!=='EUR'||typeof a.value!=='string'||!/^\d+\.\d{2}$/.test(a.value))throw new Error('Ongeldige terugboekingsinformatie.');return Number(a.value)>0;});
     return {paid:p.status==='paid'&&!p.hasChargebacks&&!p.hasRefunds&&!reversal,status:p.status,payment:p};
   }
   async subscribe({customerId,mandateId,monthlyTotalCents,startDate,webhookUrl,orderId,description}){

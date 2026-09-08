@@ -1,0 +1,25 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260908050338
+Username: DESKTOP-KS4TAR8\Han23
+RunAs User: DESKTOP-KS4TAR8\Han23
+Configuration Name: 
+Machine: DESKTOP-KS4TAR8 (Microsoft Windows NT 10.0.26200.0)
+Host Application: powershell.exe -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot\.windows-acceptance\run-AjEc0g\Gebruiker Zoë 李 & Co\uitgepakt pakket\BiedBot_Edge\scripts\Install.ps1 -AppRoot C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot\.windows-acceptance\run-AjEc0g\Gebruiker Zoë 李 & Co\Lokale App -DataRoot C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot\.windows-acceptance\run-AjEc0g\Gebruiker Zoë 李 & Co\Lokale Gegevens -DesktopDirectory C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot\.windows-acceptance\run-AjEc0g\Gebruiker Zoë 李 & Co\Eigen Bureaublad -Offline
+Process ID: 37848
+PSVersion: 5.1.26100.9168
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9168
+BuildVersion: 10.0.26100.9168
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+BiedBot Edge: demonstratie-installatie. Geen automatische afschrijving of echte verkopers.
+INSTALLATIE_GESTOPT: OFFLINE_RUNTIME_ONTBREEKT: geen lokale runtime. Verbind met internet en voer de installer opnieuw uit, of geef een officieel ondertekende node.exe via -RuntimePath.
+Diagnoselog: C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot\.windows-acceptance\run-AjEc0g\Gebruiker Zoë 李 & Co\Lokale App\logs\install-20260908-030338-797.txt
+**********************
+Windows PowerShell transcript end
+End time: 20260908050339
+**********************

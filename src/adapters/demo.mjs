@@ -12,7 +12,8 @@ export class DemoAdapter {
   async discover(){return demoCandidates();}
   async health(){return {ok:true,mode:'demo',message:'Geïsoleerde simulatie'};}
   async sync(){return [];}
-  async send(o){
+  async send(o,{beforeDispatch}={}){
+    if(beforeDispatch&&beforeDispatch()!==true)return {cancelled:true};
     const c=this.store.candidate(o.conversation),s=o.after_state;let reply=null;
     if(o.action==='OPEN')reply='Onderhoud is bijgehouden, de olie en remmen zijn vervangen. Ik verkoop hem omdat ik een nieuwe auto heb.';
     if(o.action==='ANCHOR'){

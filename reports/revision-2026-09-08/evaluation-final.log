@@ -1,0 +1,5 @@
+
+> biedbot-edge@0.1.0-pilot.2 evaluate
+> node scripts/evaluate-classifier.mjs
+
+{"path":"C:\\Users\\Han23\\Documents\\Codex\\2026-09-08\\voer-codex-start-hier-md-volledig\\work\\Biedbot\\reports\\nl-evaluation-offline-local-2026-09-08T03-23-49-612Z.json","total":128,"falseAccepts":0,"falseAcceptRate":0,"falseRejects":0,"wrongPrices":0,"errors":0,"scope":"LOCAL_RULES_OR_INJECTED_MOCK_ONLY","releaseEvidence":false}

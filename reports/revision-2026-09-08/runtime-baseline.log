@@ -1,0 +1,30 @@
+✖ lokale HTTP-app start echte workerthread en bereikt autonoom een demo-overdracht (6101.5444ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6362.3527
+
+✖ failing tests:
+
+test at tests\runtime.test.mjs:2:1
+✖ lokale HTTP-app start echte workerthread en bereikt autonoom een demo-overdracht (6101.5444ms)
+  Error: EPERM, Permission denied: \\?\C:\Users\Han23\AppData\Local\Temp\biedbot-test-w4Mm78 '\\?\C:\Users\Han23\AppData\Local\Temp\biedbot-test-w4Mm78'
+      at rmSync (node:fs:1222:18)
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/helpers.mjs:6:90)
+      at TestHook.runInAsyncScope (node:async_hooks:227:14)
+      at TestHook.run (node:internal/test_runner/test:1201:25)
+      at TestHook.run (node:internal/test_runner/test:1528:18)
+      at TestHook.run (node:internal/util:602:20)
+      at Test.runHook (node:internal/test_runner/test:1117:20)
+      at after (node:internal/test_runner/test:1159:20)
+      at Test.run (node:internal/test_runner/test:1227:13)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+    errno: 1,
+    code: 'EPERM',
+    path: '\\\\?\\C:\\Users\\Han23\\AppData\\Local\\Temp\\biedbot-test-w4Mm78',
+    syscall: 'rm'
+  }

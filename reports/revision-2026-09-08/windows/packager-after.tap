@@ -1,0 +1,122 @@
+✔ distribution ZIP contains exactly the public manifest list and preserves nested paths (198.5205ms)
+✔ packaging identical input twice produces a byte-identical distribution (323.1699ms)
+✖ Windows installer writes the path-bearing launcher in Unicode (2.8666ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 2
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 708.6253
+
+✖ failing tests:
+
+test at tests\package.test.mjs:56:1
+✖ Windows installer writes the path-bearing launcher in Unicode (2.8666ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /Set-Content[^\n]*\$launcherPath[^\n]*-Encoding Unicode/. Input:
+  
+  '# Personal-user pilot bootstrap. No admin, no firewall changes, no AV exclusions.\n' +
+    '# Not executed on Windows in this build environment; see docs/RELEASE_STATUS.md.\n' +
+    'param([switch]$StartNow)\n' +
+    "$ErrorActionPreference = 'Stop'\n" +
+    '$packageRoot = Split-Path -Parent $PSScriptRoot\n' +
+    "$version = (Get-Content (Join-Path $packageRoot 'package.json') -Raw | ConvertFrom-Json).version\n" +
+    "if ($version -notmatch '^[a-zA-Z0-9.-]+$') { throw 'Ongeldige pakketversie.' }\n" +
+    "$homeRoot = Join-Path $env:LOCALAPPDATA 'BiedBotEdgeApp'\n" +
+    "$dataRoot = Join-Path $env:LOCALAPPDATA 'BiedBotEdge'\n" +
+    "$versionRoot = Join-Path (Join-Path $homeRoot 'versions') $version\n" +
+    "$runtimeRoot = Join-Path $homeRoot 'runtime'\n" +
+    "$nodeExe = Join-Path $runtimeRoot 'node.exe'\n" +
+    "Write-Host 'BiedBot Edge: demonstratie-installatie. Geen automatische afschrijving of echte verkopers.' -ForegroundColor Cyan\n" +
+    "$lockFile = Join-Path $dataRoot 'app.lock'\n" +
+    'if (Test-Path $lockFile) {\n' +
+    '    $runningId = 0\n' +
+    '    [void][int]::TryParse((Get-Content $lockFile -Raw), [ref]$runningId)\n' +
+    '    if ($runningId -gt 0 -and (Get-Process -Id $runningId -ErrorAction SilentlyContinue)) {\n' +
+    "        throw 'BiedBot draait nog. Sluit de agent af via Agent & controle voordat je installeert.'\n" +
+    '    }\n' +
+    '}\n' +
+    '# SHA-256 detects corrupted/mismatched package files. This is NOT a publisher code signature.\n' +
+    "$manifestFile = Join-Path $packageRoot 'MANIFEST.sha256.json'\n" +
+    "if (-not (Test-Path $manifestFile)) { throw 'Integriteitsmanifest ontbreekt. Pak het volledige ZIP-bestand uit.' }\n" +
+    '$manifest = Get-Content $manifestFile -Raw | ConvertFrom-Json\n' +
+    'foreach ($entry in $manifest.files) {\n' +
+    "    if ($entry.path -match '(^/|\\\\|\\.\\.)') { throw 'Ongeldig manifestpad.' }\n" +
+    '    $path = Join-Path $packageRoot $entry.path\n' +
+    '    if (-not (Test-Path -LiteralPath $path)) { throw "Bestand ontbreekt: $($entry.path)" }\n' +
+    '    if ((Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant() -ne $entry.sha256) { throw "Controle mislukt: $($entry.path)" }\n' +
+    '}\n' +
+    'New-Item -ItemType Directory -Force -Path $homeRoot,$versionRoot | Out-Null\n' +
+    'if (-not (Test-Path $nodeExe)) {\n' +
+    '    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12\n' +
+    "    $arch = if ($env:PROCESSOR_ARCHITECTURE -eq 'ARM64' -or $env:PROCESSOR_ARCHITEW6432 -eq 'ARM64') { 'arm64' } else { 'x64' }\n" +
+    "    if (-not [Environment]::Is64BitOperatingSystem) { throw 'Deze pilot vereist 64-bits Windows.' }\n" +
+    "    $official = 'https://nodejs.org/dist/latest-v24.x/'\n" +
+    "    $scratch = Join-Path ([IO.Path]::GetTempPath()) ('BiedBot-' + [guid]::NewGuid().ToString('N'))\n" +
+    '    New-Item -ItemType Directory -Path $scratch | Out-Null\n' +
+    '    try {\n' +
+    "        Write-Host 'Officiele Node.js 24-runtime en controlesom ophalen...'\n" +
+    "        $sums = (Invoke-WebRequest -UseBasicParsing -Uri ($official + 'SHASUMS256.txt')).Content\n" +
+    "        $pattern = '(?m)^([a-fA-F0-9]{64})\\s+(node-v24\\.\\d+\\.\\d+-win-' + $arch + '\\.zip)\\s*$'\n" +
+    '        $match = [regex]::Match([string]$sums, $pattern)\n' +
+    "        if (-not $match.Success) { throw 'Officiele Windows-runtime niet gevonden in controlesommen.' }\n" +
+    '        $file = $match.Groups[2].Value\n' +
+    '        $download = Join-Path $scratch $file\n' +
+    '        Invoke-WebRequest -UseBasicParsing -Uri ($official + $file) -OutFile $download\n' +
+    "        if ((Get-FileHash $download -Algorithm SHA256).Hash.ToLowerInvariant() -ne $match.Groups[1].Value.ToLowerInvariant()) { throw 'Runtimecontrolesom ongeldig. Er wordt niets uitgevoerd.' }\n" +
+    '        Expand-Archive -LiteralPath $download -DestinationPath $scratch\n' +
+    "        $extracted = Join-Path $scratch ($file -replace '\\.zip$','')\n" +
+    "        $candidateNode = Join-Path $extracted 'node.exe'\n" +
+    "        if (-not (Test-Path $candidateNode)) { throw 'node.exe ontbreekt in het officiele pakket.' }\n" +
+    '        $signature = Get-AuthenticodeSignature -FilePath $candidateNode\n' +
+    "        if ($signature.Status -ne 'Valid') { throw 'De digitale handtekening van node.exe kon niet worden bevestigd. Controleer certificaatvalidatie en verbinding; niet negeren.' }\n" +
+    '        New-Item -ItemType Directory -Force -Path $runtimeRoot | Out-Null\n' +
+    "        Copy-Item -Path (Join-Path $extracted '*') -Destination $runtimeRoot -Recurse -Force\n" +
+    '        Set-Content -LiteralPath (Join-Path $runtimeRoot \'BIEDBOT_RUNTIME_SOURCE.txt\') -Value ($official + $file + "`r`nSHA256: " + $match.Groups[1].Value) -Encoding UTF8\n' +
+    '    } finally { Remove-Item -LiteralPath $scratch -Recurse -Force -ErrorAction SilentlyContinue }\n' +
+    '}\n' +
+    `& $nodeExe -e "const [a,b]=process.versions.node.split('.').map(Number);process.exit(a>22||(a===22&&b>=16)?0:1)"\n` +
+    "if ($LASTEXITCODE -ne 0) { throw 'Runtime te oud. Verwijder alleen de runtime-map en probeer opnieuw, niet de gegevensmap.' }\n" +
+    "foreach ($name in @('src','assets','docs','scripts','package.json','README.md','START_HIER.html')) {\n" +
+    '    $source = Join-Path $packageRoot $name\n' +
+    '    if (Test-Path $source) { Copy-Item -LiteralPath $source -Destination $versionRoot -Recurse -Force }\n' +
+    '}\n' +
+    "# No npm packages: the entire local app uses Node's built-in modules.\n" +
+    "$serverPath = Join-Path $versionRoot 'src\\server.mjs'\n" +
+    "$launcherPath = Join-Path $homeRoot 'BiedBot-Open.vbs'\n" +
+    '$launchCode = @"\n' +
+    'Set shell = CreateObject("WScript.Shell")\n' +
+    'shell.Run Chr(34) & "$nodeExe" & Chr(34) & " " & Chr(34) & "$serverPath" & Chr(34) & " --open", 0, False\n' +
+    '"@\n' +
+    'Set-Content -LiteralPath $launcherPath -Value $launchCode -Encoding ASCII\n' +
+    '$shell = New-Object -ComObject WScript.Shell\n' +
+    "$shortcut = $shell.CreateShortcut((Join-Path ([Environment]::GetFolderPath('Desktop')) 'BiedBot Edge.lnk'))\n" +
+    "$shortcut.TargetPath = Join-Path $env:WINDIR 'System32\\wscript.exe'\n" +
+    `$shortcut.Arguments = '"' + $launcherPath + '"'\n` +
+    '$shortcut.WorkingDirectory = $versionRoot\n' +
+    "$iconPath = Join-Path $versionRoot 'assets\\biedbot.ico'\n" +
+    'if (Test-Path $iconPath) { $shortcut.IconLocation = $iconPath }\n' +
+    "$shortcut.Description = 'BiedBot Edge - lokale demo, geen live Marktplaats-verzending'\n" +
+    '$shortcut.Save()\n' +
+    "Set-Content -LiteralPath (Join-Path $homeRoot 'current-version.txt') -Value $version -Encoding ASCII\n" +
+    'Write-Host "Geinstalleerd: $versionRoot" -ForegroundColor Green\n' +
+    'Write-Host "Gegevens blijven apart bewaard: $dataRoot"\n' +
+    "Write-Host 'Open de bureaubladsnelkoppeling en rond je inkoopprofiel af. Start de gratis demo.'\n" +
+    "Write-Host 'Deze pilot is geen ondertekende productierelease. Livekoppeling en incasso staan uit.'\n" +
+    "if ($StartNow) { Start-Process -FilePath (Join-Path ([Environment]::GetFolderPath('Desktop')) 'BiedBot Edge.lnk') }\n"
+  
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/package.test.mjs:58:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '# Personal-user pilot bootstrap. No admin, no firewall changes, no AV exclusions.\n# Not executed on Windows in this build environment; see docs/RELEASE_STATUS.md.\nparam([switch]$StartNow)\n$ErrorActionPreference = \'Stop\'\n$packageRoot = Split-Path -Parent $PSScriptRoot\n$version = (Get-Content (Join-Path $packageRoot \'package.json\') -Raw | ConvertFrom-Json).version\nif ($version -notmatch \'^[a-zA-Z0-9.-]+$\') { throw \'Ongeldige pakketversie.\' }\n$homeRoot = Join-Path $env:LOCALAPPDATA \'BiedBotEdgeApp\'\n$dataRoot = Join-Path $env:LOCALAPPDATA \'BiedBotEdge\'\n$versionRoot = Join-Path (Join-Path $homeRoot \'versions\') $version\n$runtimeRoot = Join-Path $homeRoot \'runtime\'\n$nodeExe = Join-Path $runtimeRoot \'node.exe\'\nWrite-Host \'BiedBot Edge: demonstratie-installatie. Geen automatische afschrijving of echte verkopers.\' -ForegroundColor Cyan\n$lockFile = Join-Path $dataRoot \'app.lock\'\nif (Test-Path $lockFile) {\n    $runningId = 0\n    [void][int]::TryParse((Get-Content $lockFile -Raw), [ref]$runningId)\n    if ($runningId -gt 0 -and (Get-Process -Id $runningId -ErrorAction SilentlyContinue)) {\n        throw \'BiedBot draait nog. Sluit de agent af via Agent & controle voordat je installeert.\'\n    }\n}\n# SHA-256 detects corrupted/mismatched package files. This is NOT a publisher code signature.\n$manifestFile = Join-Path $packageRoot \'MANIFEST.sha256.json\'\nif (-not (Test-Path $manifestFile)) { throw \'Integriteitsmanifest ontbreekt. Pak het volledige ZIP-bestand uit.\' }\n$manifest = Get-Content $manifestFile -Raw | ConvertFrom-Json\nforeach ($entry in $manifest.files) {\n    if ($entry.path -match \'(^/|\\\\|\\.\\.)\') { throw \'Ongeldig manifestpad.\' }\n    $path = Join-Path $packageRoot $entry.path\n    if (-not (Test-Path -LiteralPath $path)) { throw "Bestand ontbreekt: $($entry.path)" }\n    if ((Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant() -ne $entry.sha256) { throw "Controle mislukt: $($entry.path)" }\n}\nNew-Item -ItemType Directory -Force -Path $homeRoot,$versionRoot | Out-Null\nif (-not (Test-Path $nodeExe)) {\n    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12\n    $arch = if ($env:PROCESSOR_ARCHITECTURE -eq \'ARM64\' -or $env:PROCESSOR_ARCHITEW6432 -eq \'ARM64\') { \'arm64\' } else { \'x64\' }\n    if (-not [Environment]::Is64BitOperatingSystem) { throw \'Deze pilot vereist 64-bits Windows.\' }\n    $official = \'https://nodejs.org/dist/latest-v24.x/\'\n    $scratch = Join-Path ([IO.Path]::GetTempPath()) (\'BiedBot-\' + [guid]::NewGuid().ToString(\'N\'))\n    New-Item -ItemType Directory -Path $scratch | Out-Null\n    try {\n        Write-Host \'Officiele Node.js 24-runtime en controlesom ophalen...\'\n        $sums = (Invoke-WebRequest -UseBasicParsing -Uri ($official + \'SHASUMS256.txt\')).Content\n        $pattern = \'(?m)^([a-fA-F0-9]{64})\\s+(node-v24\\.\\d+\\.\\d+-win-\' + $arch + \'\\.zip)\\s*$\'\n        $match = [regex]::Match([string]$sums, $pattern)\n        if (-not $match.Success) { throw \'Officiele Windows-runtime niet gevonden in controlesommen.\' }\n        $file = $match.Groups[2].Value\n        $download = Join-Path $scratch $file\n        Invoke-WebRequest -UseBasicParsing -Uri ($official + $file) -OutFile $download\n        if ((Get-FileHash $download -Algorithm SHA256).Hash.ToLowerInvariant() -ne $match.Groups[1].Value.ToLowerInvariant()) { throw \'Runtimecontrolesom ongeldig. Er wordt niets uitgevoerd.\' }\n        Expand-Archive -LiteralPath $download -DestinationPath $scratch\n        $extracted = Join-Path $scratch ($file -replace \'\\.zip$\',\'\')\n        $candidateNode = Join-Path $extracted \'node.exe\'\n        if (-not (Test-Path $candidateNode)) { throw \'node.exe ontbreekt in het officiele pakket.\' }\n        $signature = Get-AuthenticodeSignature -FilePath $candidateNode\n        if ($signature.Status -ne \'Valid\') { throw \'De digitale handtekening van node.exe kon niet worden bevestigd. Controleer certificaatvalidatie en verbinding; niet negeren.\' }\n        New-Item -ItemType Directory -Force -Path $runtimeRoot | Out-Null\n        Copy-Item -Path (Join-Path $extracted \'*\') -Destination $runtimeRoot -Recurse -Force\n        Set-Content -LiteralPath (Join-Path $runtimeRoot \'BIEDBOT_RUNTIME_SOURCE.txt\') -Value ($official + $file + "`r`nSHA256: " + $match.Groups[1].Value) -Encoding UTF8\n    } finally { Remove-Item -LiteralPath $scratch -Recurse -Force -ErrorAction SilentlyContinue }\n}\n& $nodeExe -e "const [a,b]=process.versions.node.split(\'.\').map(Number);process.exit(a>22||(a===22&&b>=16)?0:1)"\nif ($LASTEXITCODE -ne 0) { throw \'Runtime te oud. Verwijder alleen de runtime-map en probeer opnieuw, niet de gegevensmap.\' }\nforeach ($name in @(\'src\',\'assets\',\'docs\',\'scripts\',\'package.json\',\'README.md\',\'START_HIER.html\')) {\n    $source = Join-Path $packageRoot $name\n    if (Test-Path $source) { Copy-Item -LiteralPath $source -Destination $versionRoot -Recurse -Force }\n}\n# No npm packages: the entire local app uses Node\'s built-in modules.\n$serverPath = Join-Path $versionRoot \'src\\server.mjs\'\n$launcherPath = Join-Path $homeRoot \'BiedBot-Open.vbs\'\n$launchCode = @"\nSet shell = CreateObject("WScript.Shell")\nshell.Run Chr(34) & "$nodeExe" & Chr(34) & " " & Chr(34) & "$serverPath" & Chr(34) & " --open", 0, False\n"@\nSet-Content -LiteralPath $launcherPath -Value $launchCode -Encoding ASCII\n$shell = New-Object -ComObject WScript.Shell\n$shortcut = $shell.CreateShortcut((Join-Path ([Environment]::GetFolderPath(\'Desktop\')) \'BiedBot Edge.lnk\'))\n$shortcut.TargetPath = Join-Path $env:WINDIR \'System32\\wscript.exe\'\n$shortcut.Arguments = \'"\' + $launcherPath + \'"\'\n$shortcut.WorkingDirectory = $versionRoot\n$iconPath = Join-Path $versionRoot \'assets\\biedbot.ico\'\nif (Test-Path $iconPath) { $shortcut.IconLocation = $iconPath }\n$shortcut.Description = \'BiedBot Edge - lokale demo, geen live Marktplaats-verzending\'\n$shortcut.Save()\nSet-Content -LiteralPath (Join-Path $homeRoot \'current-version.txt\') -Value $version -Encoding ASCII\nWrite-Host "Geinstalleerd: $versionRoot" -ForegroundColor Green\nWrite-Host "Gegevens blijven apart bewaard: $dataRoot"\nWrite-Host \'Open de bureaubladsnelkoppeling en rond je inkoopprofiel af. Start de gratis demo.\'\nWrite-Host \'Deze pilot is geen ondertekende productierelease. Livekoppeling en incasso staan uit.\'\nif ($StartNow) { Start-Process -FilePath (Join-Path ([Environment]::GetFolderPath(\'Desktop\')) \'BiedBot Edge.lnk\') }\n',
+    expected: /Set-Content[^\n]*\$launcherPath[^\n]*-Encoding Unicode/,
+    operator: 'match',
+    diff: 'simple'
+  }

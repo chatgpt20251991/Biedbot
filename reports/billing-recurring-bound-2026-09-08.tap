@@ -1,0 +1,436 @@
+TAP version 13
+# Subtest: publisher backend weigert live gateway en ontbrekende reviewconfiguratie
+ok 1 - publisher backend weigert live gateway en ontbrekende reviewconfiguratie
+  ---
+  duration_ms: 3.9012
+  type: 'test'
+  ...
+# Subtest: wachtwoorden en sessietokens worden alleen als hashes opgeslagen
+ok 2 - wachtwoorden en sessietokens worden alleen als hashes opgeslagen
+  ---
+  duration_ms: 145.7465
+  type: 'test'
+  ...
+# Subtest: loginrate limiet en sessieverval worden afgedwongen
+ok 3 - loginrate limiet en sessieverval worden afgedwongen
+  ---
+  duration_ms: 357.0939
+  type: 'test'
+  ...
+# Subtest: geen checkout zonder huidige voorwaarden, privacy, opzegging en recurring toestemming
+ok 4 - geen checkout zonder huidige voorwaarden, privacy, opzegging en recurring toestemming
+  ---
+  duration_ms: 45.3984
+  type: 'test'
+  ...
+# Subtest: idempotente order bevriest serverprijzen en voorwaarden
+ok 5 - idempotente order bevriest serverprijzen en voorwaarden
+  ---
+  duration_ms: 45.0465
+  type: 'test'
+  ...
+# Subtest: dubbele checkout heeft één customer en één providerbetaling
+ok 6 - dubbele checkout heeft één customer en één providerbetaling
+  ---
+  duration_ms: 48.7195
+  type: 'test'
+  ...
+# Subtest: parallelle checkout-claims doen geen dubbele providerwrite
+ok 7 - parallelle checkout-claims doen geen dubbele providerwrite
+  ---
+  duration_ms: 43.4881
+  type: 'test'
+  ...
+# Subtest: onzekere providerwrite blijft na herstart geblokkeerd zonder retry
+ok 8 - onzekere providerwrite blijft na herstart geblokkeerd zonder retry
+  ---
+  duration_ms: 93.5506
+  type: 'test'
+  ...
+# Subtest: actuele betaalstatus bepaalt recht; open betaling geeft geen lease
+ok 9 - actuele betaalstatus bepaalt recht; open betaling geeft geen lease
+  ---
+  duration_ms: 46.3891
+  type: 'test'
+  ...
+# Subtest: geverifieerde testbetaling en machtiging geeft kort ondertekend installatiegebonden recht
+ok 10 - geverifieerde testbetaling en machtiging geeft kort ondertekend installatiegebonden recht
+  ---
+  duration_ms: 50.8183
+  type: 'test'
+  ...
+# Subtest: devicelease is exclusief en nieuwe uitgifte vereist recente providercontrole
+ok 11 - devicelease is exclusief en nieuwe uitgifte vereist recente providercontrole
+  ---
+  duration_ms: 48.3915
+  type: 'test'
+  ...
+# Subtest: herhaalde webhook maakt één abonnement en verlengt betaalde periode niet
+ok 12 - herhaalde webhook maakt één abonnement en verlengt betaalde periode niet
+  ---
+  duration_ms: 47.0037
+  type: 'test'
+  ...
+# Subtest: amountRefunded stopt verlenging en bewaart bestaande devicehouder tot tokenverval
+ok 13 - amountRefunded stopt verlenging en bewaart bestaande devicehouder tot tokenverval
+  ---
+  duration_ms: 47.6681
+  type: 'test'
+  ...
+# Subtest: amountChargedBack stopt verlenging en bewaart bestaande devicehouder tot tokenverval
+ok 14 - amountChargedBack stopt verlenging en bewaart bestaande devicehouder tot tokenverval
+  ---
+  duration_ms: 48.7161
+  type: 'test'
+  ...
+# Subtest: ingetrokken machtiging schort bestaand abonnementrecht op
+ok 15 - ingetrokken machtiging schort bestaand abonnementrecht op
+  ---
+  duration_ms: 49.2744
+  type: 'test'
+  ...
+# Subtest: verkeerd providerbedrag, identiteit en live entity geven geen recht
+ok 16 - verkeerd providerbedrag, identiteit en live entity geven geen recht
+  ---
+  duration_ms: 47.1526
+  type: 'test'
+  ...
+# Subtest: providerfout na eerdere activatie dwingt nieuwe verificatie af
+ok 17 - providerfout na eerdere activatie dwingt nieuwe verificatie af
+  ---
+  duration_ms: 47.0307
+  type: 'test'
+  ...
+# Subtest: oud vertraagd paid antwoord heractiveert refund niet
+ok 18 - oud vertraagd paid antwoord heractiveert refund niet
+  ---
+  duration_ms: 47.2313
+  type: 'test'
+  ...
+# Subtest: opzegging is persistent idempotent en paid-webhook kan niet heractiveren
+ok 19 - opzegging is persistent idempotent en paid-webhook kan niet heractiveren
+  ---
+  duration_ms: 46.7839
+  type: 'test'
+  ...
+# Subtest: onzekere opzegging stopt rechten meteen en herhaalt DELETE niet
+ok 20 - onzekere opzegging stopt rechten meteen en herhaalt DELETE niet
+  ---
+  duration_ms: 45.5932
+  type: 'test'
+  ...
+# Subtest: open checkout wordt bij opzegging aantoonbaar bij provider geannuleerd
+ok 21 - open checkout wordt bij opzegging aantoonbaar bij provider geannuleerd
+  ---
+  duration_ms: 44.9864
+  type: 'test'
+  ...
+# Subtest: opzegging tijdens customerwachten voorkomt betaalcreatie
+ok 22 - opzegging tijdens customerwachten voorkomt betaalcreatie
+  ---
+  duration_ms: 43.6782
+  type: 'test'
+  ...
+# Subtest: opzegging tijdens subscriptionwachten bewaart cancel_pending en annuleert daarna juiste abonnement
+ok 23 - opzegging tijdens subscriptionwachten bewaart cancel_pending en annuleert daarna juiste abonnement
+  ---
+  duration_ms: 45.4689
+  type: 'test'
+  ...
+# Subtest: opzegging maakt reeds ondertekende devicehouder niet vrij via een andere actieve order
+ok 24 - opzegging maakt reeds ondertekende devicehouder niet vrij via een andere actieve order
+  ---
+  duration_ms: 50.9974
+  type: 'test'
+  ...
+# Subtest: reconciliatie van onbetaalde order B laat actieve devicehouder van order A intact
+ok 25 - reconciliatie van onbetaalde order B laat actieve devicehouder van order A intact
+  ---
+  duration_ms: 47.3183
+  type: 'test'
+  ...
+# Subtest: echte loopback HTTP-flow authenticatie checkout webhook en lease met geïnjecteerde provider
+ok 26 - echte loopback HTTP-flow authenticatie checkout webhook en lease met geïnjecteerde provider
+  ---
+  duration_ms: 269.4528
+  type: 'test'
+  ...
+# Subtest: kalendertermijn 2027-01-31 plus 0 maanden: 2027-01-31 tot 2027-02-28
+ok 27 - kalendertermijn 2027-01-31 plus 0 maanden: 2027-01-31 tot 2027-02-28
+  ---
+  duration_ms: 0.199
+  type: 'test'
+  ...
+# Subtest: kalendertermijn 2027-01-31 plus 1 maanden: 2027-02-28 tot 2027-03-31
+ok 28 - kalendertermijn 2027-01-31 plus 1 maanden: 2027-02-28 tot 2027-03-31
+  ---
+  duration_ms: 0.0828
+  type: 'test'
+  ...
+# Subtest: kalendertermijn 2028-01-31 plus 0 maanden: 2028-01-31 tot 2028-02-29
+ok 29 - kalendertermijn 2028-01-31 plus 0 maanden: 2028-01-31 tot 2028-02-29
+  ---
+  duration_ms: 0.0766
+  type: 'test'
+  ...
+# Subtest: kalendertermijn 2028-01-31 plus 1 maanden: 2028-02-29 tot 2028-03-31
+ok 30 - kalendertermijn 2028-01-31 plus 1 maanden: 2028-02-29 tot 2028-03-31
+  ---
+  duration_ms: 0.0699
+  type: 'test'
+  ...
+# Subtest: kalendertermijn 2027-01-30 plus 1 maanden: 2027-02-28 tot 2027-03-30
+ok 31 - kalendertermijn 2027-01-30 plus 1 maanden: 2027-02-28 tot 2027-03-30
+  ---
+  duration_ms: 0.0684
+  type: 'test'
+  ...
+# Subtest: kalendertermijn 2027-04-30 plus 0 maanden: 2027-04-30 tot 2027-05-31
+ok 32 - kalendertermijn 2027-04-30 plus 0 maanden: 2027-04-30 tot 2027-05-31
+  ---
+  duration_ms: 0.0628
+  type: 'test'
+  ...
+# Subtest: kalendertermijn 2028-02-29 plus 12 maanden: 2029-02-28 tot 2029-03-31
+ok 33 - kalendertermijn 2028-02-29 plus 12 maanden: 2029-02-28 tot 2029-03-31
+  ---
+  duration_ms: 0.0594
+  type: 'test'
+  ...
+# Subtest: kalendertermijn 2027-12-31 plus 1 maanden: 2028-01-31 tot 2028-02-29
+ok 34 - kalendertermijn 2027-12-31 plus 1 maanden: 2028-01-31 tot 2028-02-29
+  ---
+  duration_ms: 0.0743
+  type: 'test'
+  ...
+# Subtest: eerste serviceperiode eindigt exact op abonnementsstart; nul dagen grace
+ok 35 - eerste serviceperiode eindigt exact op abonnementsstart; nul dagen grace
+  ---
+  duration_ms: 52.2377
+  type: 'test'
+  ...
+# Subtest: terugkerende betaling betaalt één vooraf bepaalde kalendertermijn; duplicaat verlengt niet
+ok 36 - terugkerende betaling betaalt één vooraf bepaalde kalendertermijn; duplicaat verlengt niet
+  ---
+  duration_ms: 61.902
+  type: 'test'
+  ...
+# Subtest: latere termijn eerst betaald overbrugt geen onbetaalde maand; latere recovery sluit het gat
+ok 37 - latere termijn eerst betaald overbrugt geen onbetaalde maand; latere recovery sluit het gat
+  ---
+  duration_ms: 60.2896
+  type: 'test'
+  ...
+# Subtest: mislukte termijn en betaald nieuw retry-ID blijven in dezelfde factuur
+ok 38 - mislukte termijn en betaald nieuw retry-ID blijven in dezelfde factuur
+  ---
+  duration_ms: 61.1864
+  type: 'test'
+  ...
+# Subtest: betaalde status na eerdere failed-status op hetzelfde ID herstelt precies één termijn
+ok 39 - betaalde status na eerdere failed-status op hetzelfde ID herstelt precies één termijn
+  ---
+  duration_ms: 56.5444
+  type: 'test'
+  ...
+# Subtest: termijn vanaf 31 januari gaat via februari terug naar 31 maart
+ok 40 - termijn vanaf 31 januari gaat via februari terug naar 31 maart
+  ---
+  duration_ms: 56.7326
+  type: 'test'
+  ...
+# Subtest: recurring amountRefunded trekt termijnverlenging in en oud paid kan blokkade niet wissen
+ok 41 - recurring amountRefunded trekt termijnverlenging in en oud paid kan blokkade niet wissen
+  ---
+  duration_ms: 51.3393
+  type: 'test'
+  ...
+# Subtest: recurring amountChargedBack trekt termijnverlenging in en oud paid kan blokkade niet wissen
+ok 42 - recurring amountChargedBack trekt termijnverlenging in en oud paid kan blokkade niet wissen
+  ---
+  duration_ms: 52.6352
+  type: 'test'
+  ...
+# Subtest: concurrent oud paid antwoord voor dezelfde termijn overschrijft recente refund niet
+ok 43 - concurrent oud paid antwoord voor dezelfde termijn overschrijft recente refund niet
+  ---
+  duration_ms: 51.422
+  type: 'test'
+  ...
+# Subtest: recurring valuta, bedrag, identiteit, mode, sequence, datum en mandate mismatches verlengen nooit
+ok 44 - recurring valuta, bedrag, identiteit, mode, sequence, datum en mandate mismatches verlengen nooit
+  ---
+  duration_ms: 49.9318
+  type: 'test'
+  ...
+# Subtest: provider wijzigt binding van bestaand recurring ID: andere maand wordt geweigerd
+ok 45 - provider wijzigt binding van bestaand recurring ID: andere maand wordt geweigerd
+  ---
+  duration_ms: 47.6506
+  type: 'test'
+  ...
+# Subtest: opzegging verhindert heractivatie door latere echte recurring paid-status
+ok 46 - opzegging verhindert heractivatie door latere echte recurring paid-status
+  ---
+  duration_ms: 48.3156
+  type: 'test'
+  ...
+# Subtest: verlopen mandate of niet-actief abonnement verhindert recurring licentie-uitgifte
+ok 47 - verlopen mandate of niet-actief abonnement verhindert recurring licentie-uitgifte
+  ---
+  duration_ms: 49.2232
+  type: 'test'
+  ...
+# Subtest: recurring factuur en betaalbinding blijven na procesherstart bestaan
+ok 48 - recurring factuur en betaalbinding blijven na procesherstart bestaan
+  ---
+  duration_ms: 119.5555
+  type: 'test'
+  ...
+# Subtest: eerder bewezen refund op eerste betaling blijft blokkeren bij oude paid-inhoud
+ok 49 - eerder bewezen refund op eerste betaling blijft blokkeren bij oude paid-inhoud
+  ---
+  duration_ms: 93.8783
+  type: 'test'
+  ...
+# Subtest: leeg reversalbedrag is geen bewijs dat eerste betaling niet teruggeboekt is
+ok 50 - leeg reversalbedrag is geen bewijs dat eerste betaling niet teruggeboekt is
+  ---
+  duration_ms: 57.4099
+  type: 'test'
+  ...
+# Subtest: ondertekende licentie verifieert installatiegebonden
+ok 51 - ondertekende licentie verifieert installatiegebonden
+  ---
+  duration_ms: 4.9693
+  type: 'test'
+  ...
+# Subtest: licentie is geen platformtoestemming
+ok 52 - licentie is geen platformtoestemming
+  ---
+  duration_ms: 0.5916
+  type: 'test'
+  ...
+# Subtest: licentie voor ander apparaat geweigerd
+ok 53 - licentie voor ander apparaat geweigerd
+  ---
+  duration_ms: 0.7113
+  type: 'test'
+  ...
+# Subtest: licentie voor andere dealer geweigerd
+ok 54 - licentie voor andere dealer geweigerd
+  ---
+  duration_ms: 0.5283
+  type: 'test'
+  ...
+# Subtest: verlopen abonnement niet actief
+ok 55 - verlopen abonnement niet actief
+  ---
+  duration_ms: 1.5721
+  type: 'test'
+  ...
+# Subtest: klok terugzetten detectie via vertrouwde tijd
+ok 56 - klok terugzetten detectie via vertrouwde tijd
+  ---
+  duration_ms: 0.5771
+  type: 'test'
+  ...
+# Subtest: bewerkte payload breekt handtekening
+ok 57 - bewerkte payload breekt handtekening
+  ---
+  duration_ms: 0.5403
+  type: 'test'
+  ...
+# Subtest: 100 contacten niet via licentie vrijschakelen
+ok 58 - 100 contacten niet via licentie vrijschakelen
+  ---
+  duration_ms: 0.1878
+  type: 'test'
+  ...
+# Subtest: willekeurige sleutel geweigerd
+ok 59 - willekeurige sleutel geweigerd
+  ---
+  duration_ms: 0.6369
+  type: 'test'
+  ...
+# Subtest: geen betaalacties met ontbrekende key
+ok 60 - geen betaalacties met ontbrekende key
+  ---
+  duration_ms: 0.3826
+  type: 'test'
+  ...
+# Subtest: live betalingen standaard geblokkeerd
+ok 61 - live betalingen standaard geblokkeerd
+  ---
+  duration_ms: 0.2656
+  type: 'test'
+  ...
+# Subtest: eerste betaling met machtiging, exact centbedrag, stabiele idempotency
+ok 62 - eerste betaling met machtiging, exact centbedrag, stabiele idempotency
+  ---
+  duration_ms: 43.1378
+  type: 'test'
+  ...
+# Subtest: geen machtiging of belastingreview: geen call
+ok 63 - geen machtiging of belastingreview: geen call
+  ---
+  duration_ms: 0.4739
+  type: 'test'
+  ...
+# Subtest: webhook kan geen betaalstatus aanleveren: opnieuw provider lezen
+ok 64 - webhook kan geen betaalstatus aanleveren: opnieuw provider lezen
+  ---
+  duration_ms: 0.8411
+  type: 'test'
+  ...
+# Subtest: verkeerde betaling kan geen licentie activeren
+ok 65 - verkeerde betaling kan geen licentie activeren
+  ---
+  duration_ms: 0.6049
+  type: 'test'
+  ...
+# Subtest: providerfout geen automatische onbegrensde retry
+ok 66 - providerfout geen automatische onbegrensde retry
+  ---
+  duration_ms: 0.5919
+  type: 'test'
+  ...
+# Subtest: abonnement pas met geverifieerde geldige machtiging
+ok 67 - abonnement pas met geverifieerde geldige machtiging
+  ---
+  duration_ms: 2.4184
+  type: 'test'
+  ...
+# Subtest: ingetrokken machtiging blokkeert abonnement
+ok 68 - ingetrokken machtiging blokkeert abonnement
+  ---
+  duration_ms: 0.6076
+  type: 'test'
+  ...
+# Subtest: lokale webhook is geen gepubliceerde checkout
+ok 69 - lokale webhook is geen gepubliceerde checkout
+  ---
+  duration_ms: 0.4998
+  type: 'test'
+  ...
+# Subtest: terugbetaald bedrag blokkeert betaald recht ondanks status paid
+ok 70 - terugbetaald bedrag blokkeert betaald recht ondanks status paid
+  ---
+  duration_ms: 0.7319
+  type: 'test'
+  ...
+# Subtest: ongeldige kalenderdatum wordt niet genormaliseerd tot abonnementsstart
+ok 71 - ongeldige kalenderdatum wordt niet genormaliseerd tot abonnementsstart
+  ---
+  duration_ms: 0.3342
+  type: 'test'
+  ...
+1..71
+# tests 71
+# suites 0
+# pass 71
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2976.1257

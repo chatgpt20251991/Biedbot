@@ -1,0 +1,23 @@
+✔ chatopening met verkoper stopt vóór verzending (6.7527ms)
+✔ chatopening met account stopt vóór verzending (3.3231ms)
+✔ chatopening met advertentie stopt vóór verzending (4.3734ms)
+✔ chatopening met ontbrekende advertentie stopt vóór verzending (3.0639ms)
+✔ chatopening met ontbrekend gesprek stopt vóór verzending (2.9748ms)
+✔ identiteitswijziging tijdens formulierinvoer stopt klik {"seller":"other"} (5.5664ms)
+✔ identiteitswijziging tijdens formulierinvoer stopt klik {"conversation":"other"} (5.34ms)
+✔ identiteitswijziging tijdens formulierinvoer stopt klik {"listing":"other"} (4.8101ms)
+✔ identiteitswijziging tijdens formulierinvoer stopt klik {"account":"other"} (4.8468ms)
+✔ ontvangstbewijs onder andere identiteit wordt geweigerd {"seller":"other"} (6.7076ms)
+✔ ontvangstbewijs onder andere identiteit wordt geweigerd {"conversation":"other"} (5.5385ms)
+✔ ontvangstbewijs onder andere identiteit wordt geweigerd {"listing":null} (5.5598ms)
+✔ ontvangstbewijs onder andere identiteit wordt geweigerd {"account":"other"} (7.6319ms)
+✔ dispatch callback kan verzending na snapshot intrekken (3.8931ms)
+✔ volledige stabiele identiteit levert receipt en gesprekbinding (8.7754ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 274.4175

@@ -54,8 +54,19 @@ export function extractPrices(text) {
 }
 const OPT_OUT = /\b(stop(?:pen)?\s+(?:met\s+)?(?:berichten|appen)|niet meer (?:berichten|appen|sturen|benaderen)|verwijder (?:mijn|me)|geen berichten|laat me (?:met rust|gerust))\b/i;
 const INJECTION = /(?:ignore|negeer|vergeet).{0,50}(?:instruct|prompt|regels|plafond)|\bsystem\s*:|\bdeveloper\s*:|api[- ]?key|<\/?(?:system|assistant)>/i;
+// Match the complete affirmative clause and only a bounded scheduling continuation.
+// A question mark on the agreement itself, qualifications and arbitrary trailing text
+// must never become a purchase commitment. Unknown formulations go to clarification.
+const MONEY_TEXT=String.raw`(?:(?:€|eur)\s*)?(?:\d{1,3}(?:[. ]\d{3})+|\d{3,6})(?:,00)?(?:\s*(?:euro|eur))?`;
+const AGREEMENT=String.raw`(?:(?:ok[eé]?|ja)[ ,!]*)?(?:dat is goed|is goed|akkoord|afgesproken|deal|prima|ik ga akkoord)(?:\s+met\s+(?:je|jouw|uw|het)\s+(?:laatste\s+)?(?:bod|voorstel)|\s+(?:met|voor)\s+${MONEY_TEXT})?`;
+const VISIT=String.raw`(?:komen(?: kijken)?|langskomen|(?:de auto )?(?:ophalen|bekijken))`;
+const DAY=String.raw`(?:vandaag|morgen|overmorgen|(?:aanstaande )?(?:maandag|dinsdag|woensdag|donderdag|vrijdag|zaterdag|zondag)(?:ochtend|middag|avond)?)`;
+const PLANNING=String.raw`(?:(?:wanneer|hoe laat) (?:(?:(?:kun|kan) je|kunt u|kan u|kunnen (?:we|jullie)) ${VISIT}|kom je|komt u|schikt het(?: (?:bij|voor))? (?:jou|u))|(?:(?:kun|kan) je|kunt u|kan u|je kunt|u kunt)(?: ${DAY})? ${VISIT})[?!.]*`;
+const AFFIRMATIVE=new RegExp(String.raw`^${AGREEMENT}(?:\s*[,!.]\s*${AGREEMENT})?(?:(?:\s*[,!.]\s*|\s+)${PLANNING})?[.!]*$`,'i');
+const SELLER_PRICE=new RegExp(String.raw`^(?:(?:voor(?: jou)?|minimaal|vraagprijs(?: is)?|mijn prijs(?: is)?|ik wil(?: minimaal)?|ik vraag|ik dacht aan)\s+)?${MONEY_TEXT}(?:\s+(?:mag (?:hij|de auto) weg|is (?:hij|de auto) van (?:jou|u)))?[.!]*$`,'i');
 export function classifyLocal(text, state={}) {
   if(typeof text!=='string' || text.length>6000) return {kind:'UNKNOWN', confidence:0};
+  text=text.normalize('NFKC').trim().replace(/\s+/g,' ');
   if(OPT_OUT.test(text)) return {kind:'OPT_OUT',confidence:1};
   if(INJECTION.test(text)) return {kind:'UNKNOWN', confidence:0, reason:'Onbetrouwbare opdracht in verkopertekst'};
   if(/\b(?:al verkocht|is verkocht|heb (?:hem|de auto) verkocht)\b/i.test(text)) return {kind:'SOLD',confidence:1};
@@ -66,13 +77,12 @@ export function classifyLocal(text, state={}) {
   const prices=extractPrices(text);
   if(prices.length>1) return {kind:'UNKNOWN',confidence:.4,reason:'Meerdere bedragen'};
   if(prices.length===1) {
-    if(/\b(?:niet|geen)\b/i.test(text) || /\?|\b(?:als|mits|aanbetaling|inruil)\b/i.test(text)) return {kind:'UNKNOWN',confidence:.4,reason:'Voorwaardelijk of betwist bedrag'};
+    if(!AFFIRMATIVE.test(text)&&!SELLER_PRICE.test(text)) return {kind:'UNKNOWN',confidence:.4,reason:'Geen eenduidig onvoorwaardelijk verkopersbedrag'};
     return {kind:'PRICE',price:prices[0],confidence:.99,evidence:text};
   }
   if(/\b(?:niet\b.{0,25}\bakkoord|niet goed|geen deal|geen akkoord|nee|nog niet|weet niet)\b/i.test(text)) return {kind:'FIRM',confidence:.95};
   if(/\b(?:als|mits|maar|tenzij|misschien|eventueel)\b/i.test(text)) return {kind:'UNKNOWN',confidence:.4};
-  // An invitation or question alone is NOT an agreement.
-  if(/^(?:(?:ok[eé]?|ja)[ ,.!]*)?(?:dat is goed|is goed|akkoord|afgesproken|deal|prima)(?=$|[,.!?]|\s+(?:wanneer|dan|je|u|op|met)\b)/i.test(text.trim())) return {kind:'ACCEPT',confidence:.98};
+  if(AFFIRMATIVE.test(text)) return {kind:'ACCEPT',confidence:.98};
   if(/\?|\b(?:waarom|wanneer|ben je|bent u|handelaar|hoezo)\b/i.test(text)) return {kind:'QUESTION',confidence:.9,
     topic:/\b(?:handelaar|autobedrijf|particulier|zakelijk)\b/i.test(text)?'identity':/\b(?:bot|ai|automaat)\b/i.test(text)?'automation':'other'};
   if(/\b(?:prijs is vast|vaste prijs|niet lager|hou vast|houd vast|te laag)\b/i.test(text)) return {kind:'FIRM',confidence:.95};
@@ -80,15 +90,15 @@ export function classifyLocal(text, state={}) {
   return {kind:'UNKNOWN',confidence:.2};
 }
 export function validateClassification(value, text) {
+  if(typeof text!=='string'||text.length>6000) return {kind:'UNKNOWN',confidence:0};
   const local=classifyLocal(text);
   if(['OPT_OUT','SOLD','RISK','REFUSE'].includes(local.kind) || INJECTION.test(text)) return local;
   const kinds=['ACCEPT','PRICE','FIRM','QUESTION','INFO','UNKNOWN'];
-  if(!value || !kinds.includes(value.kind) || !Number.isFinite(value.confidence) || value.confidence<.9) return {kind:'UNKNOWN',confidence:0};
+  if(!value || !kinds.includes(value.kind) || !Number.isFinite(value.confidence) || value.confidence<.9 || value.confidence>1) return {kind:'UNKNOWN',confidence:0};
   if(value.kind==='PRICE') {
     if(local.kind!=='PRICE') return {kind:'UNKNOWN',confidence:0};
     if(extractPrices(text).length!==1 || !extractPrices(text).includes(value.price)) return {kind:'UNKNOWN',confidence:0};
     if(typeof value.evidence!=='string' || !text.includes(value.evidence)) return {kind:'UNKNOWN',confidence:0};
-    if(/\b(?:niet|geen|als|mits|inruil)\b/i.test(text)||text.includes('?')) return {kind:'UNKNOWN',confidence:0};
   }
   if(value.kind==='ACCEPT' && local.kind!=='ACCEPT') return {kind:'UNKNOWN',confidence:0};
   return {kind:value.kind, confidence:value.confidence, ...(value.kind==='PRICE'?{price:value.price}:{}),

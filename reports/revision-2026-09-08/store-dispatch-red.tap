@@ -1,0 +1,315 @@
+✖ nieuwe input vóór queue verwerpt oud ACCEPT en bewaart nieuwste input (70.0618ms)
+✖ gelijke berichttijd: laatst ingelezen input maakt oud ACCEPT ongeldig (8.315ms)
+✖ nieuwe input na queue trekt ACCEPT direct in (9.4564ms)
+✔ ingelezen duplicaat trekt geldig ACCEPT niet in (6.7529ms)
+✖ input tijdens classifierwachten voorkomt oud ACCEPT (14.0443ms)
+✖ input na claim maar vóór dispatch stopt bij laatste controle (9.0898ms)
+✖ adapterwachten hercontroleert input via beforeDispatch (11.3029ms)
+✖ nieuwe input tijdens mogelijke dispatch maakt ACCEPT geen HOT_LEAD (6.8196ms)
+✔ onzekere ACCEPT met nieuwe input wordt nooit automatisch herhaald (6.8538ms)
+✖ oude plus nieuwe reserveringen leveren maximaal 20 dispatches op (87.0512ms)
+✖ open claim blijft meetellen na 25 uur, ook zonder receipt (52.8528ms)
+✖ oude reacties delen de atomaire totale dispatchcap met openingen (41.6558ms)
+✔ Nederlandse kalenderdag blijft begrensd buiten rollende 24 uur bij wintertijd (36.7804ms)
+✖ middernacht bewaart rollende cap voor oude wachtrij (63.3921ms)
+✖ vier onafhankelijke processen claimen oude en nieuwe wachtrij atomair (460.6627ms)
+✖ source-to-send bewijs bewaart input, status en exacte dispatch (9.9115ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 3
+ℹ fail 13
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1131.0444
+
+✖ failing tests:
+
+test at tests\store-dispatch-regression.test.mjs:24:1
+✖ nieuwe input vóór queue verwerpt oud ACCEPT en bewaart nieuwste input (70.0618ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/store-dispatch-regression.test.mjs:27:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.start (node:internal/test_runner/test:1096:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\store-dispatch-regression.test.mjs:31:1
+✖ gelijke berichttijd: laatst ingelezen input maakt oud ACCEPT ongeldig (8.315ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  true !== false
+  
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/store-dispatch-regression.test.mjs:34:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\store-dispatch-regression.test.mjs:37:1
+✖ nieuwe input na queue trekt ACCEPT direct in (9.4564ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'queued'
+  - 'cancelled'
+  
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/store-dispatch-regression.test.mjs:40:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'queued',
+    expected: 'cancelled',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\store-dispatch-regression.test.mjs:49:1
+✖ input tijdens classifierwachten voorkomt oud ACCEPT (14.0443ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/store-dispatch-regression.test.mjs:55:10)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\store-dispatch-regression.test.mjs:58:1
+✖ input na claim maar vóór dispatch stopt bij laatste controle (9.0898ms)
+  TypeError: s.authorizeDispatch is not a function
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/store-dispatch-regression.test.mjs:61:18)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+
+test at tests\store-dispatch-regression.test.mjs:65:1
+✖ adapterwachten hercontroleert input via beforeDispatch (11.3029ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/store-dispatch-regression.test.mjs:74:10)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\store-dispatch-regression.test.mjs:77:1
+✖ nieuwe input tijdens mogelijke dispatch maakt ACCEPT geen HOT_LEAD (6.8196ms)
+  TypeError: s.authorizeDispatch is not a function
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/store-dispatch-regression.test.mjs:79:18)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+
+test at tests\store-dispatch-regression.test.mjs:93:1
+✖ oude plus nieuwe reserveringen leveren maximaal 20 dispatches op (87.0512ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  40 !== 20
+  
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/store-dispatch-regression.test.mjs:99:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 40,
+    expected: 20,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\store-dispatch-regression.test.mjs:101:1
+✖ open claim blijft meetellen na 25 uur, ook zonder receipt (52.8528ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + {
+  +   account: 'demo',
+  +   action: 'OPEN',
+  +   after_state: {
+  +     agreedPrice: null,
+  +     anchor: 7500,
+  +     ceiling: 8400,
+  +     clarificationCount: 0,
+  +     concessies: 0,
+  +     lastOffer: null,
+  +     lastSellerPrice: null,
+  +     peilingen: 0,
+  +     phase: 'WAITING_INFO'
+  +   },
+  +   conversation: 'a-28',
+  +   created: 1788865200000,
+  +   day: '2026-09-08',
+  +   error: null,
+  +   id: '035ee91b-5c77-4050-b8e6-f98dd973af87',
+  +   input_id: null,
+  +   price: null,
+  +   receipt: null,
+  +   sent_at: null,
+  +   status: 'queued',
+  +   text: 'Ik bekijk je Golf voor de inkoop van Mijn autobedrijf. Kun je iets vertellen over het onderhoud en recent vervangen onderdelen? Wat is de reden van verkoop?\n' +
+  +     '\n' +
+  +     'Inkoopteam'
+  + }
+  - null
+  
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/store-dispatch-regression.test.mjs:106:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { id: '035ee91b-5c77-4050-b8e6-f98dd973af87', conversation: 'a-28', account: 'demo', input_id: null, action: 'OPEN', price: null, text: 'Ik bekijk je Golf voor de inkoop van Mijn autobedrijf. Kun je iets vertellen over het onderhoud en recent vervangen onderdelen? Wat is de reden van verkoop?\n\nInkoopteam', after_state: { phase: 'WAITING_INFO', anchor: 7500, ceiling: 8400, lastOffer: null, peilingen: 0, concessies: 0, lastSellerPrice: null, agreedPrice: null, clarificationCount: 0 }, status: 'queued', created: 1788865200000, day: '2026-09-08', sent_at: null, receipt: null, error: null },
+    expected: null,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\store-dispatch-regression.test.mjs:108:1
+✖ oude reacties delen de atomaire totale dispatchcap met openingen (41.6558ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  21 !== 20
+  
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/store-dispatch-regression.test.mjs:115:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 21,
+    expected: 20,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\store-dispatch-regression.test.mjs:124:1
+✖ middernacht bewaart rollende cap voor oude wachtrij (63.3921ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + {
+  +   account: 'demo',
+  +   action: 'OPEN',
+  +   after_state: {
+  +     agreedPrice: null,
+  +     anchor: 7500,
+  +     ceiling: 8400,
+  +     clarificationCount: 0,
+  +     concessies: 0,
+  +     lastOffer: null,
+  +     lastSellerPrice: null,
+  +     peilingen: 0,
+  +     phase: 'WAITING_INFO'
+  +   },
+  +   conversation: 'a-33',
+  +   created: 1788818340000,
+  +   day: '2026-09-07',
+  +   error: null,
+  +   id: '07389aba-6fc9-4f72-9804-17f85ae64820',
+  +   input_id: null,
+  +   price: null,
+  +   receipt: null,
+  +   sent_at: null,
+  +   status: 'queued',
+  +   text: 'Ik bekijk je Golf voor de inkoop van Mijn autobedrijf. Kun je iets vertellen over het onderhoud en recent vervangen onderdelen? Wat is de reden van verkoop?\n' +
+  +     '\n' +
+  +     'Inkoopteam'
+  + }
+  - null
+  
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/store-dispatch-regression.test.mjs:129:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { id: '07389aba-6fc9-4f72-9804-17f85ae64820', conversation: 'a-33', account: 'demo', input_id: null, action: 'OPEN', price: null, text: 'Ik bekijk je Golf voor de inkoop van Mijn autobedrijf. Kun je iets vertellen over het onderhoud en recent vervangen onderdelen? Wat is de reden van verkoop?\n\nInkoopteam', after_state: { phase: 'WAITING_INFO', anchor: 7500, ceiling: 8400, lastOffer: null, peilingen: 0, concessies: 0, lastSellerPrice: null, agreedPrice: null, clarificationCount: 0 }, status: 'queued', created: 1788818340000, day: '2026-09-07', sent_at: null, receipt: null, error: null },
+    expected: null,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\store-dispatch-regression.test.mjs:131:1
+✖ vier onafhankelijke processen claimen oude en nieuwe wachtrij atomair (460.6627ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  40 !== 20
+  
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/store-dispatch-regression.test.mjs:141:10)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 40,
+    expected: 20,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\store-dispatch-regression.test.mjs:143:1
+✖ source-to-send bewijs bewaart input, status en exacte dispatch (9.9115ms)
+  TypeError: s.authorizeDispatch is not a function
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/store-dispatch-regression.test.mjs:145:18)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7)

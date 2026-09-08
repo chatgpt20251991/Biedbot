@@ -1,0 +1,567 @@
+✖ geen koopbevestiging bij: Akkoord? (6.8559ms)
+✖ geen koopbevestiging bij: Akkoord?! (1.3741ms)
+✔ geen koopbevestiging bij: Akkoord ? (1.112ms)
+✔ geen koopbevestiging bij: AKKOORD？ (2.218ms)
+✖ geen koopbevestiging bij: Is goed? (0.324ms)
+✖ geen koopbevestiging bij: Prima? (0.2494ms)
+✖ geen koopbevestiging bij: Deal? (0.2578ms)
+✖ geen koopbevestiging bij: Oké dat is goed? (0.2488ms)
+✖ geen koopbevestiging bij: Akkoord? Wanneer kom je? (0.2909ms)
+✖ geen koopbevestiging bij: Akkoord, toch? (0.3649ms)
+✖ geen koopbevestiging bij: Akkoord, of begrijp ik dat verkeerd? (0.2504ms)
+✖ geen koopbevestiging bij: Akkoord met mijn vraagprijs? (0.2503ms)
+✖ geen koopbevestiging bij: Akkoord, is dat wat je bedoelt? (0.3423ms)
+✖ geen koopbevestiging bij: Akkoord, denk ik. (0.2661ms)
+✔ geen koopbevestiging bij: Akkoord, eventueel. (0.2435ms)
+✖ geen koopbevestiging bij: Akkoord met extra kosten. (0.2074ms)
+✖ geen koopbevestiging bij: Akkoord op voorwaarde dat je vandaag komt. (0.2445ms)
+✖ geen koopbevestiging bij: Akkoord, dan moet de prijs hoger. (0.1933ms)
+✖ geen koopbevestiging bij: Akkoord. Ik twijfel nog. (0.1653ms)
+✔ geen koopbevestiging bij: Akkoord. Ik ga toch niet akkoord. (0.1604ms)
+✔ geen koopbevestiging bij: Akkoord als je eerst komt kijken. (0.1322ms)
+✔ geen koopbevestiging bij: Is goed, tenzij ik een hoger bod krijg. (0.1344ms)
+✔ geen koopbevestiging bij: Prima, maar alleen met inruil. (0.161ms)
+✖ geen koopbevestiging bij: Akkoord. Wanneer ga je akkoord met mijn vraagprijs? (0.1906ms)
+✖ geen koopbevestiging bij: Akkoord, wanneer bied je meer? (0.1754ms)
+✖ geen koopbevestiging bij: Akkoord, je bent zeker gek. (0.1655ms)
+✖ geen koopbevestiging bij: Prima. Dat was een grapje. (0.1596ms)
+✔ geen koopbevestiging bij: Akkoord, op papier misschien. (0.1352ms)
+✔ geen koopbevestiging bij: Niet akkoord (0.1306ms)
+✔ geen koopbevestiging bij: Geen akkoord (0.1363ms)
+✔ geen koopbevestiging bij: Nee, dat is niet goed. (0.1355ms)
+✔ geen koopbevestiging bij: Ik ben nog niet akkoord. (0.1395ms)
+✔ geen koopbevestiging bij: Is het akkoord? (0.167ms)
+✔ geen koopbevestiging bij: Ben je akkoord (0.1302ms)
+✔ geen koopbevestiging bij: De auto is prima onderhouden. (0.343ms)
+✔ geen koopbevestiging bij: Je zei "akkoord", ik nog niet. (0.1235ms)
+✔ geen koopbevestiging bij: Voor EUR 8170? (0.67ms)
+✔ geen koopbevestiging bij: Akkoord voor EUR 8170? (0.1399ms)
+✔ geen koopbevestiging bij: Akkoord voor EUR 8170 als je vandaag komt. (0.1312ms)
+✔ geen koopbevestiging bij: Akkoord voor EUR 8170. Wanneer betaal je EUR 9000? (0.357ms)
+✖ geen koopbevestiging bij: Akkoord met EUR 8170, denk ik. (0.293ms)
+✖ geen koopbevestiging bij: Akkoord met EUR 8170 aan reparaties. (0.1984ms)
+✖ geen koopbevestiging bij: Akkoord, je mag voor EUR 8170 alleen de motor hebben. (0.19ms)
+✖ geen koopbevestiging bij: Akkoord. Voor EUR 8170 moet ik er nog over nadenken. (0.1945ms)
+✔ laatste bod geldig aanvaard: Akkoord (0.3127ms)
+✔ laatste bod geldig aanvaard: Akkoord. (0.1458ms)
+✔ laatste bod geldig aanvaard: Is goed, akkoord. (0.1117ms)
+✔ laatste bod geldig aanvaard: Oké dat is goed, wanneer kunt u langskomen? (0.1075ms)
+✔ laatste bod geldig aanvaard: Prima. (0.106ms)
+✔ laatste bod geldig aanvaard: Deal! (0.1437ms)
+✔ laatste bod geldig aanvaard: Afgesproken. (0.1182ms)
+✔ laatste bod geldig aanvaard: Ja, akkoord. (0.1312ms)
+✔ laatste bod geldig aanvaard: Akkoord, wanneer kun je komen? (0.2103ms)
+✔ laatste bod geldig aanvaard: Akkoord. Wanneer schikt het jou? (0.1965ms)
+✔ laatste bod geldig aanvaard: Is goed. Kan je morgen langskomen? (0.1482ms)
+✔ laatste bod geldig aanvaard: Prima, kun je zaterdag komen kijken? (0.1128ms)
+✔ laatste bod geldig aanvaard: Akkoord! Hoe laat kun je komen? (0.1066ms)
+✔ laatste bod geldig aanvaard: Akkoord met je bod. (0.1063ms)
+✖ laatste bod geldig aanvaard: Ik ga akkoord met uw laatste bod. (0.9442ms)
+✔ laatste bod geldig aanvaard: Akkoord, je kunt morgen langskomen. (0.1481ms)
+✖ expliciet bedrag met planningsvraag: Akkoord met EUR 8170, wanneer kun je komen? (0.4851ms)
+✖ expliciet bedrag met planningsvraag: Akkoord voor EUR 8170. Kan je morgen langskomen? (0.35ms)
+ℹ tests 62
+ℹ suites 0
+ℹ pass 35
+ℹ fail 27
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 271.0018
+
+✖ failing tests:
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Akkoord? (6.8559ms)
+  AssertionError [ERR_ASSERTION]: Akkoord?
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.start (node:internal/test_runner/test:1096:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Akkoord?! (1.3741ms)
+  AssertionError [ERR_ASSERTION]: Akkoord?!
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Is goed? (0.324ms)
+  AssertionError [ERR_ASSERTION]: Is goed?
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Prima? (0.2494ms)
+  AssertionError [ERR_ASSERTION]: Prima?
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Deal? (0.2578ms)
+  AssertionError [ERR_ASSERTION]: Deal?
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Oké dat is goed? (0.2488ms)
+  AssertionError [ERR_ASSERTION]: Oké dat is goed?
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Akkoord? Wanneer kom je? (0.2909ms)
+  AssertionError [ERR_ASSERTION]: Akkoord? Wanneer kom je?
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Akkoord, toch? (0.3649ms)
+  AssertionError [ERR_ASSERTION]: Akkoord, toch?
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Akkoord, of begrijp ik dat verkeerd? (0.2504ms)
+  AssertionError [ERR_ASSERTION]: Akkoord, of begrijp ik dat verkeerd?
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Akkoord met mijn vraagprijs? (0.2503ms)
+  AssertionError [ERR_ASSERTION]: Akkoord met mijn vraagprijs?
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Akkoord, is dat wat je bedoelt? (0.3423ms)
+  AssertionError [ERR_ASSERTION]: Akkoord, is dat wat je bedoelt?
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Akkoord, denk ik. (0.2661ms)
+  AssertionError [ERR_ASSERTION]: Akkoord, denk ik.
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Akkoord met extra kosten. (0.2074ms)
+  AssertionError [ERR_ASSERTION]: Akkoord met extra kosten.
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Akkoord op voorwaarde dat je vandaag komt. (0.2445ms)
+  AssertionError [ERR_ASSERTION]: Akkoord op voorwaarde dat je vandaag komt.
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Akkoord, dan moet de prijs hoger. (0.1933ms)
+  AssertionError [ERR_ASSERTION]: Akkoord, dan moet de prijs hoger.
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Akkoord. Ik twijfel nog. (0.1653ms)
+  AssertionError [ERR_ASSERTION]: Akkoord. Ik twijfel nog.
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Akkoord. Wanneer ga je akkoord met mijn vraagprijs? (0.1906ms)
+  AssertionError [ERR_ASSERTION]: Akkoord. Wanneer ga je akkoord met mijn vraagprijs?
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Akkoord, wanneer bied je meer? (0.1754ms)
+  AssertionError [ERR_ASSERTION]: Akkoord, wanneer bied je meer?
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Akkoord, je bent zeker gek. (0.1655ms)
+  AssertionError [ERR_ASSERTION]: Akkoord, je bent zeker gek.
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Prima. Dat was een grapje. (0.1596ms)
+  AssertionError [ERR_ASSERTION]: Prima. Dat was een grapje.
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Akkoord met EUR 8170, denk ik. (0.293ms)
+  AssertionError [ERR_ASSERTION]: Akkoord met EUR 8170, denk ik.
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Akkoord met EUR 8170 aan reparaties. (0.1984ms)
+  AssertionError [ERR_ASSERTION]: Akkoord met EUR 8170 aan reparaties.
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Akkoord, je mag voor EUR 8170 alleen de motor hebben. (0.19ms)
+  AssertionError [ERR_ASSERTION]: Akkoord, je mag voor EUR 8170 alleen de motor hebben.
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:28:28
+✖ geen koopbevestiging bij: Akkoord. Voor EUR 8170 moet ik er nog over nadenken. (0.1945ms)
+  AssertionError [ERR_ASSERTION]: Akkoord. Voor EUR 8170 moet ik er nog over nadenken.
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:30:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'ACCEPT',
+    expected: 'ACCEPT',
+    operator: 'notStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:44:28
+✖ laatste bod geldig aanvaard: Ik ga akkoord met uw laatste bod. (0.9442ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'UNKNOWN'
+  - 'ACCEPT'
+  
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:46:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'UNKNOWN',
+    expected: 'ACCEPT',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:51:118
+✖ expliciet bedrag met planningsvraag: Akkoord met EUR 8170, wanneer kun je komen? (0.4851ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'UNKNOWN' !== 'PRICE'
+  
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:53:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'UNKNOWN',
+    expected: 'PRICE',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests\negotiation-acceptance.test.mjs:51:118
+✖ expliciet bedrag met planningsvraag: Akkoord voor EUR 8170. Kan je morgen langskomen? (0.35ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  'UNKNOWN' !== 'PRICE'
+  
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/negotiation-acceptance.test.mjs:53:10)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1201:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:831:18)
+      at Test.postRun (node:internal/test_runner/test:1330:19)
+      at Test.run (node:internal/test_runner/test:1258:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'UNKNOWN',
+    expected: 'PRICE',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

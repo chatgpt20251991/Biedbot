@@ -1,0 +1,70 @@
+✖ inboxsnapshot bindt bronbericht atomair aan verkoper en gesprek (57.897ms)
+✖ receipt uit tijdelijk ander gesprek wordt niet als bewijs opgeslagen (21.9872ms)
+✖ gewijzigde verkopertekst onder hetzelfde bericht-ID trekt oude acceptatie in (11.3694ms)
+✖ ontbrekend prijsbronbericht staat geen ACCEPT-dispatch toe (13.2777ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 311.2067
+
+✖ failing tests:
+
+test at tests\adapter-source-review.test.mjs:37:1
+✖ inboxsnapshot bindt bronbericht atomair aan verkoper en gesprek (57.897ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/adapter-source-review.test.mjs:38:42)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\adapter-source-review.test.mjs:41:1
+✖ receipt uit tijdelijk ander gesprek wordt niet als bewijs opgeslagen (21.9872ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/adapter-source-review.test.mjs:42:61)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\adapter-source-review.test.mjs:45:1
+✖ gewijzigde verkopertekst onder hetzelfde bericht-ID trekt oude acceptatie in (11.3694ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/adapter-source-review.test.mjs:46:60)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\adapter-source-review.test.mjs:48:1
+✖ ontbrekend prijsbronbericht staat geen ACCEPT-dispatch toe (13.2777ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/adapter-source-review.test.mjs:49:61)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }

@@ -1,0 +1,29 @@
+✔ chatopening met verkoper stopt vóór verzending (7.2515ms)
+✔ chatopening met account stopt vóór verzending (3.2367ms)
+✔ chatopening met advertentie stopt vóór verzending (6.163ms)
+✔ chatopening met ontbrekende advertentie stopt vóór verzending (4.3951ms)
+✔ chatopening met ontbrekend gesprek stopt vóór verzending (4.0957ms)
+✔ identiteitswijziging tijdens formulierinvoer stopt klik {"seller":"other"} (5.7035ms)
+✔ identiteitswijziging tijdens formulierinvoer stopt klik {"conversation":"other"} (3.403ms)
+✔ identiteitswijziging tijdens formulierinvoer stopt klik {"listing":"other"} (3.346ms)
+✔ identiteitswijziging tijdens formulierinvoer stopt klik {"account":"other"} (3.5219ms)
+✔ ontvangstbewijs onder andere identiteit wordt geweigerd {"seller":"other"} (6.1921ms)
+✔ ontvangstbewijs onder andere identiteit wordt geweigerd {"conversation":"other"} (4.1988ms)
+✔ ontvangstbewijs onder andere identiteit wordt geweigerd {"listing":null} (4.2606ms)
+✔ ontvangstbewijs onder andere identiteit wordt geweigerd {"account":"other"} (6.1136ms)
+✔ dispatch callback kan verzending na snapshot intrekken (4.0457ms)
+✔ volledige stabiele identiteit levert receipt en gesprekbinding (5.6423ms)
+✔ inboxsnapshot bindt bronbericht atomair aan verkoper en gesprek (48.096ms)
+✔ receipt uit tijdelijk ander gesprek wordt niet als bewijs opgeslagen (39.4694ms)
+✔ gewijzigde verkopertekst onder hetzelfde bericht-ID trekt oude acceptatie in (11.9311ms)
+✔ ontbrekend prijsbronbericht staat geen ACCEPT-dispatch toe (9.1808ms)
+✔ bevestigde prijsbron en receipt uit hetzelfde gesprek blijven toegestaan (10.1811ms)
+✔ Promise als dispatchautorisatie wordt niet als toestemming behandeld (10.2033ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 334.7996

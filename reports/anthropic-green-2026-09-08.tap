@@ -1,0 +1,226 @@
+TAP version 13
+# Subtest: AI-sleutel blijft buiten objectserialisatie en audit
+ok 1 - AI-sleutel blijft buiten objectserialisatie en audit
+  ---
+  duration_ms: 26.2602
+  type: 'test'
+  ...
+# Subtest: AI-verzoek stuurt uitsluitend verkopertekst en laatste bod zonder tools of plafond
+ok 2 - AI-verzoek stuurt uitsluitend verkopertekst en laatste bod zonder tools of plafond
+  ---
+  duration_ms: 46.6963
+  type: 'test'
+  ...
+# Subtest: te lange of ongeldige input en promptinjectie verbruiken geen verzoek
+ok 3 - te lange of ongeldige input en promptinjectie verbruiken geen verzoek
+  ---
+  duration_ms: 4.2336
+  type: 'test'
+  ...
+# Subtest: modelconfidence groter dan één wordt afgewezen
+ok 4 - modelconfidence groter dan één wordt afgewezen
+  ---
+  duration_ms: 7.8032
+  type: 'test'
+  ...
+# Subtest: toolblok naast modeltekst wordt afgewezen
+ok 5 - toolblok naast modeltekst wordt afgewezen
+  ---
+  duration_ms: 6.1503
+  type: 'test'
+  ...
+# Subtest: te grote response wordt gestopt voordat JSON wordt vertrouwd
+ok 6 - te grote response wordt gestopt voordat JSON wordt vertrouwd
+  ---
+  duration_ms: 9.6841
+  type: 'test'
+  ...
+# Subtest: foute AI usage crasht boekhouding niet en wordt niet als geld gebruikt
+ok 7 - foute AI usage crasht boekhouding niet en wordt niet als geld gebruikt
+  ---
+  duration_ms: 8.0863
+  type: 'test'
+  ...
+# Subtest: onzekere AI-output wordt eenmaal afgehandeld en niet automatisch herhaald
+ok 8 - onzekere AI-output wordt eenmaal afgehandeld en niet automatisch herhaald
+  ---
+  duration_ms: 6.8644
+  type: 'test'
+  ...
+# Subtest: anonieme client kan geen gesprekken lezen
+ok 9 - anonieme client kan geen gesprekken lezen
+  ---
+  duration_ms: 163.6477
+  type: 'test'
+  ...
+# Subtest: bootstrap-token vereist voor lokale sessie
+ok 10 - bootstrap-token vereist voor lokale sessie
+  ---
+  duration_ms: 70.0924
+  type: 'test'
+  ...
+# Subtest: unicode-token crasht server niet
+ok 11 - unicode-token crasht server niet
+  ---
+  duration_ms: 101.4146
+  type: 'test'
+  ...
+# Subtest: CSRF ontbreekt: geen activatie
+ok 12 - CSRF ontbreekt: geen activatie
+  ---
+  duration_ms: 53.1516
+  type: 'test'
+  ...
+# Subtest: vreemde Origin wordt geweigerd
+ok 13 - vreemde Origin wordt geweigerd
+  ---
+  duration_ms: 50.591
+  type: 'test'
+  ...
+# Subtest: null-Origin wordt geweigerd
+ok 14 - null-Origin wordt geweigerd
+  ---
+  duration_ms: 53.6441
+  type: 'test'
+  ...
+# Subtest: DNS-rebinding Host geweigerd
+ok 15 - DNS-rebinding Host geweigerd
+  ---
+  duration_ms: 60.7043
+  type: 'test'
+  ...
+# Subtest: CSP en HttpOnly sessie aanwezig
+ok 16 - CSP en HttpOnly sessie aanwezig
+  ---
+  duration_ms: 52.9312
+  type: 'test'
+  ...
+# Subtest: bronbestanden en dotfiles niet via web ophalen
+ok 17 - bronbestanden en dotfiles niet via web ophalen
+  ---
+  duration_ms: 53.1819
+  type: 'test'
+  ...
+# Subtest: onboarding moet voor start afgerond zijn
+ok 18 - onboarding moet voor start afgerond zijn
+  ---
+  duration_ms: 56.5353
+  type: 'test'
+  ...
+# Subtest: geldige onboarding en start, stop zonder berichtgoedkeuring
+ok 19 - geldige onboarding en start, stop zonder berichtgoedkeuring
+  ---
+  duration_ms: 64.255
+  type: 'test'
+  ...
+# Subtest: settingsroute kan activatiecontroles niet omzeilen
+ok 20 - settingsroute kan activatiecontroles niet omzeilen
+  ---
+  duration_ms: 47.5938
+  type: 'test'
+  ...
+# Subtest: live adapter kan niet per setting aangezet worden
+ok 21 - live adapter kan niet per setting aangezet worden
+  ---
+  duration_ms: 62.254
+  type: 'test'
+  ...
+# Subtest: ongeldige limiet veroorzaakt geen gedeeltelijke settingsupdate
+ok 22 - ongeldige limiet veroorzaakt geen gedeeltelijke settingsupdate
+  ---
+  duration_ms: 48.9138
+  type: 'test'
+  ...
+# Subtest: supportrapport zonder conversaties en cookies
+ok 23 - supportrapport zonder conversaties en cookies
+  ---
+  duration_ms: 47.8424
+  type: 'test'
+  ...
+# Subtest: versleutelde export kan met wachtwoord ontsleuteld worden
+ok 24 - versleutelde export kan met wachtwoord ontsleuteld worden
+  ---
+  duration_ms: 181.71
+  type: 'test'
+  ...
+# Subtest: te kort exportwachtwoord afgewezen
+ok 25 - te kort exportwachtwoord afgewezen
+  ---
+  duration_ms: 52.2019
+  type: 'test'
+  ...
+# Subtest: demo reset vereist exacte bevestiging
+ok 26 - demo reset vereist exacte bevestiging
+  ---
+  duration_ms: 54.5657
+  type: 'test'
+  ...
+# Subtest: ongeldige JSON laat de app leven
+ok 27 - ongeldige JSON laat de app leven
+  ---
+  duration_ms: 59.142
+  type: 'test'
+  ...
+# Subtest: AI geldige prijsclassificatie met bewijs
+ok 28 - AI geldige prijsclassificatie met bewijs
+  ---
+  duration_ms: 20.3612
+  type: 'test'
+  ...
+# Subtest: API-fout wordt onzekerheid, geen verzonnen akkoord
+ok 29 - API-fout wordt onzekerheid, geen verzonnen akkoord
+  ---
+  duration_ms: 5.6219
+  type: 'test'
+  ...
+# Subtest: AI timeout resulteert in veilige fallback
+ok 30 - AI timeout resulteert in veilige fallback
+  ---
+  duration_ms: 5.4716
+  type: 'test'
+  ...
+# Subtest: afgebroken AI-output wordt niet vertrouwd
+ok 31 - afgebroken AI-output wordt niet vertrouwd
+  ---
+  duration_ms: 5.3857
+  type: 'test'
+  ...
+# Subtest: AI ongeldige JSON veilig verworpen
+ok 32 - AI ongeldige JSON veilig verworpen
+  ---
+  duration_ms: 4.076
+  type: 'test'
+  ...
+# Subtest: AI kan geen plafond manipuleren via tekst van verkoper
+ok 33 - AI kan geen plafond manipuleren via tekst van verkoper
+  ---
+  duration_ms: 3.6258
+  type: 'test'
+  ...
+# Subtest: stopverzoek kost geen AI-aanroep
+ok 34 - stopverzoek kost geen AI-aanroep
+  ---
+  duration_ms: 4.6851
+  type: 'test'
+  ...
+# Subtest: AI-budget reserveert voor het verzoek, niet erna
+ok 35 - AI-budget reserveert voor het verzoek, niet erna
+  ---
+  duration_ms: 4.8807
+  type: 'test'
+  ...
+# Subtest: ontbrekende sleutel leidt niet tot netwerkverzoek
+ok 36 - ontbrekende sleutel leidt niet tot netwerkverzoek
+  ---
+  duration_ms: 3.4399
+  type: 'test'
+  ...
+1..36
+# tests 36
+# suites 0
+# pass 36
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1721.1609

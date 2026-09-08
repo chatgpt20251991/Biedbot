@@ -1,0 +1,39 @@
+
+> biedbot-edge@0.1.0-pilot.2 test:windows
+> node tests/windows.acceptance.mjs
+
+[
+  {
+    "check": "offline without runtime stops before activation",
+    "status": "passed"
+  },
+  {
+    "check": "unsigned runtime refused before execution",
+    "status": "passed"
+  },
+  {
+    "check": "failed local activation restores previous installation and removes staged version",
+    "status": "passed"
+  },
+  {
+    "check": "missing browser stops before launch with a persisted diagnostic",
+    "status": "passed"
+  },
+  {
+    "check": "UTF-16 VBS starts real HTTP agent and worker in Unicode/space/ampersand path",
+    "status": "passed",
+    "pid": 40124
+  },
+  {
+    "check": "uninstall refuses a running agent",
+    "status": "passed"
+  },
+  {
+    "check": "uninstall removes isolated app/shortcut and preserves data by default",
+    "status": "passed"
+  },
+  {
+    "check": "explicit second confirmation removes isolated data",
+    "status": "passed"
+  }
+]

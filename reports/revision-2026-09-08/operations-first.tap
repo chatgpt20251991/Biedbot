@@ -1,0 +1,20 @@
+✔ volledige backup herstelt meer dan 200 gesprekken en alle bronrecords (476.851ms)
+✔ backup sluit providerkeys, profielverwijzingen en sessiemetadata uit (146.4057ms)
+✔ herstelde sending wordt uncertain; klaarstaande acties worden niet alsnog verstuurd (227.4257ms)
+✔ verkeerd wachtwoord of gewijzigde ciphertext laat bestemming onaangeroerd (224.872ms)
+✔ onbekende velden, KDF, salt en niet-canonieke base64 worden afgewezen (75.279ms)
+✔ restore overschrijft nooit bestaande bestanden (140.311ms)
+✔ wissen behoudt verkoperdeduplicatie en werkelijke quota zonder gesprekstekst (19.5291ms)
+✔ wissen faalt atomair bij onzeker verzendbewijs (9.5925ms)
+✔ retention wist vervallen afgesloten inhoud, bewaart actieve en recente gesprekken (18.3815ms)
+✔ gezondheid controleert ontbrekende heartbeat, uncertain en vastgelopen dispatch (6.0216ms)
+✔ datalease scheidt profielen en weigert een tweede eigenaar (14.0809ms)
+✔ server onderhoud- en backup-API vereisen sessie en CSRF (262.8828ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1986.2562

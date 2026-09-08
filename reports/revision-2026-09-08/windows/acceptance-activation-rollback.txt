@@ -1,0 +1,13 @@
+BiedBot Edge: demonstratie-installatie. Geen automatische afschrijving of echte verkopers.
+INSTALLATIE_GESTOPT: Kan een gedeelte van het pad C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot\.windows-acceptance\run-Bt91HJ\Gebruiker Zoë 李 & Co\Lokale App\versions\0.1.0-acceptance.rollback.staging-0128aff3fb17456696ac12d0305a5f67\src\adapters\approved-browser.mjs niet vinden.
+Diagnoselog: C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot\.windows-acceptance\run-Bt91HJ\Gebruiker Zoë 李 & Co\Lokale App\logs\install-20260908-032427-356.txt
+Copy-Item : Kan een gedeelte van het pad C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\wo
+rk\Biedbot\.windows-acceptance\run-Bt91HJ\Gebruiker Zoë 李 & Co\Lokale App\versions\0.1.0-acceptance.rollback.staging-01
+28aff3fb17456696ac12d0305a5f67\src\adapters\approved-browser.mjs niet vinden.
+At C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot\.windows-acceptance\run-Bt9
+1HJ\Gebruiker Zoë 李 & Co\pakket bron\scripts\Install.ps1:121 char:5
++     Copy-Item -LiteralPath (Join-Path $packageRoot $entry.path) -Dest ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], DirectoryNotFoundException
+    + FullyQualifiedErrorId : System.IO.DirectoryNotFoundException,Microsoft.PowerShell.Commands.CopyItemCommand
+ 

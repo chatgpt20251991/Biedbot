@@ -1,0 +1,21 @@
+✔ distribution ZIP contains exactly the public manifest list and preserves nested paths (275.901ms)
+✔ packaging identical input twice produces a byte-identical distribution (438.831ms)
+✔ Windows installer writes the path-bearing launcher in Unicode (2.7252ms)
+✔ update manifest requires pinned Ed25519 key and authentic exact payload (18.2553ms)
+✔ signed expired/future/replayed releases are rejected (3.0431ms)
+✔ signed paths reject traversal, Windows aliases and case collisions (9.167ms)
+✔ tampered source never stages or changes the current pointer (40.9776ms)
+✔ source symlink/junction is refused before staging (23.7374ms)
+✔ valid release copies only signed files and atomically activates after health acceptance (96.0165ms)
+✔ failed health rolls back only to the prior verified release and remembers rejected sequence (161.3497ms)
+✔ corrupted previous release cannot become rollback target (134.511ms)
+✔ health callback cannot make an unlisted or modified candidate trusted (70.2641ms)
+✔ concurrent activation is locked and a interrupted pending pointer is never silently accepted (101.0504ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 966.9305

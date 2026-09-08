@@ -1,5 +1,5 @@
 /** Product limits, not published platform quotas and not an account-safety guarantee. */
-export const VERSION = '0.1.0-pilot.1';
+export const VERSION = '0.1.0-pilot.2';
 export const HARD_NEW_CONTACT_CAP = 20;
 export const HARD_TOTAL_MESSAGE_CAP = 80;
 export const DEFAULTS = Object.freeze({

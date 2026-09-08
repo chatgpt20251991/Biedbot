@@ -1,0 +1,466 @@
+TAP version 13
+# Subtest: AI-sleutel blijft buiten objectserialisatie en audit
+ok 1 - AI-sleutel blijft buiten objectserialisatie en audit
+  ---
+  duration_ms: 25.9379
+  type: 'test'
+  ...
+# Subtest: AI-verzoek stuurt uitsluitend verkopertekst en laatste bod zonder tools of plafond
+ok 2 - AI-verzoek stuurt uitsluitend verkopertekst en laatste bod zonder tools of plafond
+  ---
+  duration_ms: 69.8698
+  type: 'test'
+  ...
+# Subtest: te lange of ongeldige input en promptinjectie verbruiken geen verzoek
+ok 3 - te lange of ongeldige input en promptinjectie verbruiken geen verzoek
+  ---
+  duration_ms: 10.4227
+  type: 'test'
+  ...
+# Subtest: modelconfidence groter dan één wordt afgewezen
+ok 4 - modelconfidence groter dan één wordt afgewezen
+  ---
+  duration_ms: 8.1303
+  type: 'test'
+  ...
+# Subtest: toolblok naast modeltekst wordt afgewezen
+ok 5 - toolblok naast modeltekst wordt afgewezen
+  ---
+  duration_ms: 8.281
+  type: 'test'
+  ...
+# Subtest: te grote response wordt gestopt voordat JSON wordt vertrouwd
+ok 6 - te grote response wordt gestopt voordat JSON wordt vertrouwd
+  ---
+  duration_ms: 9.4298
+  type: 'test'
+  ...
+# Subtest: foute AI usage crasht boekhouding niet en wordt niet als geld gebruikt
+ok 7 - foute AI usage crasht boekhouding niet en wordt niet als geld gebruikt
+  ---
+  duration_ms: 7.7067
+  type: 'test'
+  ...
+# Subtest: onzekere AI-output wordt eenmaal afgehandeld en niet automatisch herhaald
+ok 8 - onzekere AI-output wordt eenmaal afgehandeld en niet automatisch herhaald
+  ---
+  duration_ms: 8.5485
+  type: 'test'
+  ...
+# Subtest: aanwezige sleutel of database-aanbieder activeert geen AI zonder lokale opt-in
+ok 9 - aanwezige sleutel of database-aanbieder activeert geen AI zonder lokale opt-in
+  ---
+  duration_ms: 6.8303
+  type: 'test'
+  ...
+# Subtest: ongeldige lokale opt-in stopt vóór er een verzoek kan komen
+ok 10 - ongeldige lokale opt-in stopt vóór er een verzoek kan komen
+  ---
+  duration_ms: 8.8381
+  type: 'test'
+  ...
+# Subtest: worker integreert lokale opt-in en valideert AI-false-accept voor dispatch
+ok 11 - worker integreert lokale opt-in en valideert AI-false-accept voor dispatch
+  ---
+  duration_ms: 54.955
+  type: 'test'
+  ...
+# Subtest: annulering vóór verzoek reserveert geen budget
+ok 12 - annulering vóór verzoek reserveert geen budget
+  ---
+  duration_ms: 5.6336
+  type: 'test'
+  ...
+# Subtest: Nederlandse synthetische corpus: geen false accepts of prijsfouten, echte akkoorden behouden
+ok 13 - Nederlandse synthetische corpus: geen false accepts of prijsfouten, echte akkoorden behouden
+  ---
+  duration_ms: 29.8984
+  type: 'test'
+  ...
+# Subtest: adversarial model dat alles accepteert blijft achter lokale beslisvalidatie
+ok 14 - adversarial model dat alles accepteert blijft achter lokale beslisvalidatie
+  ---
+  duration_ms: 12.5753
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord?
+ok 15 - geen koopbevestiging bij: Akkoord?
+  ---
+  duration_ms: 19.0298
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord?!
+ok 16 - geen koopbevestiging bij: Akkoord?!
+  ---
+  duration_ms: 0.501
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord ?
+ok 17 - geen koopbevestiging bij: Akkoord ?
+  ---
+  duration_ms: 0.4306
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: AKKOORD？
+ok 18 - geen koopbevestiging bij: AKKOORD？
+  ---
+  duration_ms: 0.6274
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Is goed?
+ok 19 - geen koopbevestiging bij: Is goed?
+  ---
+  duration_ms: 0.5573
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Prima?
+ok 20 - geen koopbevestiging bij: Prima?
+  ---
+  duration_ms: 0.3977
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Deal?
+ok 21 - geen koopbevestiging bij: Deal?
+  ---
+  duration_ms: 0.3411
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Oké dat is goed?
+ok 22 - geen koopbevestiging bij: Oké dat is goed?
+  ---
+  duration_ms: 0.3378
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord? Wanneer kom je?
+ok 23 - geen koopbevestiging bij: Akkoord? Wanneer kom je?
+  ---
+  duration_ms: 0.3552
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord, toch?
+ok 24 - geen koopbevestiging bij: Akkoord, toch?
+  ---
+  duration_ms: 0.4609
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord, of begrijp ik dat verkeerd?
+ok 25 - geen koopbevestiging bij: Akkoord, of begrijp ik dat verkeerd?
+  ---
+  duration_ms: 0.4643
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord met mijn vraagprijs?
+ok 26 - geen koopbevestiging bij: Akkoord met mijn vraagprijs?
+  ---
+  duration_ms: 0.2942
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord, is dat wat je bedoelt?
+ok 27 - geen koopbevestiging bij: Akkoord, is dat wat je bedoelt?
+  ---
+  duration_ms: 0.2557
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord, denk ik.
+ok 28 - geen koopbevestiging bij: Akkoord, denk ik.
+  ---
+  duration_ms: 0.8932
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord, eventueel.
+ok 29 - geen koopbevestiging bij: Akkoord, eventueel.
+  ---
+  duration_ms: 0.2549
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord met extra kosten.
+ok 30 - geen koopbevestiging bij: Akkoord met extra kosten.
+  ---
+  duration_ms: 0.2036
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord op voorwaarde dat je vandaag komt.
+ok 31 - geen koopbevestiging bij: Akkoord op voorwaarde dat je vandaag komt.
+  ---
+  duration_ms: 0.2002
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord, dan moet de prijs hoger.
+ok 32 - geen koopbevestiging bij: Akkoord, dan moet de prijs hoger.
+  ---
+  duration_ms: 0.1999
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord. Ik twijfel nog.
+ok 33 - geen koopbevestiging bij: Akkoord. Ik twijfel nog.
+  ---
+  duration_ms: 0.1984
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord. Ik ga toch niet akkoord.
+ok 34 - geen koopbevestiging bij: Akkoord. Ik ga toch niet akkoord.
+  ---
+  duration_ms: 0.2187
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord als je eerst komt kijken.
+ok 35 - geen koopbevestiging bij: Akkoord als je eerst komt kijken.
+  ---
+  duration_ms: 0.1922
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Is goed, tenzij ik een hoger bod krijg.
+ok 36 - geen koopbevestiging bij: Is goed, tenzij ik een hoger bod krijg.
+  ---
+  duration_ms: 0.2018
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Prima, maar alleen met inruil.
+ok 37 - geen koopbevestiging bij: Prima, maar alleen met inruil.
+  ---
+  duration_ms: 0.1923
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord. Wanneer ga je akkoord met mijn vraagprijs?
+ok 38 - geen koopbevestiging bij: Akkoord. Wanneer ga je akkoord met mijn vraagprijs?
+  ---
+  duration_ms: 0.1946
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord, wanneer bied je meer?
+ok 39 - geen koopbevestiging bij: Akkoord, wanneer bied je meer?
+  ---
+  duration_ms: 0.2055
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord, je bent zeker gek.
+ok 40 - geen koopbevestiging bij: Akkoord, je bent zeker gek.
+  ---
+  duration_ms: 0.1908
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Prima. Dat was een grapje.
+ok 41 - geen koopbevestiging bij: Prima. Dat was een grapje.
+  ---
+  duration_ms: 0.1871
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord, op papier misschien.
+ok 42 - geen koopbevestiging bij: Akkoord, op papier misschien.
+  ---
+  duration_ms: 0.2279
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Niet akkoord
+ok 43 - geen koopbevestiging bij: Niet akkoord
+  ---
+  duration_ms: 0.2473
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Geen akkoord
+ok 44 - geen koopbevestiging bij: Geen akkoord
+  ---
+  duration_ms: 0.2278
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Nee, dat is niet goed.
+ok 45 - geen koopbevestiging bij: Nee, dat is niet goed.
+  ---
+  duration_ms: 0.2965
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Ik ben nog niet akkoord.
+ok 46 - geen koopbevestiging bij: Ik ben nog niet akkoord.
+  ---
+  duration_ms: 0.2195
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Is het akkoord?
+ok 47 - geen koopbevestiging bij: Is het akkoord?
+  ---
+  duration_ms: 0.1911
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Ben je akkoord
+ok 48 - geen koopbevestiging bij: Ben je akkoord
+  ---
+  duration_ms: 0.1774
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: De auto is prima onderhouden.
+ok 49 - geen koopbevestiging bij: De auto is prima onderhouden.
+  ---
+  duration_ms: 0.2014
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Je zei "akkoord", ik nog niet.
+ok 50 - geen koopbevestiging bij: Je zei "akkoord", ik nog niet.
+  ---
+  duration_ms: 0.2219
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Voor EUR 8170?
+ok 51 - geen koopbevestiging bij: Voor EUR 8170?
+  ---
+  duration_ms: 1.1858
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord voor EUR 8170?
+ok 52 - geen koopbevestiging bij: Akkoord voor EUR 8170?
+  ---
+  duration_ms: 0.2331
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord voor EUR 8170 als je vandaag komt.
+ok 53 - geen koopbevestiging bij: Akkoord voor EUR 8170 als je vandaag komt.
+  ---
+  duration_ms: 0.236
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord voor EUR 8170. Wanneer betaal je EUR 9000?
+ok 54 - geen koopbevestiging bij: Akkoord voor EUR 8170. Wanneer betaal je EUR 9000?
+  ---
+  duration_ms: 0.3712
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord met EUR 8170, denk ik.
+ok 55 - geen koopbevestiging bij: Akkoord met EUR 8170, denk ik.
+  ---
+  duration_ms: 0.205
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord met EUR 8170 aan reparaties.
+ok 56 - geen koopbevestiging bij: Akkoord met EUR 8170 aan reparaties.
+  ---
+  duration_ms: 0.2531
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord, je mag voor EUR 8170 alleen de motor hebben.
+ok 57 - geen koopbevestiging bij: Akkoord, je mag voor EUR 8170 alleen de motor hebben.
+  ---
+  duration_ms: 0.2461
+  type: 'test'
+  ...
+# Subtest: geen koopbevestiging bij: Akkoord. Voor EUR 8170 moet ik er nog over nadenken.
+ok 58 - geen koopbevestiging bij: Akkoord. Voor EUR 8170 moet ik er nog over nadenken.
+  ---
+  duration_ms: 0.2524
+  type: 'test'
+  ...
+# Subtest: laatste bod geldig aanvaard: Akkoord
+ok 59 - laatste bod geldig aanvaard: Akkoord
+  ---
+  duration_ms: 0.3998
+  type: 'test'
+  ...
+# Subtest: laatste bod geldig aanvaard: Akkoord.
+ok 60 - laatste bod geldig aanvaard: Akkoord.
+  ---
+  duration_ms: 0.1868
+  type: 'test'
+  ...
+# Subtest: laatste bod geldig aanvaard: Is goed, akkoord.
+ok 61 - laatste bod geldig aanvaard: Is goed, akkoord.
+  ---
+  duration_ms: 0.1794
+  type: 'test'
+  ...
+# Subtest: laatste bod geldig aanvaard: Oké dat is goed, wanneer kunt u langskomen?
+ok 62 - laatste bod geldig aanvaard: Oké dat is goed, wanneer kunt u langskomen?
+  ---
+  duration_ms: 0.1983
+  type: 'test'
+  ...
+# Subtest: laatste bod geldig aanvaard: Prima.
+ok 63 - laatste bod geldig aanvaard: Prima.
+  ---
+  duration_ms: 0.1606
+  type: 'test'
+  ...
+# Subtest: laatste bod geldig aanvaard: Deal!
+ok 64 - laatste bod geldig aanvaard: Deal!
+  ---
+  duration_ms: 0.1722
+  type: 'test'
+  ...
+# Subtest: laatste bod geldig aanvaard: Afgesproken.
+ok 65 - laatste bod geldig aanvaard: Afgesproken.
+  ---
+  duration_ms: 0.1706
+  type: 'test'
+  ...
+# Subtest: laatste bod geldig aanvaard: Ja, akkoord.
+ok 66 - laatste bod geldig aanvaard: Ja, akkoord.
+  ---
+  duration_ms: 0.1753
+  type: 'test'
+  ...
+# Subtest: laatste bod geldig aanvaard: Akkoord, wanneer kun je komen?
+ok 67 - laatste bod geldig aanvaard: Akkoord, wanneer kun je komen?
+  ---
+  duration_ms: 0.1845
+  type: 'test'
+  ...
+# Subtest: laatste bod geldig aanvaard: Akkoord. Wanneer schikt het jou?
+ok 68 - laatste bod geldig aanvaard: Akkoord. Wanneer schikt het jou?
+  ---
+  duration_ms: 0.1662
+  type: 'test'
+  ...
+# Subtest: laatste bod geldig aanvaard: Is goed. Kan je morgen langskomen?
+ok 69 - laatste bod geldig aanvaard: Is goed. Kan je morgen langskomen?
+  ---
+  duration_ms: 0.163
+  type: 'test'
+  ...
+# Subtest: laatste bod geldig aanvaard: Prima, kun je zaterdag komen kijken?
+ok 70 - laatste bod geldig aanvaard: Prima, kun je zaterdag komen kijken?
+  ---
+  duration_ms: 0.1674
+  type: 'test'
+  ...
+# Subtest: laatste bod geldig aanvaard: Akkoord! Hoe laat kun je komen?
+ok 71 - laatste bod geldig aanvaard: Akkoord! Hoe laat kun je komen?
+  ---
+  duration_ms: 0.1604
+  type: 'test'
+  ...
+# Subtest: laatste bod geldig aanvaard: Akkoord met je bod.
+ok 72 - laatste bod geldig aanvaard: Akkoord met je bod.
+  ---
+  duration_ms: 0.1484
+  type: 'test'
+  ...
+# Subtest: laatste bod geldig aanvaard: Ik ga akkoord met uw laatste bod.
+ok 73 - laatste bod geldig aanvaard: Ik ga akkoord met uw laatste bod.
+  ---
+  duration_ms: 0.1835
+  type: 'test'
+  ...
+# Subtest: laatste bod geldig aanvaard: Akkoord, je kunt morgen langskomen.
+ok 74 - laatste bod geldig aanvaard: Akkoord, je kunt morgen langskomen.
+  ---
+  duration_ms: 0.1719
+  type: 'test'
+  ...
+# Subtest: expliciet bedrag met planningsvraag: Akkoord met EUR 8170, wanneer kun je komen?
+ok 75 - expliciet bedrag met planningsvraag: Akkoord met EUR 8170, wanneer kun je komen?
+  ---
+  duration_ms: 0.3771
+  type: 'test'
+  ...
+# Subtest: expliciet bedrag met planningsvraag: Akkoord voor EUR 8170. Kan je morgen langskomen?
+ok 76 - expliciet bedrag met planningsvraag: Akkoord voor EUR 8170. Kan je morgen langskomen?
+  ---
+  duration_ms: 0.2009
+  type: 'test'
+  ...
+1..76
+# tests 76
+# suites 0
+# pass 76
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 481.8147

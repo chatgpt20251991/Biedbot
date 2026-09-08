@@ -1,0 +1,180 @@
+TAP version 13
+# Subtest: AI-sleutel blijft buiten objectserialisatie en audit
+not ok 1 - AI-sleutel blijft buiten objectserialisatie en audit
+  ---
+  duration_ms: 19.1814
+  type: 'test'
+  location: 'C:\\Users\\Han23\\Documents\\Codex\\2026-09-08\\voer-codex-start-hier-md-volledig\\work\\Biedbot\\tests\\anthropic-integration.test.mjs:7:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(!JSON.stringify(client).includes(secret))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/anthropic-integration.test.mjs:10:10)
+    Test.runInAsyncScope (node:async_hooks:227:14)
+    Test.run (node:internal/test_runner/test:1201:25)
+    Test.start (node:internal/test_runner/test:1096:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:385:17)
+  ...
+# Subtest: AI-verzoek stuurt uitsluitend verkopertekst en laatste bod zonder tools of plafond
+not ok 2 - AI-verzoek stuurt uitsluitend verkopertekst en laatste bod zonder tools of plafond
+  ---
+  duration_ms: 13.2463
+  type: 'test'
+  location: 'C:\\Users\\Han23\\Documents\\Codex\\2026-09-08\\voer-codex-start-hier-md-volledig\\work\\Biedbot\\tests\\anthropic-integration.test.mjs:14:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'UNKNOWN'
+    - 'ACCEPT'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'ACCEPT'
+  actual: 'UNKNOWN'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/anthropic-integration.test.mjs:22:10)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: te lange of ongeldige input en promptinjectie verbruiken geen verzoek
+not ok 3 - te lange of ongeldige input en promptinjectie verbruiken geen verzoek
+  ---
+  duration_ms: 48.1135
+  type: 'test'
+  location: 'C:\\Users\\Han23\\Documents\\Codex\\2026-09-08\\voer-codex-start-hier-md-volledig\\work\\Biedbot\\tests\\anthropic-integration.test.mjs:24:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    4 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 4
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/anthropic-integration.test.mjs:28:10)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: modelconfidence groter dan één wordt afgewezen
+ok 4 - modelconfidence groter dan één wordt afgewezen
+  ---
+  duration_ms: 7.2697
+  type: 'test'
+  ...
+# Subtest: toolblok naast modeltekst wordt afgewezen
+not ok 5 - toolblok naast modeltekst wordt afgewezen
+  ---
+  duration_ms: 5.4513
+  type: 'test'
+  location: 'C:\\Users\\Han23\\Documents\\Codex\\2026-09-08\\voer-codex-start-hier-md-volledig\\work\\Biedbot\\tests\\anthropic-integration.test.mjs:34:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'ACCEPT'
+    - 'UNKNOWN'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'UNKNOWN'
+  actual: 'ACCEPT'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/anthropic-integration.test.mjs:36:10)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: te grote response wordt gestopt voordat JSON wordt vertrouwd
+not ok 6 - te grote response wordt gestopt voordat JSON wordt vertrouwd
+  ---
+  duration_ms: 5.0477
+  type: 'test'
+  location: 'C:\\Users\\Han23\\Documents\\Codex\\2026-09-08\\voer-codex-start-hier-md-volledig\\work\\Biedbot\\tests\\anthropic-integration.test.mjs:38:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'ACCEPT'
+    - 'UNKNOWN'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'UNKNOWN'
+  actual: 'ACCEPT'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/anthropic-integration.test.mjs:40:10)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: foute AI usage crasht boekhouding niet en wordt niet als geld gebruikt
+not ok 7 - foute AI usage crasht boekhouding niet en wordt niet als geld gebruikt
+  ---
+  duration_ms: 5.2235
+  type: 'test'
+  location: 'C:\\Users\\Han23\\Documents\\Codex\\2026-09-08\\voer-codex-start-hier-md-volledig\\work\\Biedbot\\tests\\anthropic-integration.test.mjs:42:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'UNKNOWN'
+    - 'ACCEPT'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'ACCEPT'
+  actual: 'UNKNOWN'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/anthropic-integration.test.mjs:44:10)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+# Subtest: onzekere AI-output wordt eenmaal afgehandeld en niet automatisch herhaald
+not ok 8 - onzekere AI-output wordt eenmaal afgehandeld en niet automatisch herhaald
+  ---
+  duration_ms: 5.5133
+  type: 'test'
+  location: 'C:\\Users\\Han23\\Documents\\Codex\\2026-09-08\\voer-codex-start-hier-md-volledig\\work\\Biedbot\\tests\\anthropic-integration.test.mjs:47:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    'done' !== 'failed'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'failed'
+  actual: 'done'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/anthropic-integration.test.mjs:51:10)
+    async Test.run (node:internal/test_runner/test:1208:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:831:7)
+  ...
+1..8
+# tests 8
+# suites 0
+# pass 1
+# fail 7
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 333.7176

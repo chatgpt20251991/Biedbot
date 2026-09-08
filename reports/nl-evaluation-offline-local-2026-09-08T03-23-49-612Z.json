@@ -1,0 +1,1854 @@
+{
+  "createdAt": "2026-09-08T03:23:49.611Z",
+  "corpus": {
+    "version": 1,
+    "provenance": "synthetic-authored",
+    "realSellerData": false,
+    "populationRepresentative": false,
+    "liveProviderEvidence": false
+  },
+  "provider": "offline-local",
+  "scope": "LOCAL_RULES_OR_INJECTED_MOCK_ONLY",
+  "total": 128,
+  "negativeCases": 95,
+  "positiveCases": 33,
+  "falseAccepts": 0,
+  "falseAcceptRate": 0,
+  "falseRejects": 0,
+  "falseRejectRate": 0,
+  "wrongPrices": 0,
+  "errors": 0,
+  "releaseEvidence": false,
+  "limitations": [
+    "Synthetische regressieset; geen echte geanonimiseerde gesprekken.",
+    "Geen schatting van foutenfrequentie bij echte verkopers.",
+    "Geen bewijs van commercieel resultaat."
+  ],
+  "outcomes": [
+    {
+      "id": "nl-001",
+      "category": "unconditional_accept",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "ACCEPT",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-002",
+      "category": "unconditional_accept",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "ACCEPT",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-003",
+      "category": "unconditional_accept",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "ACCEPT",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-004",
+      "category": "unconditional_accept",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "ACCEPT",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-005",
+      "category": "unconditional_accept",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "ACCEPT",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-006",
+      "category": "unconditional_accept",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "ACCEPT",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-007",
+      "category": "unconditional_accept",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "ACCEPT",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-008",
+      "category": "unconditional_accept",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "ACCEPT",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-009",
+      "category": "unconditional_accept",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "ACCEPT",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-010",
+      "category": "unconditional_accept",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "ACCEPT",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-011",
+      "category": "unconditional_accept",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "ACCEPT",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-012",
+      "category": "unconditional_accept",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "ACCEPT",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-013",
+      "category": "unconditional_accept",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "ACCEPT",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-014",
+      "category": "unconditional_accept",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "ACCEPT",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-015",
+      "category": "accept_with_planning",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "ACCEPT",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-016",
+      "category": "accept_with_planning",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "ACCEPT",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-017",
+      "category": "accept_with_planning",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "ACCEPT",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-018",
+      "category": "accept_with_planning",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "ACCEPT",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-019",
+      "category": "accept_with_planning",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "ACCEPT",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-020",
+      "category": "accept_with_planning",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "ACCEPT",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-021",
+      "category": "accept_with_planning",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "ACCEPT",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-022",
+      "category": "accept_with_planning",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "ACCEPT",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-023",
+      "category": "accept_with_planning",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "PRICE",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-024",
+      "category": "accept_with_planning",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "PRICE",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-025",
+      "category": "questions",
+      "expected": {
+        "accept": false
+      },
+      "kind": "QUESTION",
+      "action": "REVIEW",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-026",
+      "category": "questions",
+      "expected": {
+        "accept": false
+      },
+      "kind": "QUESTION",
+      "action": "REVIEW",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-027",
+      "category": "questions",
+      "expected": {
+        "accept": false
+      },
+      "kind": "QUESTION",
+      "action": "REVIEW",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-028",
+      "category": "questions",
+      "expected": {
+        "accept": false
+      },
+      "kind": "QUESTION",
+      "action": "REVIEW",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-029",
+      "category": "questions",
+      "expected": {
+        "accept": false
+      },
+      "kind": "QUESTION",
+      "action": "REVIEW",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-030",
+      "category": "questions",
+      "expected": {
+        "accept": false
+      },
+      "kind": "QUESTION",
+      "action": "REVIEW",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-031",
+      "category": "questions",
+      "expected": {
+        "accept": false
+      },
+      "kind": "QUESTION",
+      "action": "REVIEW",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-032",
+      "category": "questions",
+      "expected": {
+        "accept": false
+      },
+      "kind": "QUESTION",
+      "action": "REVIEW",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-033",
+      "category": "questions",
+      "expected": {
+        "accept": false
+      },
+      "kind": "QUESTION",
+      "action": "REVIEW",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-034",
+      "category": "questions",
+      "expected": {
+        "accept": false
+      },
+      "kind": "QUESTION",
+      "action": "REVIEW",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-035",
+      "category": "questions",
+      "expected": {
+        "accept": false
+      },
+      "kind": "QUESTION",
+      "action": "REVIEW",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-036",
+      "category": "questions",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-037",
+      "category": "questions",
+      "expected": {
+        "accept": false
+      },
+      "kind": "QUESTION",
+      "action": "REVIEW",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-038",
+      "category": "questions",
+      "expected": {
+        "accept": false
+      },
+      "kind": "QUESTION",
+      "action": "REVIEW",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-039",
+      "category": "questions",
+      "expected": {
+        "accept": false
+      },
+      "kind": "QUESTION",
+      "action": "REVIEW",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-040",
+      "category": "questions",
+      "expected": {
+        "accept": false
+      },
+      "kind": "QUESTION",
+      "action": "REVIEW",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-041",
+      "category": "questions",
+      "expected": {
+        "accept": false
+      },
+      "kind": "QUESTION",
+      "action": "REVIEW",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-042",
+      "category": "questions",
+      "expected": {
+        "accept": false
+      },
+      "kind": "QUESTION",
+      "action": "REVIEW",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-043",
+      "category": "questions",
+      "expected": {
+        "accept": false
+      },
+      "kind": "QUESTION",
+      "action": "REVIEW",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-044",
+      "category": "questions",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-045",
+      "category": "questions",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-046",
+      "category": "questions",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-047",
+      "category": "negations",
+      "expected": {
+        "accept": false
+      },
+      "kind": "FIRM",
+      "action": "PROBE",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-048",
+      "category": "negations",
+      "expected": {
+        "accept": false
+      },
+      "kind": "FIRM",
+      "action": "PROBE",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-049",
+      "category": "negations",
+      "expected": {
+        "accept": false
+      },
+      "kind": "FIRM",
+      "action": "PROBE",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-050",
+      "category": "negations",
+      "expected": {
+        "accept": false
+      },
+      "kind": "FIRM",
+      "action": "PROBE",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-051",
+      "category": "negations",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-052",
+      "category": "negations",
+      "expected": {
+        "accept": false
+      },
+      "kind": "FIRM",
+      "action": "PROBE",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-053",
+      "category": "negations",
+      "expected": {
+        "accept": false
+      },
+      "kind": "FIRM",
+      "action": "PROBE",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-054",
+      "category": "negations",
+      "expected": {
+        "accept": false
+      },
+      "kind": "FIRM",
+      "action": "PROBE",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-055",
+      "category": "negations",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-056",
+      "category": "negations",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-057",
+      "category": "negations",
+      "expected": {
+        "accept": false
+      },
+      "kind": "FIRM",
+      "action": "PROBE",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-058",
+      "category": "negations",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-059",
+      "category": "negations",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-060",
+      "category": "negations",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-061",
+      "category": "conditions_uncertainty",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-062",
+      "category": "conditions_uncertainty",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-063",
+      "category": "conditions_uncertainty",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-064",
+      "category": "conditions_uncertainty",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-065",
+      "category": "conditions_uncertainty",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-066",
+      "category": "conditions_uncertainty",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-067",
+      "category": "conditions_uncertainty",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-068",
+      "category": "conditions_uncertainty",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-069",
+      "category": "conditions_uncertainty",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-070",
+      "category": "conditions_uncertainty",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-071",
+      "category": "conditions_uncertainty",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-072",
+      "category": "conditions_uncertainty",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-073",
+      "category": "conditions_uncertainty",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-074",
+      "category": "conditions_uncertainty",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-075",
+      "category": "conditions_uncertainty",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-076",
+      "category": "conditions_uncertainty",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-077",
+      "category": "sarcasm_quotes",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-078",
+      "category": "sarcasm_quotes",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-079",
+      "category": "sarcasm_quotes",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-080",
+      "category": "sarcasm_quotes",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-081",
+      "category": "sarcasm_quotes",
+      "expected": {
+        "accept": false
+      },
+      "kind": "FIRM",
+      "action": "PROBE",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-082",
+      "category": "sarcasm_quotes",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-083",
+      "category": "sarcasm_quotes",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-084",
+      "category": "sarcasm_quotes",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-085",
+      "category": "non_purchase_amounts",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-086",
+      "category": "non_purchase_amounts",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-087",
+      "category": "non_purchase_amounts",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-088",
+      "category": "non_purchase_amounts",
+      "expected": {
+        "accept": false
+      },
+      "kind": "FIRM",
+      "action": "PROBE",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-089",
+      "category": "non_purchase_amounts",
+      "expected": {
+        "accept": false
+      },
+      "kind": "FIRM",
+      "action": "PROBE",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-090",
+      "category": "non_purchase_amounts",
+      "expected": {
+        "accept": false
+      },
+      "kind": "FIRM",
+      "action": "PROBE",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-091",
+      "category": "non_purchase_amounts",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-092",
+      "category": "non_purchase_amounts",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-093",
+      "category": "multiple_amounts",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-094",
+      "category": "multiple_amounts",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-095",
+      "category": "multiple_amounts",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-096",
+      "category": "multiple_amounts",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-097",
+      "category": "multiple_amounts",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-098",
+      "category": "safety",
+      "expected": {
+        "accept": false
+      },
+      "kind": "OPT_OUT",
+      "action": "SILENT_STOP",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-099",
+      "category": "safety",
+      "expected": {
+        "accept": false
+      },
+      "kind": "OPT_OUT",
+      "action": "SILENT_STOP",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-100",
+      "category": "safety",
+      "expected": {
+        "accept": false
+      },
+      "kind": "REFUSE",
+      "action": "DECLINE",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-101",
+      "category": "safety",
+      "expected": {
+        "accept": false
+      },
+      "kind": "SOLD",
+      "action": "SILENT_STOP",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-102",
+      "category": "safety",
+      "expected": {
+        "accept": false
+      },
+      "kind": "RISK",
+      "action": "REVIEW",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-103",
+      "category": "safety",
+      "expected": {
+        "accept": false
+      },
+      "kind": "RISK",
+      "action": "REVIEW",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-104",
+      "category": "safety",
+      "expected": {
+        "accept": false
+      },
+      "kind": "RISK",
+      "action": "REVIEW",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-105",
+      "category": "safety",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-106",
+      "category": "safety",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-107",
+      "category": "information",
+      "expected": {
+        "accept": false
+      },
+      "kind": "INFO",
+      "action": "PROBE",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-108",
+      "category": "information",
+      "expected": {
+        "accept": false
+      },
+      "kind": "INFO",
+      "action": "PROBE",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-109",
+      "category": "information",
+      "expected": {
+        "accept": false
+      },
+      "kind": "INFO",
+      "action": "PROBE",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-110",
+      "category": "information",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-111",
+      "category": "information",
+      "expected": {
+        "accept": false
+      },
+      "kind": "QUESTION",
+      "action": "REVIEW",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-112",
+      "category": "information",
+      "expected": {
+        "accept": false
+      },
+      "kind": "QUESTION",
+      "action": "IDENTITY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-113",
+      "category": "information",
+      "expected": {
+        "accept": false
+      },
+      "kind": "QUESTION",
+      "action": "AUTOMATION",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-114",
+      "category": "information",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-115",
+      "category": "information",
+      "expected": {
+        "accept": false
+      },
+      "kind": "UNKNOWN",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-116",
+      "category": "seller_price",
+      "expected": {
+        "accept": true,
+        "price": 8000
+      },
+      "kind": "PRICE",
+      "action": "ACCEPT",
+      "price": 8000,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-117",
+      "category": "seller_price",
+      "expected": {
+        "accept": true,
+        "price": 8000
+      },
+      "kind": "PRICE",
+      "action": "ACCEPT",
+      "price": 8000,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-118",
+      "category": "seller_price",
+      "expected": {
+        "accept": true,
+        "price": 8300
+      },
+      "kind": "PRICE",
+      "action": "ACCEPT",
+      "price": 8300,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-119",
+      "category": "seller_price",
+      "expected": {
+        "accept": true,
+        "price": 8250
+      },
+      "kind": "PRICE",
+      "action": "ACCEPT",
+      "price": 8250,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-120",
+      "category": "seller_price",
+      "expected": {
+        "accept": true,
+        "price": 8100
+      },
+      "kind": "PRICE",
+      "action": "ACCEPT",
+      "price": 8100,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-121",
+      "category": "seller_price",
+      "expected": {
+        "accept": true,
+        "price": 8100
+      },
+      "kind": "PRICE",
+      "action": "ACCEPT",
+      "price": 8100,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-122",
+      "category": "seller_price",
+      "expected": {
+        "accept": true,
+        "price": 8100
+      },
+      "kind": "PRICE",
+      "action": "ACCEPT",
+      "price": 8100,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-123",
+      "category": "seller_price",
+      "expected": {
+        "accept": true,
+        "price": 8000
+      },
+      "kind": "PRICE",
+      "action": "ACCEPT",
+      "price": 8000,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-124",
+      "category": "seller_price",
+      "expected": {
+        "accept": true,
+        "price": 8170
+      },
+      "kind": "PRICE",
+      "action": "ACCEPT",
+      "price": 8170,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-125",
+      "category": "over_ceiling",
+      "expected": {
+        "accept": false
+      },
+      "kind": "PRICE",
+      "action": "DECLINE",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-126",
+      "category": "over_ceiling",
+      "expected": {
+        "accept": false
+      },
+      "kind": "PRICE",
+      "action": "DECLINE",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-127",
+      "category": "over_ceiling",
+      "expected": {
+        "accept": false
+      },
+      "kind": "PRICE",
+      "action": "DECLINE",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    },
+    {
+      "id": "nl-no-offer",
+      "category": "no_confirmed_offer",
+      "expected": {
+        "accept": false
+      },
+      "kind": "ACCEPT",
+      "action": "CLARIFY",
+      "price": null,
+      "error": null,
+      "falseAccept": false,
+      "falseReject": false,
+      "wrongPrice": false
+    }
+  ]
+}

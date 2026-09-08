@@ -1,5 +1,7 @@
 # Herkomst en bewuste wijzigingen in de gesprekslogica
 
+Revisie 8 september 2026: volledige akkoordzinnen worden gevalideerd, inclusief vragen, negaties, voorwaarden en planningsstaarten. Een losse `Akkoord?` veroorzaakt geen prijsacceptatie. Een verkopersprijs moet een volledige, ondubbelzinnige prijszin zijn. Nieuwe regressies en de expliciet synthetische 128-scenario-evaluatie staan onder de gedateerde rapporten; echte AI-acceptatie blijft vereist.
+
 Basis: aangeleverd `BIEDBOT_GESPREKSLOGICA.md`, met name hoofdstuk 0 en 0B, herbouw 11 juli 2026. Dit is de nieuwere deterministische aanpak. De latere oude Haiku-prompts en oude samenvattingsflow zijn niet opnieuw actief gemaakt. De kop “Alles vanaf hoofdstuk 5 is oud” wordt gelezen samen met de expliciete labels “oud systeem” elders, niet als toestemming om tegenstrijdige oude strategieën te mengen.
 
 ## Behouden

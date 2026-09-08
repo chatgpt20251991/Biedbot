@@ -1,5 +1,7 @@
 # Codex-werkopdracht: van geteste demo naar vrijgegeven lokale inkoper
 
+Uitvoeringsupdate 8 september 2026: de lokale herstelbuild en werkstromen zijn beschreven in [UITVOERING_2026-09-08.md](UITVOERING_2026-09-08.md). Het oorspronkelijke document hieronder blijft de acceptatieopdracht; de externe criteria onder “Done betekent” zijn nog niet volledig bewezen. De door de gebruiker aangewezen repository is nu `chatgpt20251991/Biedbot`.
+
 Dit document is een uitvoerbare ontwikkelbriefing voor een volgende sessie. Er is vanuit deze chat GEEN Codex-taak gestart. De huidige broncode is lokaal gebouwd en de applicatieworker is daadwerkelijk getest. Een passende oorspronkelijke GitHub-repository was niet gevonden. Deze map kan als zelfstandig project in Codex worden geopend.
 
 ## Begin met bewijs, niet met een extra redesign

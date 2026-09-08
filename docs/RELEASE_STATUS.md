@@ -1,43 +1,33 @@
-# Vrijgavestatus
+# Vrijgavestatus · 0.1.0-pilot.2
 
-Datum: 7 september 2026. Build: 0.1.0-pilot.1.
+8 september 2026. **GO voor een lokale technische demo. NO-GO voor onbeheerde live inkoop of betaalde dealeruitrol.**
 
-## Besluit
+De zes fouten uit `CODEX_START_HIER.md` zijn hersteld. Werkstromen A–E zijn lokaal uitgewerkt; onafhankelijke review heeft extra bron-/receipt- en betaalrechtenraces gevonden en laten repareren. Het volledige uitvoeringsoverzicht staat in [UITVOERING_2026-09-08.md](UITVOERING_2026-09-08.md).
 
-**GO voor een technische, fictieve productdemonstratie. NO-GO voor onbeheerde live inkoop bij betalende dealers.** De Windows-installer is geschreven, maar de eerste Windows-installatie is nog een acceptatietest. Deze twee uitspraken mogen niet worden vervangen door “dealer-ready, bugvrij en morgen live”.
+## Daadwerkelijk uitgevoerd
 
-| Onderdeel | Implementatie | Feitelijk getest |
-|---|---|---|
-| Onderhandelaar, caps, budget, stop/handoff | Werkende code | Automatische Node-tests en 10.000 berekende prijsgevallen |
-| Lokale SQLite, uitgaande wachtrij, crashveiligheid | Werkende code | Transacties, parallelle reserveringen, restart en uncertain-state |
-| HTTP-agent + echte workerthread | Werkend | Via lokale HTTP-app autonoom tot demo-overdracht |
-| Interface desktop/mobiel | Werkend | Echte Chromium DOM/rendering; API-responsen gemockt in DOM-test |
-| Lokale fixture-browsertest | Script en adapter aanwezig | Geblokkeerd: `net::ERR_BLOCKED_BY_ADMINISTRATOR` |
-| Marktplaats zoeken, inbox en verzenden | Adapterstructuur, geen gevalideerd livecontract | Niet getest op echte ingelogde Marktplaats |
-| Windows-installer | Bootstrap, runtimecontrole, snelkoppeling | Niet op Windows uitgevoerd |
-| Sonnet-classificatie | Afzonderlijke API-client | Mockverzoeken, foutgevallen, budget en outputvalidatie; geen echt verzoek |
-| Mollie, abonnementen, licentie | Afzonderlijke modules | Mocks/cryptografische tests; geen betaalprovider of issuer gedeployed |
-| Automatische updates en rollback | Nog geen productie-implementatie | Niet getest |
-| Productie-dataverwijdering | Instelling als beleid; nog geen cron/retentionproces | Niet als productievoorziening geleverd |
-| Ondertekende distributie | Niet aanwezig | Geen reputatie/SmartScreen/AV-acceptatietest |
-| Juridisch, privacy en platformtoegang | Onderzoeksnotities en releasechecklist | Geen juridische goedkeuring of contractafspraak |
+401/401 Node-tests, 20 browsercontroles, 14 DOM-controles en 8 geïsoleerde Windowsacceptatiegevallen geslaagd. Node v24.15.0, Windows 10.0.26200. De eindcontrole `npm run verify` heeft exitcode 0. Alle 24 oorspronkelijke rapport-/auditbestanden zijn opnieuw op bytegelijke SHA-256 gecontroleerd. Nieuwe tests hebben waar van toepassing eerst aantoonbaar gefaald op de oorspronkelijke code.
 
-## Er is geen heimelijke live-schakelaar
+| Onderdeel | Feitelijke status |
+|---|---|
+| Nieuwe input, outbox, caps, prijsacceptatie | Regressies en echte SQLite-transacties, workers en OS-processen geslaagd |
+| Browser/ontvanger/bron/receipt | Echte Edge op uitsluitend eigen lokale fixtures; exacte broncontrole en atomair gebonden snapshots |
+| Interface | Lokale HTTP-app met echte worker; desktop/mobiel, volledige backup en inhoud wissen getest |
+| Windowsdistributie | Eén echte Windows-host; Unicode/spaties/ampersand, start/shutdown, foutlogs, installerrollback en deïnstallatie bewezen |
+| ZIP | Manifestgestuurde bestandsselectie; canary-uitsluitingen en herhaalbaarheid getest; SHA-256 is geen uitgevershandtekening |
+| AI | Configureerbare Anthropic-classifier, standaard offline; mocks en 128 synthetische NL scenario's; geen echte AI-aanroep |
+| Checkout/licentie | Afzonderlijke loopback publisher-backend met echte SQLite/HTTP en geïnjecteerde provider; geen betaalprovidertransactie |
+| Operations | Volledige versleutelde logische databasebackup/herstel, retention/wissen, dedup/quota-behoud, profiellease en concrete healthchecks |
+| Updates | Geteste offline Ed25519-verificatie, staging, atomische pointers en rollback; geen actief updatekanaal of launcher-integratie |
+| GitHub | Remote correct geconfigureerd; publicatie geblokkeerd door `403 Resource not accessible by integration`; geen remote commit, PR of Actions-run |
 
-`src/worker/runner.mjs` kiest de geïsoleerde DemoAdapter. Instellingen kunnen hem niet naar live omzetten. De browseradapter weigert een niet-vrijgegeven productierun. De keuze voorkomt dat een onbevestigde selector of gebrekkige sessiecontrole echte verkopers raakt.
+## Openstaande vrijgavevoorwaarden en precieze vervolgstap
 
-De demo is dus géén assistieve variant met een “verzend”-knop. De worker doet alles automatisch, maar in een gescheiden testomgeving. Voor productie is een daadwerkelijk bewezen platformadapter nodig, niet het verwijderen van een waarschuwing.
+1. **GitHub:** herstel Contents-write/workflow-toegang voor de koppeling of meld Git op de pc aan. Push daarna de geleverde herstelbranch; de Git-bundle bewaart de volledige lokale geschiedenis. Er is geen token in de bron of distributie geplaatst.
+2. **Windows:** voer de acceptatie opnieuw uit op een schone Windows 11 zonder Node en op een tweede onafhankelijke computer; bewijs echte download, Edge-appvenster, slaap/herstart en SmartScreen/AV. Deze hosttest bewijst dat niet.
+3. **Platform:** verkrijg aantoonbaar toegestane data-/messagingtoegang, testaccounts en expliciet toegestane gesprekken. Valideer het echte account-/advertentie-/seller-/conversation-/message-/receiptcontract. Er is geen live schakelaar vrijgegeven.
+4. **AI:** regel expliciete providertoegang en veilig sleutelbeheer; evalueer toegestane geanonimiseerde Nederlandse gesprekken bij de echte provider. Synthetische nul-foutenresultaten voorspellen geen live false-accept-rate.
+5. **Betalen/licenties:** bewijs de volledige flow in echte provider-testmodus, inclusief het factuur-/retrybindingscontract, refund/chargeback, opzegging en issuer. Vul klantvoorwaarden, privacy/consent, belasting/facturen, e-mail en hostingbeheer in. Onbekende herhaalbetalingen mogen geen serviceperiode betalen.
+6. **Signing/operations:** richt een beheerde signingidentiteit, sleutelrotatie en updatekanaal in; integreer de veilige updatebouwstenen met de launcher en test crash/power-loss/rollback. Rond privacy/retentiedoelen, opslagbescherming, sleutelbeheer en support af.
 
-## Ontbrekende verificaties vóór betaalde uitrol
-
-1. Installeer op een schone Windows 11-computer, normale gebruiker zonder Node, met Edge. Controleer boot, reset, afsluiten, herstel en deïnstallatie. Herhaal op een tweede onafhankelijke pc.
-2. Verifieer toepasselijke platformvoorwaarden, toegestane data-/messagingtoegang en eventuele afspraken. Een softwarelicentie is geen platformtoestemming.
-3. Maak een gecontroleerd, actueel browsercontract met juiste account-ID, unieke advertentie-ID, verkoper-ID, bericht-ID, richting en bevestigde verzending. Geen selectors gokken of generieke knoppen aanklikken.
-4. Test met toegestane, door deelnemers beheerde testgesprekken. Geen ongevraagde massatest. Test onder andere dubbel versturen, nieuwe berichten tijdens verwerking, uitloggen, captcha, instabiel internet, slaapstand, tijdzone en crash precies rondom verzenden.
-5. Evalueer de echte AI met Nederlandse gespreksscenario’s, negaties, sarcasme, meerdere bedragen en voorwaarden. Mocks bewijzen geen taalbegrip.
-6. Deploy server-side checkout, opgeslagen orderledger, idempotente webhookverwerking en licentie-uitgifte. Test annulering, chargeback, refund, verlopen mandaat, btw/invoice-instellingen en herhaalde callbacks.
-7. Signing, updatekanaal met handtekening en rollback, gegevensverwijdering, verwerkersafspraken en supportproces afronden. Laat eerst een beperkte pilot slagen voordat meerdere dealers onbeheerd werken.
-
-## Codex en bestaande repository
-
-Er is naar een passende gekoppelde GitHub-repository en naar opgeslagen broncode gezocht. Alleen de overdracht, gespreksspecificatie en een schedulerpatch waren relevant; de volledige oorspronkelijke engine/scraper/messenger is niet aangetroffen. Er is geen bestaande klantinstallatie gewijzigd en er is geen externe Codex-taak gestart. De aanwezige worker is de daadwerkelijk uitgevoerde applicatieworker, niet een verzonnen achtergrondontwikkelaar.
+De oude vrijgavestatus blijft bewaard in [history/RELEASE_STATUS-pilot.1.md](history/RELEASE_STATUS-pilot.1.md). De oorspronkelijke acceptatiecriteria zijn niet afgezwakt. Geen ongevraagde verkopersberichten, echte AI-calls, betalingen, abonnementen of e-mails zijn uitgevoerd. De demo blijft de enige actieve platformadapter.

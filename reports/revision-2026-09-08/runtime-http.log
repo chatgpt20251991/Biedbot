@@ -1,0 +1,37 @@
+✔ lokale HTTP-app start echte workerthread en bereikt autonoom een demo-overdracht (6307.063ms)
+✔ anonieme client kan geen gesprekken lezen (179.8539ms)
+✔ bootstrap-token vereist voor lokale sessie (67.8582ms)
+✔ unicode-token crasht server niet (99.3253ms)
+✔ CSRF ontbreekt: geen activatie (50.7984ms)
+✔ vreemde Origin wordt geweigerd (49.7182ms)
+✔ null-Origin wordt geweigerd (47.7736ms)
+✔ DNS-rebinding Host geweigerd (53.0323ms)
+✔ CSP en HttpOnly sessie aanwezig (49.8242ms)
+✔ bronbestanden en dotfiles niet via web ophalen (55.1817ms)
+✔ onboarding moet voor start afgerond zijn (48.4239ms)
+✔ geldige onboarding en start, stop zonder berichtgoedkeuring (68.6392ms)
+✔ settingsroute kan activatiecontroles niet omzeilen (49.733ms)
+✔ live adapter kan niet per setting aangezet worden (61.2912ms)
+✔ ongeldige limiet veroorzaakt geen gedeeltelijke settingsupdate (53.4678ms)
+✔ supportrapport zonder conversaties en cookies (50.056ms)
+✔ versleutelde export kan met wachtwoord ontsleuteld worden (178.7281ms)
+✔ te kort exportwachtwoord afgewezen (48.7196ms)
+✔ demo reset vereist exacte bevestiging (58.1847ms)
+✔ ongeldige JSON laat de app leven (54.2283ms)
+✔ AI geldige prijsclassificatie met bewijs (17.2762ms)
+✔ API-fout wordt onzekerheid, geen verzonnen akkoord (7.7633ms)
+✔ AI timeout resulteert in veilige fallback (6.7069ms)
+✔ afgebroken AI-output wordt niet vertrouwd (5.1334ms)
+✔ AI ongeldige JSON veilig verworpen (5.0017ms)
+✔ AI kan geen plafond manipuleren via tekst van verkoper (6.7518ms)
+✔ stopverzoek kost geen AI-aanroep (5.2475ms)
+✔ AI-budget reserveert voor het verzoek, niet erna (7.8774ms)
+✔ ontbrekende sleutel leidt niet tot netwerkverzoek (4.1904ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 29
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6608.7782

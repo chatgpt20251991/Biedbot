@@ -1,0 +1,8 @@
+
+> biedbot-edge@0.1.0-pilot.1 test:dom
+> node tests/browser.dom.mjs
+
+Error: Browser afgesloten (0): 
+    at ChildProcess.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/src/adapters/cdp.mjs:24:83)
+    at ChildProcess.emit (node:events:509:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:295:12)

@@ -1,0 +1,27 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20260908045758
+Username: DESKTOP-KS4TAR8\Han23
+RunAs User: DESKTOP-KS4TAR8\Han23
+Configuration Name: 
+Machine: DESKTOP-KS4TAR8 (Microsoft Windows NT 10.0.26200.0)
+Host Application: powershell.exe -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot\.windows-acceptance\run-Nesbmo\Gebruiker Zoë 李 & Co\pakket bron\scripts\Install.ps1 -AppRoot C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot\.windows-acceptance\run-Nesbmo\Gebruiker Zoë 李 & Co\Lokale App -DataRoot C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot\.windows-acceptance\run-Nesbmo\Gebruiker Zoë 李 & Co\Lokale Gegevens -DesktopDirectory C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot\.windows-acceptance\run-Nesbmo\Gebruiker Zoë 李 & Co\desktop-is-a-file -Offline
+Process ID: 28848
+PSVersion: 5.1.26100.9168
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9168
+BuildVersion: 10.0.26100.9168
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+BiedBot Edge: demonstratie-installatie. Geen automatische afschrijving of echte verkopers.
+
+PS>TerminatingError(Copy-Item): "Kan een gedeelte van het pad C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot\.windows-acceptance\run-Nesbmo\Gebruiker Zoë 李 & Co\Lokale App\versions\0.1.0-acceptance.rollback.staging-455983109f514afbbc2856a1e718dfe9\src\adapters\approved-browser.mjs niet vinden."
+INSTALLATIE_GESTOPT: Kan een gedeelte van het pad C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot\.windows-acceptance\run-Nesbmo\Gebruiker Zoë 李 & Co\Lokale App\versions\0.1.0-acceptance.rollback.staging-455983109f514afbbc2856a1e718dfe9\src\adapters\approved-browser.mjs niet vinden.
+Diagnoselog: C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot\.windows-acceptance\run-Nesbmo\Gebruiker Zoë 李 & Co\Lokale App\logs\install-20260908-025758-651.txt
+**********************
+Windows PowerShell transcript end
+End time: 20260908045801
+**********************

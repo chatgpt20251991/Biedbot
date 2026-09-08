@@ -2,6 +2,8 @@ name: BiedBot release checks
 on: [push, pull_request, workflow_dispatch]
 permissions:
   contents: read
+env:
+  BIEDBOT_AI_PROVIDER: offline
 jobs:
   core:
     strategy:
@@ -9,6 +11,7 @@ jobs:
         os: [ubuntu-latest, windows-latest]
         node: ['22', '24']
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -16,6 +19,8 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: npm run check
       - run: npm test
+      - run: npm run evaluate
+      - run: npm run package
       - name: PowerShell parse check (not installation acceptance)
         if: runner.os == 'Windows'
         shell: pwsh
@@ -25,3 +30,19 @@ jobs:
             [System.Management.Automation.Language.Parser]::ParseFile($_.FullName,[ref]$tokens,[ref]$errors) | Out-Null
             if($errors.Count){$errors | Format-List; exit 1}
           }
+  browser-windows:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm run test:dom
+      - run: npm run test:browser
+      - run: npm run test:windows
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: windows-acceptance
+          path: reports/revision-2026-09-08/

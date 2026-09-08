@@ -1,0 +1,24 @@
+
+> biedbot-edge@0.1.0-pilot.2 test:browser
+> node tests/browser.e2e.mjs
+
+PASS Echte Chromium: fixturecontract scant kandidaat
+PASS Andere verkoper na chatopening stopt vóór tekstinvoer en verzending
+PASS Echte Chromium: opening invullen, eenmaal versturen, receipt lezen
+PASS Echte Chromium: inbox importeren met stabiele bericht-ID
+PASS Identiek bericht wordt niet blind opnieuw verstuurd
+PASS Afwijkende accountidentiteit blokkeert browseractie
+PASS Platformwaarschuwing blokkeert browseractie
+PASS Andere verkoper blokkeert verzending
+PASS Fixturemodus kan niet naar externe website navigeren
+PASS Onboarding laadt vanuit beveiligde lokale app
+PASS Bedrijfsinstellingen worden daadwerkelijk opgeslagen
+PASS Autopilotknop start echte workerthread, niet alleen animatie
+PASS Desktopdashboard renderen zonder JavaScriptfouten
+PASS Gesprekkenpagina heeft automatische berichten en prijsplafond
+PASS Alle navigatiepagina’s zijn bruikbaar
+PASS Mobiel formaat: geen horizontale pagina-overflow
+PASS Noodstop zet worker werkelijk uit
+PASS Volledige backupknop gebruikt herstelbaar formaat zonder bestandsdownload in test
+PASS Gespreksinhoud wissen werkt via interface en bewaart niet-benaderenstatus
+PASS Geen runtimefouten na navigatie en noodstop

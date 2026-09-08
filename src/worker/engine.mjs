@@ -23,7 +23,7 @@ export class Engine {
       if(input){const c=this.store.getConversation(input.conversation);
         const classification=this.classifier?await this.classifier.classify(input.text,c.state):classifyLocal(input.text,c.state);
         const decision=decide(c.state,classification),text=renderDecision(decision,s);
-        this.store.queueDecision(input,decision,text,now);
+        this.store.queueDecision(input,decision,text,this.now());
       }
       if(this.mode==='demo'||now-this.lastOpening>=s.newGapSeconds*1000){
         if(this.store.allocate(this.account,now)){this.lastOpening=now;this.store.setMeta('lastOpening:'+this.account,now);}
@@ -31,12 +31,23 @@ export class Engine {
       if(this.mode!=='demo'&&now-this.lastSend<s.replyGapSeconds*1000)return;
       // Re-read switch after AI wait: an emergency stop must cancel queued work too.
       if(!this.store.settings().autopilot)return;
-      const out=this.store.claimSend(now);if(!out)return;
+      const out=this.store.claimSend(this.now());if(!out)return;
+      let cancelled=false;
       try {
-        const result=await this.adapter.send(out);
+        // Adapters call this synchronously after their final inbox/identity refresh
+        // and immediately before their external side effect.
+        const beforeDispatch=()=>{
+          const latest=this.store.settings(),at=this.now();
+          if(!latest.autopilot||(this.mode!=='demo'&&!withinHours(at,latest))){
+            this.store.cancelSend(out.id,'Autopilot gestopt of buiten contacturen',at);cancelled=true;return false;
+          }
+          const allowed=this.store.authorizeDispatch(out.id,at);cancelled=!allowed;return allowed;
+        };
+        const result=await this.adapter.send(out,{beforeDispatch});
+        if(cancelled||result?.cancelled)return;
         if(!result?.receipt)throw new Error('Ontvangstbevestiging ontbreekt.');
-        this.store.sent(out.id,result.receipt,this.now());this.lastSend=this.now();this.store.setMeta('lastSend:'+this.account,this.lastSend);
-      }catch(e){this.store.uncertain(out.id,e.message,this.now());}
+        this.store.sent(out.id,result.receipt,this.now(),result.evidence??null);this.lastSend=this.now();this.store.setMeta('lastSend:'+this.account,this.lastSend);
+      }catch(e){if(!cancelled)this.store.uncertain(out.id,e.message,this.now());}
     }catch(e){this.store.updateSettings({autopilot:false});this.store.setMeta('stopReason',e.message);this.store.audit('WORKER_PAUSED',e.message);}
     finally{this.busy=false;}
   }

@@ -1,0 +1,226 @@
+✖ chatopening met verkoper stopt vóór verzending (16.3791ms)
+✔ chatopening met account stopt vóór verzending (6.5905ms)
+✖ chatopening met advertentie stopt vóór verzending (11.2052ms)
+✖ chatopening met ontbrekende advertentie stopt vóór verzending (10.5907ms)
+✖ chatopening met ontbrekend gesprek stopt vóór verzending (9.7892ms)
+✖ identiteitswijziging tijdens formulierinvoer stopt klik {"seller":"other"} (9.6407ms)
+✖ identiteitswijziging tijdens formulierinvoer stopt klik {"conversation":"other"} (9.0274ms)
+✖ identiteitswijziging tijdens formulierinvoer stopt klik {"listing":"other"} (8.5694ms)
+✖ identiteitswijziging tijdens formulierinvoer stopt klik {"account":"other"} (9.0936ms)
+✖ ontvangstbewijs onder andere identiteit wordt geweigerd {"seller":"other"} (7.7334ms)
+✖ ontvangstbewijs onder andere identiteit wordt geweigerd {"conversation":"other"} (9.7447ms)
+✖ ontvangstbewijs onder andere identiteit wordt geweigerd {"listing":null} (6.986ms)
+✖ ontvangstbewijs onder andere identiteit wordt geweigerd {"account":"other"} (9.7574ms)
+✖ dispatch callback kan verzending na snapshot intrekken (10.4092ms)
+✖ volledige stabiele identiteit levert receipt en gesprekbinding (13.0174ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 1
+ℹ fail 14
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 423.0122
+
+✖ failing tests:
+
+test at tests\adapter-identity.test.mjs:27:211
+✖ chatopening met verkoper stopt vóór verzending (16.3791ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/adapter-identity.test.mjs:28:39)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:385:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\adapter-identity.test.mjs:27:211
+✖ chatopening met advertentie stopt vóór verzending (11.2052ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/adapter-identity.test.mjs:28:39)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\adapter-identity.test.mjs:27:211
+✖ chatopening met ontbrekende advertentie stopt vóór verzending (10.5907ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/adapter-identity.test.mjs:28:39)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\adapter-identity.test.mjs:27:211
+✖ chatopening met ontbrekend gesprek stopt vóór verzending (9.7892ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/adapter-identity.test.mjs:28:39)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\adapter-identity.test.mjs:30:99
+✖ identiteitswijziging tijdens formulierinvoer stopt klik {"seller":"other"} (9.6407ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/adapter-identity.test.mjs:31:41)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\adapter-identity.test.mjs:30:99
+✖ identiteitswijziging tijdens formulierinvoer stopt klik {"conversation":"other"} (9.0274ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/adapter-identity.test.mjs:31:41)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\adapter-identity.test.mjs:30:99
+✖ identiteitswijziging tijdens formulierinvoer stopt klik {"listing":"other"} (8.5694ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/adapter-identity.test.mjs:31:41)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\adapter-identity.test.mjs:30:99
+✖ identiteitswijziging tijdens formulierinvoer stopt klik {"account":"other"} (9.0936ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/adapter-identity.test.mjs:31:41)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\adapter-identity.test.mjs:33:96
+✖ ontvangstbewijs onder andere identiteit wordt geweigerd {"seller":"other"} (7.7334ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/adapter-identity.test.mjs:34:39)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\adapter-identity.test.mjs:33:96
+✖ ontvangstbewijs onder andere identiteit wordt geweigerd {"conversation":"other"} (9.7447ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/adapter-identity.test.mjs:34:39)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\adapter-identity.test.mjs:33:96
+✖ ontvangstbewijs onder andere identiteit wordt geweigerd {"listing":null} (6.986ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/adapter-identity.test.mjs:34:39)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\adapter-identity.test.mjs:33:96
+✖ ontvangstbewijs onder andere identiteit wordt geweigerd {"account":"other"} (9.7574ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/adapter-identity.test.mjs:34:39)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\adapter-identity.test.mjs:36:1
+✖ dispatch callback kan verzending na snapshot intrekken (10.4092ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/adapter-identity.test.mjs:36:117)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: undefined,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests\adapter-identity.test.mjs:37:1
+✖ volledige stabiele identiteit levert receipt en gesprekbinding (13.0174ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - 'chat-1'
+  
+      at TestContext.<anonymous> (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot/tests/adapter-identity.test.mjs:37:212)
+      at async Test.run (node:internal/test_runner/test:1208:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:831:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: 'chat-1',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
