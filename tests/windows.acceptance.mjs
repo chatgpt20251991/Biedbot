@@ -7,18 +7,28 @@ import {setTimeout as delay} from 'node:timers/promises';
 // Explicit acceptance command, excluded from generic unit runs. Every install,
 // shortcut, runtime, browser profile and data path lives in this workspace.
 if(process.platform!=='win32')throw new Error('Windows acceptance requires a real Windows host.');
-const repository=resolve('.'),report=join(repository,'reports/revision-2026-09-08/windows');
+const repository=resolve('.'),report=join(process.env.BIEDBOT_REPORT_DIR||join(repository,'reports/revision-2026-09-08'),'windows');
 mkdirSync(report,{recursive:true});
+const results=[],startedAt=new Date().toISOString();
+let outcome='running',failure=null,activeCommand=null;
+function writeSummary(){
+  writeFileSync(join(report,'acceptance-summary.json'),JSON.stringify({startedAt,generatedAt:new Date().toISOString(),status:outcome,
+    allPassed:outcome==='passed',platform:process.platform,node:process.version,activeCommand,error:failure,
+    scope:'One real Windows host, PowerShell 5.1, existing officially signed Node; extracted ZIP; isolated paths. Headless launcher switch starts real agent without opening a browser window.',
+    unproven:['clean Windows 11 without Node','second independent machine','real runtime network download','SmartScreen and antivirus acceptance','publisher signing','production update channel and integrated update/rollback acceptance'],results},null,2));
+}
+// Replace any checked-in success before work starts; interruption must not expose an old green result.
+writeSummary();
 const testBase=join(repository,'.windows-acceptance');mkdirSync(testBase,{recursive:true});
 const scratch=mkdtempSync(join(testBase,'run-'));
 const unicodeRoot=join(scratch,'Gebruiker Zoë 李 & Co'),source=join(unicodeRoot,'pakket bron');
 const app=join(unicodeRoot,'Lokale App'),data=join(unicodeRoot,'Lokale Gegevens'),desktop=join(unicodeRoot,'Eigen Bureaublad');
-mkdirSync(source,{recursive:true});
-for(const name of ['src','scripts','assets','package.json','README.md'])cpSync(join(repository,name),join(source,name),{recursive:true});
-const results=[];
 function run(file,args,{expected=0,env=process.env,label='command',input}={}){
+  activeCommand=label;writeSummary();
   const result=spawnSync(file,args,{cwd:source,encoding:'utf8',windowsHide:true,timeout:90000,env,input});
   writeFileSync(join(report,label+'.txt'),(result.stdout||'')+(result.stderr||'')+(result.error?.message||''));
+  // A timeout or spawn failure is never evidence that a negative acceptance case stopped safely.
+  assert.ifError(result.error);assert.equal(typeof result.status,'number',`${label}: process did not exit normally`);
   if(expected===0)assert.equal(result.status,0,`${label}: ${result.stdout}\n${result.stderr}\n${result.error||''}`);
   else assert.notEqual(result.status,0,`${label} should stop safely`);
   return result;
@@ -28,6 +38,8 @@ async function waitFor(predicate,label){for(let i=0;i<160;i++){if(predicate())re
 function copyLogs(label,root){if(existsSync(root))cpSync(root,join(report,label),{recursive:true});}
 let session;
 try {
+  mkdirSync(source,{recursive:true});
+  for(const name of ['src','scripts','assets','package.json','README.md'])cpSync(join(repository,name),join(source,name),{recursive:true});
   run(process.execPath,[join(source,'scripts/package.mjs')],{label:'acceptance-package'});
   const extractScript=join(scratch,'extract.ps1'),unpacked=join(unicodeRoot,'uitgepakt pakket');
   writeFileSync(extractScript,'param([string]$Archive,[string]$Destination)\n$ErrorActionPreference="Stop"\nExpand-Archive -LiteralPath $Archive -DestinationPath $Destination\n');
@@ -56,10 +68,18 @@ try {
   assert(!existsSync(join(app,'versions/0.1.0-acceptance.rollback')));
   assert(!readdirSync(join(app,'versions')).some(name=>name.includes('.staging-')));
   results.push({check:'failed local activation restores previous installation and removes staged version',status:'passed'});
-  const missingBrowserEnv={...process.env,BIEDBOT_DATA_DIR:data,ProgramFiles:join(scratch,'no-browser'), 'ProgramFiles(x86)':join(scratch,'no-browser-x86')};
-  // Remove case-equivalent inherited keys before constructing Windows env.
-  for(const key of Object.keys(missingBrowserEnv))if(['programfiles','programfiles(x86)'].includes(key.toLowerCase())&&!['ProgramFiles','ProgramFiles(x86)'].includes(key))delete missingBrowserEnv[key];
-  const missingBrowser=ps(join(packageRoot,'scripts/Start-App.ps1'),['-NodePath',join(app,'runtime/node.exe'),'-NoErrorDialog'],{label:'acceptance-missing-browser',expected:1,env:missingBrowserEnv});
+  // Windows PowerShell resets ProgramFiles from ProgramW6432 during process startup.
+  // Set the fixture paths afterwards, then invoke the real starter in that same process.
+  const missingBrowserScript=join(scratch,'missing-browser.ps1'),missingBrowserRoot=join(scratch,'no-browser');
+  writeFileSync(missingBrowserScript,`param([string]$Starter,[string]$Runtime,[string]$Data,[string]$MissingBrowserRoot)
+$ErrorActionPreference='Stop'
+$env:BIEDBOT_DATA_DIR=$Data
+$env:ProgramFiles=Join-Path $MissingBrowserRoot 'x64'
+Set-Item -LiteralPath 'Env:ProgramFiles(x86)' -Value (Join-Path $MissingBrowserRoot 'x86')
+if (Test-Path -LiteralPath $MissingBrowserRoot) { throw 'Missing-browser fixture must refer to absent directories.' }
+& $Starter -NodePath $Runtime -NoErrorDialog
+`);
+  const missingBrowser=ps(missingBrowserScript,['-Starter',join(packageRoot,'scripts/Start-App.ps1'),'-Runtime',join(app,'runtime/node.exe'),'-Data',data,'-MissingBrowserRoot',missingBrowserRoot],{label:'acceptance-missing-browser',expected:1});
   assert.match(missingBrowser.stdout+missingBrowser.stderr,/BROWSER_ONTBREEKT/);
   assert(!existsSync(join(data,'launch.json')));assert(readdirSync(join(data,'logs')).some(name=>name.endsWith('-failure.txt')));
   results.push({check:'missing browser stops before launch with a persisted diagnostic',status:'passed'});
@@ -88,13 +108,17 @@ try {
   ps(installer,[...args,'-RuntimePath',process.execPath,'-Offline'],{label:'acceptance-reinstall'});
   ps(uninstaller,['-AppRoot',app,'-ConfirmAppRemoval','VERWIJDER APP','-RemoveLocalData','-ConfirmDataRemoval','OOK MIJN GEGEVENS'],{label:'acceptance-uninstall-explicit-data'});
   assert(!existsSync(data));results.push({check:'explicit second confirmation removes isolated data',status:'passed'});
-  writeFileSync(join(report,'acceptance-summary.json'),JSON.stringify({generatedAt:new Date().toISOString(),platform:process.platform,node:process.version,
-    scope:'One real Windows host, PowerShell 5.1, existing officially signed Node; extracted ZIP; isolated paths. Headless launcher switch starts real agent without opening a browser window.',
-    unproven:['clean Windows 11 without Node','second independent machine','real runtime network download','SmartScreen and antivirus acceptance','publisher signing','production update channel and integrated update/rollback acceptance'],results},null,2));
+  outcome='passed';activeCommand=null;
   console.log(JSON.stringify(results,null,2));
+} catch(error) {
+  outcome='failed';failure={name:error.name,message:error.message,code:error.code};throw error;
 } finally {
+  try {
   if(session)try{await fetch(session.origin+'/api/shutdown',{method:'POST',headers:{cookie:session.cookie,'x-biedbot-csrf':session.csrf}});await delay(1000);}catch{}
   // Keep failed installations for diagnosis. Successful runs remove only the
   // exact workspace child created by mkdtemp; no user's default paths are used.
-  if(results.length===8){assert(scratch.startsWith(testBase+'\\'));rmSync(scratch,{recursive:true,force:true});}
+  if(outcome==='passed'){assert(scratch.startsWith(testBase+'\\'));rmSync(scratch,{recursive:true,force:true});}
+  } catch(error) {
+    outcome='failed';failure={name:error.name,message:error.message,code:error.code};throw error;
+  } finally {writeSummary();}
 }
