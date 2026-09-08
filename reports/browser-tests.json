@@ -1,0 +1,15 @@
+{
+  "executedAt": "2026-09-07T02:26:16.039Z",
+  "platform": "linux",
+  "node": "v22.16.0",
+  "scope": "Echte Chromium op Linux; lokale fixtures en lokale demo. Geen Marktplaats- of Windows-praktijktest.",
+  "passed": 0,
+  "failed": 1,
+  "results": [
+    {
+      "name": "BROWSER_TEST_FAILURE",
+      "status": "failed",
+      "error": "Error: net::ERR_BLOCKED_BY_ADMINISTRATOR\n    at CDPBrowser.navigate (file:///mnt/data/biedbot-edge/src/adapters/cdp.mjs:46:104)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async ApprovedBrowserAdapter.discover (file:///mnt/data/biedbot-edge/src/adapters/approved-browser.mjs:25:45)\n    at async file:///mnt/data/biedbot-edge/tests/browser.e2e.mjs:7:83\n    at async check (file:///mnt/data/biedbot-edge/tests/browser.e2e.mjs:4:54)\n    at async file:///mnt/data/biedbot-edge/tests/browser.e2e.mjs:7:3"
+    }
+  ]
+}

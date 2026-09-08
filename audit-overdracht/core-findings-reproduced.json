@@ -1,0 +1,29 @@
+{
+  "scope": "Local in-memory reproduction; 3 defects confirmed, not 3 safe regression passes",
+  "node": "v24.19.0",
+  "platform": "linux",
+  "findings": [
+    {
+      "id": 1,
+      "reproduced": true,
+      "newestSellerText": "Niet akkoord",
+      "dispatchedAction": "ACCEPT",
+      "finalPhase": "HOT_LEAD"
+    },
+    {
+      "id": 2,
+      "reproduced": true,
+      "configuredCap": 20,
+      "openingsSentSameDay": 40,
+      "queueAgeHours": 25
+    },
+    {
+      "id": 3,
+      "reproduced": true,
+      "text": "Akkoord?",
+      "classification": "ACCEPT",
+      "action": "ACCEPT",
+      "price": 8000
+    }
+  ]
+}

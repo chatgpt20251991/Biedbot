@@ -1,0 +1,41 @@
+{
+  "build": "0.1.0-pilot.1",
+  "createdAt": "2026-09-07T02:40:50.406Z",
+  "release": "DEMO_TESTED_NOT_LIVE_RELEASED",
+  "environment": {
+    "platform": "linux",
+    "node": "v22.16.0",
+    "browser": "Chromium 144.0.7559.96 built on Debian GNU/Linux 13 (trixie)"
+  },
+  "unit": {
+    "tests": 197,
+    "passed": 197,
+    "failed": 0,
+    "skipped": 0,
+    "report": "reports/unit-tests.tap"
+  },
+  "pricePropertyCases": 10000,
+  "dom": {
+    "passed": 14,
+    "failed": 0,
+    "scope": "Echte Chromium DOM/render-test met eigen broncode en gemockte fetch in about:blank; geen navigatie, geen Windows-/Marktplaats-end-to-endtest."
+  },
+  "browserNavigation": {
+    "status": "ENVIRONMENT_BLOCKED",
+    "passed": 0,
+    "failed": 1,
+    "error": "net::ERR_BLOCKED_BY_ADMINISTRATOR",
+    "scope": "Echte Chromium op Linux; lokale fixtures en lokale demo. Geen Marktplaats- of Windows-praktijktest."
+  },
+  "windowsInstaller": "NOT_EXECUTED",
+  "realMarktplaats": "NOT_EXECUTED",
+  "liveAI": "NOT_EXECUTED_MOCKS_ONLY",
+  "mollie": "NOT_EXECUTED_MOCKS_ONLY",
+  "remoteCodexTask": "NOT_STARTED",
+  "remoteCI": "NOT_RUN",
+  "notes": [
+    "No administrator browser restriction was changed or bypassed.",
+    "DOM tests use in-memory fetch fixtures, not real platform communication.",
+    "The test counts are not a code coverage percentage or a bug-free guarantee."
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "executedAt": "2026-09-07T02:40:12.537Z",
+  "platform": "linux",
+  "node": "v22.16.0",
+  "scope": "Echte Chromium DOM/render-test met eigen broncode en gemockte fetch in about:blank; geen navigatie, geen Windows-/Marktplaats-end-to-endtest.",
+  "passed": 14,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Onboarding-DOM laadt in echte Chromium",
+      "status": "passed",
+      "durationMs": 99
+    },
+    {
+      "name": "Onboarding-formulier heeft correcte API-velden",
+      "status": "passed",
+      "durationMs": 28
+    },
+    {
+      "name": "Autopilot-besturing doet API-aanroep zonder berichtgoedkeuring",
+      "status": "passed",
+      "durationMs": 18
+    },
+    {
+      "name": "Desktopdashboard zonder runtimefouten",
+      "status": "passed",
+      "durationMs": 288
+    },
+    {
+      "name": "Inbox toont berichten en hard plafond",
+      "status": "passed",
+      "durationMs": 106
+    },
+    {
+      "name": "Navigatie scout",
+      "status": "passed",
+      "durationMs": 18
+    },
+    {
+      "name": "Navigatie deals",
+      "status": "passed",
+      "durationMs": 16
+    },
+    {
+      "name": "Navigatie settings",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "name": "Navigatie health",
+      "status": "passed",
+      "durationMs": 12
+    },
+    {
+      "name": "Navigatie billing",
+      "status": "passed",
+      "durationMs": 2
+    },
+    {
+      "name": "Navigatie today",
+      "status": "passed",
+      "durationMs": 4
+    },
+    {
+      "name": "Geen horizontale pagina-overflow op 390px",
+      "status": "passed",
+      "durationMs": 256
+    },
+    {
+      "name": "Noodstop doet API-aanroep enabled false",
+      "status": "passed",
+      "durationMs": 5
+    },
+    {
+      "name": "Geen JavaScriptfouten na alle pagina’s",
+      "status": "passed",
+      "durationMs": 0
+    }
+  ]
+}

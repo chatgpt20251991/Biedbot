@@ -1,0 +1,12 @@
+{
+  "scope": "Local mocked CDP; no real browser or live platform test",
+  "reproduced": true,
+  "node": "v24.19.0",
+  "platform": "linux",
+  "expectedSeller": "seller-A",
+  "sellerAtSecondGuard": "seller-B",
+  "clickedSend": true,
+  "receipt": {
+    "receipt": "mock-receipt"
+  }
+}

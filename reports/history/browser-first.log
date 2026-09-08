@@ -1,0 +1,9 @@
+(node:812) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+Error: net::ERR_BLOCKED_BY_ADMINISTRATOR
+    at CDPBrowser.navigate (file:///mnt/data/biedbot-edge/src/adapters/cdp.mjs:46:104)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async ApprovedBrowserAdapter.discover (file:///mnt/data/biedbot-edge/src/adapters/approved-browser.mjs:25:45)
+    at async file:///mnt/data/biedbot-edge/tests/browser.e2e.mjs:7:83
+    at async check (file:///mnt/data/biedbot-edge/tests/browser.e2e.mjs:4:54)
+    at async file:///mnt/data/biedbot-edge/tests/browser.e2e.mjs:7:3

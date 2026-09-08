@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+node_modules/
+.runtime/
+.data/
+*.sqlite*
+*.log
+*.pem
+!config/license-public.example.pem
+browser-profile/
+release/

@@ -1,0 +1,8 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> biedbot-edge@0.1.0-pilot.1 test:dom
+> node tests/browser.dom.mjs
+
+Error: Microsoft Edge of Google Chrome niet gevonden.
+    at CDPBrowser.launch (file:///workspace/scratch/f989cf3db621/review/BiedBot_Edge/src/adapters/cdp.mjs:16:27)
+    at file:///workspace/scratch/f989cf3db621/review/BiedBot_Edge/tests/browser.dom.mjs:12:34

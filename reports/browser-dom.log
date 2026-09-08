@@ -1,0 +1,20 @@
+
+> biedbot-edge@0.1.0-pilot.1 test:dom
+> node tests/browser.dom.mjs
+
+(node:2359) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS Onboarding-DOM laadt in echte Chromium
+PASS Onboarding-formulier heeft correcte API-velden
+PASS Autopilot-besturing doet API-aanroep zonder berichtgoedkeuring
+PASS Desktopdashboard zonder runtimefouten
+PASS Inbox toont berichten en hard plafond
+PASS Navigatie scout
+PASS Navigatie deals
+PASS Navigatie settings
+PASS Navigatie health
+PASS Navigatie billing
+PASS Navigatie today
+PASS Geen horizontale pagina-overflow op 390px
+PASS Noodstop doet API-aanroep enabled false
+PASS Geen JavaScriptfouten na alle pagina’s
