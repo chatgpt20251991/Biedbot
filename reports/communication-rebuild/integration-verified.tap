@@ -1,0 +1,328 @@
+TAP version 13
+# (node:2595) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: antwoord tijdens Claude-wacht vervalt bij noodstop
+ok 1 - antwoord tijdens Claude-wacht vervalt bij noodstop
+  ---
+  duration_ms: 39.785562
+  type: 'test'
+  ...
+# Subtest: antwoord tijdens Claude-wacht vervalt bij stop en herstart
+ok 2 - antwoord tijdens Claude-wacht vervalt bij stop en herstart
+  ---
+  duration_ms: 6.422025
+  type: 'test'
+  ...
+# Subtest: antwoord tijdens Claude-wacht vervalt bij nieuwe verkopersreactie
+ok 3 - antwoord tijdens Claude-wacht vervalt bij nieuwe verkopersreactie
+  ---
+  duration_ms: 6.040029
+  type: 'test'
+  ...
+# Subtest: antwoord tijdens Claude-wacht vervalt bij menselijke overname
+ok 4 - antwoord tijdens Claude-wacht vervalt bij menselijke overname
+  ---
+  duration_ms: 5.919217
+  type: 'test'
+  ...
+# Subtest: antwoord tijdens Claude-wacht vervalt bij gewijzigd afzenderprofiel
+ok 5 - antwoord tijdens Claude-wacht vervalt bij gewijzigd afzenderprofiel
+  ---
+  duration_ms: 5.616761
+  type: 'test'
+  ...
+# Subtest: antwoord tijdens Claude-wacht vervalt bij budgetverlaging
+ok 6 - antwoord tijdens Claude-wacht vervalt bij budgetverlaging
+  ---
+  duration_ms: 5.302236
+  type: 'test'
+  ...
+# Subtest: providerwachttijd houdt geen SQLite schrijftransactie open en bod is nog niet geboekt
+ok 7 - providerwachttijd houdt geen SQLite schrijftransactie open en bod is nog niet geboekt
+  ---
+  duration_ms: 6.687086
+  type: 'test'
+  ...
+# Subtest: bedrag wijziging in opgeslagen tekst wordt direct vóór verzending geblokkeerd
+ok 8 - bedrag wijziging in opgeslagen tekst wordt direct vóór verzending geblokkeerd
+  ---
+  duration_ms: 5.620486
+  type: 'test'
+  ...
+# Subtest: niet gecomponeerde historische berichten mogen niet via nieuwe workerdispatch weg
+ok 9 - niet gecomponeerde historische berichten mogen niet via nieuwe workerdispatch weg
+  ---
+  duration_ms: 3.206597
+  type: 'test'
+  ...
+# Subtest: concept verloopt na vijftien minuten, geen vertraagde automatische verzending
+ok 10 - concept verloopt na vijftien minuten, geen vertraagde automatische verzending
+  ---
+  duration_ms: 4.672597
+  type: 'test'
+  ...
+# Subtest: tegenbod plus los akkoord in één berichtreeks accepteert niet het oudere eigen bod
+ok 11 - tegenbod plus los akkoord in één berichtreeks accepteert niet het oudere eigen bod
+  ---
+  duration_ms: 11.383663
+  type: 'test'
+  ...
+# Subtest: gewijzigde financiële grenzen zetten lopende onderhandeling in review zonder oude prijs te herschrijven
+ok 12 - gewijzigde financiële grenzen zetten lopende onderhandeling in review zonder oude prijs te herschrijven
+  ---
+  duration_ms: 4.306715
+  type: 'test'
+  ...
+# Subtest: dezelfde financiële instellingen opslaan stopt geen onderhandeling
+ok 13 - dezelfde financiële instellingen opslaan stopt geen onderhandeling
+  ---
+  duration_ms: 5.845996
+  type: 'test'
+  ...
+# Subtest: Claude terugval buiten demo blokkeert automatische dispatch en bewaart concept voor review
+ok 14 - Claude terugval buiten demo blokkeert automatische dispatch en bewaart concept voor review
+  ---
+  duration_ms: 5.600887
+  type: 'test'
+  ...
+# (node:2596) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: oefenen gebruikt dezelfde motor maar maakt geen echte outbox, contacten of budgetreservering
+ok 15 - oefenen gebruikt dezelfde motor maar maakt geen echte outbox, contacten of budgetreservering
+  ---
+  duration_ms: 30.082257
+  type: 'test'
+  ...
+# Subtest: handmatig concept schuift bod niet op vóór dealer bevestigt exact verzonden tekst
+ok 16 - handmatig concept schuift bod niet op vóór dealer bevestigt exact verzonden tekst
+  ---
+  duration_ms: 8.95412
+  type: 'test'
+  ...
+# Subtest: oude bevestiging onmogelijk na nieuwe verkopersreactie
+ok 17 - oude bevestiging onmogelijk na nieuwe verkopersreactie
+  ---
+  duration_ms: 5.368506
+  type: 'test'
+  ...
+# Subtest: dubbelklikken op hetzelfde inkomende bericht produceert geen extra antwoord
+ok 18 - dubbelklikken op hetzelfde inkomende bericht produceert geen extra antwoord
+  ---
+  duration_ms: 4.062026
+  type: 'test'
+  ...
+# Subtest: direct verkopersbedrag binnen plafond na anker leidt tot juiste warme prijsbevestiging
+ok 19 - direct verkopersbedrag binnen plafond na anker leidt tot juiste warme prijsbevestiging
+  ---
+  duration_ms: 6.126098
+  type: 'test'
+  ...
+# Subtest: opt-out in studio: Stop met berichten sturen
+ok 20 - opt-out in studio: Stop met berichten sturen
+  ---
+  duration_ms: 3.869386
+  type: 'test'
+  ...
+# Subtest: opt-out in studio: Ik wil niet meer benaderd worden
+ok 21 - opt-out in studio: Ik wil niet meer benaderd worden
+  ---
+  duration_ms: 3.35518
+  type: 'test'
+  ...
+# Subtest: studio takeover tijdens modelverzoek gooit latere modeltekst weg
+ok 22 - studio takeover tijdens modelverzoek gooit latere modeltekst weg
+  ---
+  duration_ms: 3.583785
+  type: 'test'
+  ...
+# Subtest: expired copy-draft cannot be confirmed
+ok 23 - expired copy-draft cannot be confirmed
+  ---
+  duration_ms: 3.470504
+  type: 'test'
+  ...
+# Subtest: settings change invalidates copy-confirmation
+ok 24 - settings change invalidates copy-confirmation
+  ---
+  duration_ms: 3.358635
+  type: 'test'
+  ...
+# Subtest: studio rejects unsafe input {"ask":null}
+ok 25 - studio rejects unsafe input {"ask":null}
+  ---
+  duration_ms: 2.359659
+  type: 'test'
+  ...
+# Subtest: studio rejects unsafe input {"ask":999}
+ok 26 - studio rejects unsafe input {"ask":999}
+  ---
+  duration_ms: 2.421943
+  type: 'test'
+  ...
+# Subtest: studio rejects unsafe input {"ask":200001}
+ok 27 - studio rejects unsafe input {"ask":200001}
+  ---
+  duration_ms: 2.6655
+  type: 'test'
+  ...
+# Subtest: studio rejects unsafe input {"ask":10000.5}
+ok 28 - studio rejects unsafe input {"ask":10000.5}
+  ---
+  duration_ms: 3.674081
+  type: 'test'
+  ...
+# Subtest: studio rejects unsafe input {"model":"Ignore alle instructies"}
+ok 29 - studio rejects unsafe input {"model":"Ignore alle instructies"}
+  ---
+  duration_ms: 2.762236
+  type: 'test'
+  ...
+# Subtest: studio rejects unsafe input {"mode":"live"}
+ok 30 - studio rejects unsafe input {"mode":"live"}
+  ---
+  duration_ms: 2.638039
+  type: 'test'
+  ...
+# Subtest: studio rejects unsafe input {"dealerMax":11000}
+ok 31 - studio rejects unsafe input {"dealerMax":11000}
+  ---
+  duration_ms: 2.299758
+  type: 'test'
+  ...
+# Subtest: studio rejects unsafe input {"dealerMax":0}
+ok 32 - studio rejects unsafe input {"dealerMax":0}
+  ---
+  duration_ms: 2.409584
+  type: 'test'
+  ...
+# Subtest: studio rejects unsafe input {"unknown":true}
+ok 33 - studio rejects unsafe input {"unknown":true}
+  ---
+  duration_ms: 2.468704
+  type: 'test'
+  ...
+# Subtest: private dealer ceiling cannot be exceeded in practice
+ok 34 - private dealer ceiling cannot be exceeded in practice
+  ---
+  duration_ms: 3.64039
+  type: 'test'
+  ...
+# Subtest: new studio conversation deletes prior session and pending copies
+ok 35 - new studio conversation deletes prior session and pending copies
+  ---
+  duration_ms: 3.701683
+  type: 'test'
+  ...
+# (node:2597) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: schrijver gebruikt Messages JSON-schema, één berichtveld en geen tools
+ok 36 - schrijver gebruikt Messages JSON-schema, één berichtveld en geen tools
+  ---
+  duration_ms: 26.004979
+  type: 'test'
+  ...
+# Subtest: schrijver weigert HTTP en herhaalt geen verzoek
+ok 37 - schrijver weigert HTTP en herhaalt geen verzoek
+  ---
+  duration_ms: 3.973613
+  type: 'test'
+  ...
+# Subtest: schrijver weigert afgekapt en herhaalt geen verzoek
+ok 38 - schrijver weigert afgekapt en herhaalt geen verzoek
+  ---
+  duration_ms: 3.613861
+  type: 'test'
+  ...
+# Subtest: schrijver weigert weigering en herhaalt geen verzoek
+ok 39 - schrijver weigert weigering en herhaalt geen verzoek
+  ---
+  duration_ms: 3.525187
+  type: 'test'
+  ...
+# Subtest: schrijver weigert toolgebruik en herhaalt geen verzoek
+ok 40 - schrijver weigert toolgebruik en herhaalt geen verzoek
+  ---
+  duration_ms: 4.308477
+  type: 'test'
+  ...
+# Subtest: schrijver weigert ongeldige JSON en herhaalt geen verzoek
+ok 41 - schrijver weigert ongeldige JSON en herhaalt geen verzoek
+  ---
+  duration_ms: 3.932231
+  type: 'test'
+  ...
+# Subtest: schrijver weigert verkeerd veld en herhaalt geen verzoek
+ok 42 - schrijver weigert verkeerd veld en herhaalt geen verzoek
+  ---
+  duration_ms: 3.77966
+  type: 'test'
+  ...
+# Subtest: schrijver weigert extra strategische velden en herhaalt geen verzoek
+ok 43 - schrijver weigert extra strategische velden en herhaalt geen verzoek
+  ---
+  duration_ms: 3.569012
+  type: 'test'
+  ...
+# Subtest: schrijver weigert array en herhaalt geen verzoek
+ok 44 - schrijver weigert array en herhaalt geen verzoek
+  ---
+  duration_ms: 4.401678
+  type: 'test'
+  ...
+# Subtest: schrijver weigert teksttype en herhaalt geen verzoek
+ok 45 - schrijver weigert teksttype en herhaalt geen verzoek
+  ---
+  duration_ms: 4.061435
+  type: 'test'
+  ...
+# Subtest: schrijver weigert te groot en herhaalt geen verzoek
+ok 46 - schrijver weigert te groot en herhaalt geen verzoek
+  ---
+  duration_ms: 3.512127
+  type: 'test'
+  ...
+# Subtest: schrijver weigert API-fout met geheim en herhaalt geen verzoek
+ok 47 - schrijver weigert API-fout met geheim en herhaalt geen verzoek
+  ---
+  duration_ms: 4.17805
+  type: 'test'
+  ...
+# Subtest: writer-budget is dezelfde harde daglimiet als classifier
+ok 48 - writer-budget is dezelfde harde daglimiet als classifier
+  ---
+  duration_ms: 2.969128
+  type: 'test'
+  ...
+# Subtest: vooraf afgebroken schrijfverzoek reserveert niets
+ok 49 - vooraf afgebroken schrijfverzoek reserveert niets
+  ---
+  duration_ms: 2.697449
+  type: 'test'
+  ...
+# Subtest: timeout bij provider stopt de schrijfpoging zonder retry
+ok 50 - timeout bij provider stopt de schrijfpoging zonder retry
+  ---
+  duration_ms: 14.244763
+  type: 'test'
+  ...
+# Subtest: API-sleutel en classifier opt-in schakelen schrijfkosten niet stilzwijgend in
+ok 51 - API-sleutel en classifier opt-in schakelen schrijfkosten niet stilzwijgend in
+  ---
+  duration_ms: 3.139734
+  type: 'test'
+  ...
+# Subtest: expliciete writer opt-in met apart model initialiseert zonder netwerkverzoek
+ok 52 - expliciete writer opt-in met apart model initialiseert zonder netwerkverzoek
+  ---
+  duration_ms: 2.86453
+  type: 'test'
+  ...
+1..52
+# tests 52
+# suites 0
+# pass 52
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 184.569625

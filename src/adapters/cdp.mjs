@@ -1,3 +1,4 @@
+import {browserEnvironment} from '../core/process-env.mjs';
 import {spawn} from 'node:child_process';
 import {existsSync,mkdirSync,readFileSync} from 'node:fs';
 import {join,resolve} from 'node:path';
@@ -21,7 +22,7 @@ export class CDPBrowser {
     const args=[...(websocket?['--remote-debugging-address=127.0.0.1','--remote-debugging-port=0']:['--remote-debugging-pipe']),`--user-data-dir=${profileDir}`,'--no-first-run','--no-default-browser-check','--disable-sync'];
     if(fixtureTest){args.push('--headless=new','--disable-gpu');if(process.platform==='linux'&&process.getuid?.()===0)args.push('--no-sandbox');}
     args.push('about:blank');
-    this.child=spawn(browserPath,args,{stdio:['ignore','ignore','pipe','pipe','pipe'],windowsHide:fixtureTest});
+    this.child=spawn(browserPath,args,{stdio:['ignore','ignore','pipe','pipe','pipe'],windowsHide:fixtureTest,env:browserEnvironment()});
     let browserError='';this.child.stderr.on('data',data=>{browserError=(browserError+data.toString()).slice(-3000);});
     // Edge on Windows may hand off to a browser process and exit its launcher with code 0.
     // In fixture WebSocket mode the socket owns connection lifetime, not that launcher PID.

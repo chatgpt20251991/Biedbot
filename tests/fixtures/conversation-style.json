@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "scope": "Synthetische verkopersinput en handgeschreven testwriterteksten voor lokale regressie. Geen echte Claude-uitvoer, praktijkmeting of door de gebruiker goedgekeurde gespreksstijl.",
+  "now": "2026-09-18T10:00:00.000Z",
+  "candidate": {"model": "Golf", "ask": 10000},
+  "settings": {"company": "Autobedrijf Voorbeeld", "signoff": "Inkoopteam", "tone": "vriendelijk", "discountPct": 25, "budget": 50000, "buyingThisWeek": false, "hasAlternatives": false},
+  "openingWriterText": "Ik bekijk je Golf. Kun je iets vertellen over het onderhoud en recent vervangen onderdelen? Wat is de reden van verkoop?",
+  "cases": [
+    {
+      "id": "maintenance-to-agreement",
+      "title": "Onderhoud en reden van verkoop, daarna akkoord",
+      "criteria": ["Open zonder prijs of bod.", "Sluit inhoudelijk aan op informatie van de verkoper.", "Bevestig uitsluitend het huidige bod en draag de afstemming over."],
+      "finalPhase": "HOT_LEAD",
+      "steps": [
+        {"seller": "Onderhoud is bijgehouden. Ik krijg een leaseauto.", "action": "ANCHOR", "writerText": "Helder, je stapt dus over op een leaseauto. Mijn bod is {{BOD}}. Dat ligt waarschijnlijk lager dan je in gedachten had.", "factsInclude": ["onderhoud", "leaseauto"], "offlineMentions": ["leaseauto"]},
+        {"seller": "Akkoord.", "action": "ACCEPT", "agreesWith": "lastOffer"}
+      ]
+    },
+    {
+      "id": "offer-question-and-hold",
+      "title": "Een biedvraag beantwoorden en het bod vasthouden",
+      "criteria": ["Geef een concreet bod als de verkoper daarom vraagt.", "Een herhaalde biedvraag is geen aanleiding om te verhogen of opnieuw de prijs te peilen.", "Houd het gesprek kort zonder op elke zet hetzelfde voorbehoud te herhalen."],
+      "finalPhase": "HOT_LEAD",
+      "steps": [
+        {"seller": "Wat zou je ervoor willen geven?", "action": "ANCHOR", "writerText": "Mijn bod is {{BOD}}. Hoe kijk je daartegenaan?"},
+        {"seller": "Wat is je bod?", "action": "HOLD", "writerText": "Mijn bod blijft {{BOD}}.", "sameOffer": true},
+        {"seller": "Ik ga akkoord met je laatste bod.", "action": "ACCEPT", "agreesWith": "lastOffer"}
+      ]
+    },
+    {
+      "id": "fixed-price-and-stop",
+      "title": "Vaste prijs, twee peilingen en rustig stoppen",
+      "criteria": ["Erken concrete onderhoudsinformatie zonder die als eigen inspectie te presenteren.", "Peil maximaal tweemaal en verhoog niet wanneer de verkoper blijft staan.", "Sluit beleefd af zonder druk of een verzonnen alternatief."],
+      "finalPhase": "DECLINED",
+      "steps": [
+        {"seller": "Er is een nieuwe koppeling in gegaan.", "action": "ANCHOR", "writerText": "Goed om te weten dat de koppeling volgens jou is vervangen. Mijn bod is {{BOD}}.", "factsInclude": ["koppeling"], "offlineMentions": ["koppeling"]},
+        {"seller": "De vraagprijs staat vast.", "action": "PROBE", "sameOffer": true},
+        {"seller": "De vraagprijs staat vast.", "action": "PROBE", "sameOffer": true},
+        {"seller": "De vraagprijs staat vast.", "action": "DECLINE", "sameOffer": true}
+      ]
+    },
+    {
+      "id": "concessions-and-current-agreement",
+      "title": "Tegenbiedingen, beperkte concessies en het actuele akkoord",
+      "criteria": ["Alle bedragen worden door de echte onderhandelcode gekozen.", "Verhogingen worden kleiner en blijven onder het plafond.", "Akkoord bevestigt het laatst besproken bod, niet het eerste anker."],
+      "finalPhase": "HOT_LEAD",
+      "steps": [
+        {"seller": "Wat bied je?", "action": "ANCHOR", "writerText": "Mijn bod is {{BOD}}. Hoe kijk je daartegenaan?"},
+        {"seller": "Mijn prijs is EUR 9500.", "action": "CONCESSION", "writerText": "Dan kan ik bewegen naar {{BOD}}. Kunnen we elkaar daarop vinden?"},
+        {"seller": "Mijn prijs is EUR 9000.", "action": "CONCESSION", "writerText": "Ik kan nog een stap zetten naar {{BOD}}."},
+        {"seller": "Mijn prijs is EUR 8700.", "action": "CONCESSION", "writerText": "Dan rond ik mijn bod af op {{BOD}}."},
+        {"seller": "Akkoord met je laatste bod.", "action": "ACCEPT", "agreesWith": "lastOffer"}
+      ]
+    },
+    {
+      "id": "asking-price-then-seller-offer",
+      "title": "Vraagprijs blijft staan, daarna een lager verkopersvoorstel",
+      "criteria": ["De ongewijzigde vraagprijs is geen concessie van de verkoper.", "Een concreet lager verkopersbedrag binnen de grens mag direct worden bevestigd.", "Voeg geen hoger bod toe wanneer de verkoper al een bruikbaar bedrag noemt."],
+      "finalPhase": "HOT_LEAD",
+      "steps": [
+        {"seller": "Onderhoud is bijgehouden.", "action": "ANCHOR", "writerText": "Goed om te weten dat het onderhoud volgens jou is bijgehouden. Mijn bod is {{BOD}}.", "factsInclude": ["onderhoud"], "offlineMentions": ["onderhoud"]},
+        {"seller": "Mijn prijs is EUR 10000.", "action": "PROBE", "sameOffer": true},
+        {"seller": "Voor 8000 mag je hem ophalen.", "action": "ACCEPT", "agreedPrice": 8000}
+      ]
+    },
+    {
+      "id": "seller-declines",
+      "title": "De verkoper haakt af",
+      "criteria": ["Een duidelijke afwijzing eindigt het gesprek.", "Geen ongevraagd nieuw bod of extra peiling.", "Blijf beleefd en bondig."],
+      "finalPhase": "DECLINED",
+      "steps": [
+        {"seller": "Onderhoud is bijgehouden.", "action": "ANCHOR", "writerText": "Dank voor je toelichting over het onderhoud. Mijn bod is {{BOD}}.", "factsInclude": ["onderhoud"]},
+        {"seller": "Nee dank je, geen interesse.", "action": "DECLINE"}
+      ]
+    },
+    {
+      "id": "history-and-correction",
+      "title": "Een eerder feit onthouden en een correctie laten voorgaan",
+      "criteria": ["Feiten uit eerdere verkopersberichten blijven beschikbaar voor de schrijver.", "Een latere correctie trekt de oude positieve bewering in.", "Reageer op nieuwe informatie en houd het bod vast zonder een generieke prijspeiling."],
+      "finalPhase": "HOT_LEAD",
+      "steps": [
+        {"seller": "Er is een nieuwe koppeling in gegaan. Ik krijg een leaseauto.", "action": "ANCHOR", "writerText": "Helder, je stapt dus over op een leaseauto. Mijn bod is {{BOD}}.", "factsInclude": ["koppeling", "leaseauto"]},
+        {"seller": "Wat is je bod?", "action": "HOLD", "writerText": "Je gaf aan dat de koppeling is vervangen. Mijn bod blijft {{BOD}}.", "factsInclude": ["koppeling", "leaseauto"], "sameOffer": true},
+        {"seller": "Correctie: de koppeling is niet vervangen. Onderhoud is bijgehouden.", "action": "HOLD", "writerText": "Helder, ik houd rekening met je correctie over de koppeling. Mijn bod blijft {{BOD}}.", "factsInclude": ["onderhoud", "leaseauto"], "factsExclude": ["koppeling"], "latestFactsInclude": ["onderhoud"], "offlineMentions": ["onderhoud"], "sameOffer": true},
+        {"seller": "Akkoord.", "action": "ACCEPT", "agreesWith": "lastOffer"}
+      ]
+    }
+  ]
+}

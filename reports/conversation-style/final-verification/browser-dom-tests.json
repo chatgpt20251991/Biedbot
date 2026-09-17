@@ -1,0 +1,82 @@
+{
+  "executedAt": "2026-09-17T22:57:32.248Z",
+  "platform": "win32",
+  "node": "v24.19.0",
+  "fixtureDirectory": "work\\browser-fixtures\\biedbot-dom-kkLVAV",
+  "profileRetention": "Local fixture data retained under ignored work/browser-fixtures for diagnosis; excluded from distribution.",
+  "scope": "Echte Chromium DOM/render-test met eigen broncode en gemockte fetch in about:blank; geen navigatie, geen Windows-/Marktplaats-end-to-endtest.",
+  "passed": 14,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Onboarding-DOM laadt in echte Chromium",
+      "status": "passed",
+      "durationMs": 191
+    },
+    {
+      "name": "Onboarding-formulier heeft correcte API-velden",
+      "status": "passed",
+      "durationMs": 26
+    },
+    {
+      "name": "Autopilot-besturing doet API-aanroep zonder berichtgoedkeuring",
+      "status": "passed",
+      "durationMs": 166
+    },
+    {
+      "name": "Desktopdashboard zonder runtimefouten",
+      "status": "passed",
+      "durationMs": 253
+    },
+    {
+      "name": "Inbox toont berichten en hard plafond",
+      "status": "passed",
+      "durationMs": 300
+    },
+    {
+      "name": "Navigatie scout",
+      "status": "passed",
+      "durationMs": 66
+    },
+    {
+      "name": "Navigatie deals",
+      "status": "passed",
+      "durationMs": 57
+    },
+    {
+      "name": "Navigatie settings",
+      "status": "passed",
+      "durationMs": 34
+    },
+    {
+      "name": "Navigatie health",
+      "status": "passed",
+      "durationMs": 14
+    },
+    {
+      "name": "Navigatie billing",
+      "status": "passed",
+      "durationMs": 29
+    },
+    {
+      "name": "Navigatie today",
+      "status": "passed",
+      "durationMs": 22
+    },
+    {
+      "name": "Geen horizontale pagina-overflow op 390px",
+      "status": "passed",
+      "durationMs": 308
+    },
+    {
+      "name": "Noodstop doet API-aanroep enabled false",
+      "status": "passed",
+      "durationMs": 88
+    },
+    {
+      "name": "Geen JavaScriptfouten na alle pagina’s",
+      "status": "passed",
+      "durationMs": 2
+    }
+  ]
+}

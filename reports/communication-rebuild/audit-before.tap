@@ -1,0 +1,148 @@
+TAP version 13
+# Subtest: audit: vervangen koppeling en eigenaarschap is relevante informatie
+not ok 1 - audit: vervangen koppeling en eigenaarschap is relevante informatie
+  ---
+  duration_ms: 5.366656
+  type: 'test'
+  location: '/mnt/data/biedbot_build/app/tests/communication-audit-regression.test.mjs:6:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    'UNKNOWN' !== 'INFO'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'INFO'
+  actual: 'UNKNOWN'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///mnt/data/biedbot_build/app/tests/communication-audit-regression.test.mjs:7:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: audit: expliciete bodvraag krijgt het codebepaalde anker
+not ok 2 - audit: expliciete bodvraag krijgt het codebepaalde anker
+  ---
+  duration_ms: 2.490948
+  type: 'test'
+  location: '/mnt/data/biedbot_build/app/tests/communication-audit-regression.test.mjs:9:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    'REVIEW' !== 'ANCHOR'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'ANCHOR'
+  actual: 'REVIEW'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///mnt/data/biedbot_build/app/tests/communication-audit-regression.test.mjs:11:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: audit: natuurlijke verkopersprijs wordt niet opnieuw uitgevraagd
+not ok 3 - audit: natuurlijke verkopersprijs wordt niet opnieuw uitgevraagd
+  ---
+  duration_ms: 0.430429
+  type: 'test'
+  location: '/mnt/data/biedbot_build/app/tests/communication-audit-regression.test.mjs:13:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    'UNKNOWN' !== 'PRICE'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'PRICE'
+  actual: 'UNKNOWN'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///mnt/data/biedbot_build/app/tests/communication-audit-regression.test.mjs:15:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: audit: een brug sluit aan op de leaseauto in de reactie
+not ok 4 - audit: een brug sluit aan op de leaseauto in de reactie
+  ---
+  duration_ms: 12.020973
+  type: 'test'
+  location: '/mnt/data/biedbot_build/app/tests/communication-audit-regression.test.mjs:17:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /leaseauto/i. Input:
+    
+    'Dank voor de toelichting. Mijn inkoopbod is EUR 7.500, onder voorbehoud van bezichtiging en controle van de auto. Hoe kijk je daartegenaan?\n' +
+      '\n' +
+      'Inkoopteam'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: |-
+    Dank voor de toelichting. Mijn inkoopbod is EUR 7.500, onder voorbehoud van bezichtiging en controle van de auto. Hoe kijk je daartegenaan?
+    
+    Inkoopteam
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (file:///mnt/data/biedbot_build/app/tests/communication-audit-regression.test.mjs:19:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: audit: akkoord verzint geen collega
+not ok 5 - audit: akkoord verzint geen collega
+  ---
+  duration_ms: 0.561708
+  type: 'test'
+  location: '/mnt/data/biedbot_build/app/tests/communication-audit-regression.test.mjs:21:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input was expected to not match the regular expression /collega/i. Input:
+    
+    'Top, dan houden we EUR 7.500 aan, onder voorbehoud van bezichtiging en controle van de auto. Wanneer schikt het bij jou? Mijn collega neemt de verdere afstemming over.\n' +
+      '\n' +
+      'Inkoopteam'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: |-
+    Top, dan houden we EUR 7.500 aan, onder voorbehoud van bezichtiging en controle van de auto. Wanneer schikt het bij jou? Mijn collega neemt de verdere afstemming over.
+    
+    Inkoopteam
+  operator: 'doesNotMatch'
+  stack: |-
+    TestContext.<anonymous> (file:///mnt/data/biedbot_build/app/tests/communication-audit-regression.test.mjs:23:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 0
+# fail 5
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 74.060062

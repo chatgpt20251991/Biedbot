@@ -2,8 +2,10 @@ import { DatabaseSync } from 'node:sqlite';
 import { randomUUID, randomBytes, createHmac } from 'node:crypto';
 import { mkdirSync, chmodSync } from 'node:fs';
 import { dirname } from 'node:path';
-import { DEFAULTS, validateSettings, localParts, boundedCap, HARD_TOTAL_MESSAGE_CAP } from './policy.mjs';
+import { DEFAULTS, validateSettings, localParts, boundedCap, HARD_TOTAL_MESSAGE_CAP, buyingIntentExpiry } from './policy.mjs';
 import { initialState, opening, scoreCandidate, TERMINAL, classifyLocal } from './negotiation.mjs';
+import {assertFinalText} from './voice.mjs';
+import {hashText,policyFingerprint} from './communication.mjs';
 export class Store {
   constructor(file=':memory:') {
     if(file!==':memory:') mkdirSync(dirname(file),{recursive:true,mode:0o700});
@@ -25,7 +27,7 @@ export class Store {
       // Additive migration: existing dealer databases keep their records and receipt history.
       const columns=new Set(this.db.prepare('PRAGMA table_info(outbox)').all().map(x=>x.name));
       const migrating=!columns.has('source_version');
-      for(const [name,type] of Object.entries({source_version:'INTEGER NOT NULL DEFAULT 0',source_state:'TEXT',claimed_at:'INTEGER',dispatch_at:'INTEGER',invalidated_at:'INTEGER',receipt_evidence:'TEXT'})){
+      for(const [name,type] of Object.entries({source_version:'INTEGER NOT NULL DEFAULT 0',source_state:'TEXT',claimed_at:'INTEGER',dispatch_at:'INTEGER',invalidated_at:'INTEGER',receipt_evidence:'TEXT',composition_status:"TEXT NOT NULL DEFAULT 'legacy'",composition_meta:'TEXT',source_policy:'TEXT'})){
         if(!columns.has(name))this.db.exec(`ALTER TABLE outbox ADD COLUMN ${name} ${type}`);
       }
       if(migrating)this.db.exec(`UPDATE outbox SET source_version=COALESCE((SELECT rowid FROM inbox WHERE inbox.id=outbox.input_id),0),
@@ -43,8 +45,29 @@ export class Store {
   tx(fn){this.db.exec('BEGIN IMMEDIATE');try{const result=fn();this.db.exec('COMMIT');return result;}catch(e){this.db.exec('ROLLBACK');throw e;}}
   getMeta(k){const r=this.db.prepare('SELECT value FROM meta WHERE key=?').get(k);return r?JSON.parse(r.value):null;}
   setMeta(k,v){this.db.prepare('INSERT INTO meta VALUES(?,?) ON CONFLICT(key) DO UPDATE SET value=excluded.value').run(k,JSON.stringify(v));}
-  settings(){return this.getMeta('settings');}
-  updateSettings(input){return this.tx(()=>{const s=validateSettings(input,this.settings());this.setMeta('settings',s);this.audit('SETTINGS_UPDATED',Object.keys(input).join(', '));return s;});}
+  settings(){return {...DEFAULTS,...this.getMeta('settings')};}
+  policyFingerprint(){return policyFingerprint(this.settings(),this.getMeta('dispatchEpoch')||0);}
+  updateSettings(input){return this.tx(()=>{
+    const before=this.settings();
+    const checked=Object.hasOwn(input,'buyingThisWeek')?{...input,buyingIntentExpiresAt:input.buyingThisWeek?buyingIntentExpiry():0}:input;
+    const s=validateSettings(checked,before);
+    if(Object.hasOwn(input,'autopilot')&&input.autopilot===false)this.setMeta('dispatchEpoch',(this.getMeta('dispatchEpoch')||0)+1);
+    // A new financial policy cannot retroactively rewrite an offer already sent.
+    // Freeze affected negotiations for the dealer rather than silently continuing
+    // on a previous, possibly higher ceiling or a now insufficient shared budget.
+    const moneyChanged=['budget','discountPct','minMargin','riskReserve','requireMarginEvidence'].some(k=>s[k]!==before[k]);
+    if(moneyChanged){
+      let stopped=0;
+      for(const row of this.db.prepare('SELECT id,state FROM conversations').all()){
+        const state=JSON.parse(row.state);if(TERMINAL.has(state.phase))continue;
+        this.db.prepare('UPDATE conversations SET state=?,updated=? WHERE id=?').run(JSON.stringify({...state,phase:'REVIEW'}),Date.now(),row.id);
+        this.db.prepare("UPDATE outbox SET status='cancelled',error='Financieel profiel gewijzigd; dealercontrole nodig' WHERE conversation=? AND status='queued'").run(row.id);
+        stopped++;
+      }
+      if(stopped)this.audit('POLICY_REVIEW',`${stopped} gesprekken gepauzeerd na financiële wijziging`);
+    }
+    this.setMeta('settings',s);this.audit('SETTINGS_UPDATED',Object.keys(input).join(', '));return s;
+  });}
   audit(kind,detail='',now=Date.now()){
     const clean=String(detail).replace(/(?:sk-[\w-]+|Bearer\s+\S+|\b06[\d -]{8,12})/gi,'[REDACTED]').slice(0,400);
     this.db.prepare('INSERT INTO audit(created,kind,detail) VALUES(?,?,?)').run(now,kind,clean);
@@ -85,9 +108,11 @@ export class Store {
   staleOutbox(out,now=Date.now()){
     const c=this.getConversation(out.conversation);
     return !c||TERMINAL.has(c.state.phase)||this.inputVersion(out.conversation,now)>out.source_version||
-      (out.source_state!==null&&out.source_state!==JSON.stringify(c.state));
+      (out.source_state!==null&&out.source_state!==JSON.stringify(c.state))||
+      (!!out.source_policy&&out.source_policy!==this.policyFingerprint())||
+      (!!out.composition_meta&&JSON.parse(out.composition_meta).expiresAt<now);
   }
-  reserveOpen(id,account='demo',now=Date.now()){
+  reserveOpen(id,account='demo',now=Date.now(),{deferComposition=false}={}){
     return this.tx(()=>{
       const s=this.settings(),c=this.candidate(id);
       if(!c||!scoreCandidate(c,s).eligible)return null;
@@ -100,13 +125,14 @@ export class Store {
       const after={...state,phase:'WAITING_INFO'};
       this.db.prepare('INSERT INTO conversations(id,seller_key,account,state,created,updated) VALUES(?,?,?,?,?,?)').run(id,this.sellerKey(c.sellerId),account,JSON.stringify(state),now,now);
       const oid=randomUUID();
-      this.db.prepare(`INSERT INTO outbox(id,conversation,account,input_id,action,price,text,after_state,status,created,day,source_version,source_state) VALUES(?,?,?,NULL,'OPEN',NULL,?,?,'queued',?,?,?,?)`).run(oid,id,account,opening(c,s),JSON.stringify(after),now,localParts(now).day,this.inputVersion(id,now),JSON.stringify(state));
+      this.db.prepare(`INSERT INTO outbox(id,conversation,account,input_id,action,price,text,after_state,status,created,day,source_version,source_state) VALUES(?,?,?,NULL,'OPEN',NULL,?,?,'queued',?,?,?,?)`).run(oid,id,account,deferComposition?'':opening(c,s),JSON.stringify(after),now,localParts(now).day,this.inputVersion(id,now),JSON.stringify(state));
+      if(deferComposition)this.db.prepare("UPDATE outbox SET composition_status='pending',source_policy=? WHERE id=?").run(this.policyFingerprint(),oid);
       this.audit('CONTACT_RESERVED',id,now);return oid;
     });
   }
-  allocate(account='demo',now=Date.now()){
+  allocate(account='demo',now=Date.now(),options={}){
     for(const r of this.db.prepare('SELECT id FROM candidates WHERE eligible=1 ORDER BY score DESC,created ASC').all()){
-      const id=this.reserveOpen(r.id,account,now);if(id)return id;
+      const id=this.reserveOpen(r.id,account,now,options);if(id)return id;
     }return null;
   }
   ingest(id,conversation,text,due=Date.now()){
@@ -139,29 +165,83 @@ export class Store {
   nextInput(now=Date.now()){
     return this.db.prepare(`SELECT i.*,c.state source_state FROM inbox i JOIN conversations c ON c.id=i.conversation WHERE i.processed=0 AND i.due<=? AND NOT EXISTS(SELECT 1 FROM outbox o WHERE o.conversation=i.conversation AND o.status IN ('queued','sending','uncertain')) AND NOT EXISTS(SELECT 1 FROM inbox n WHERE n.conversation=i.conversation AND n.processed=0 AND n.due<=? AND (n.due>i.due OR (n.due=i.due AND n.rowid>i.rowid))) ORDER BY i.due,i.id LIMIT 1`).get(now,now)||null;
   }
-  queueDecision(input,decision,text,now=Date.now()){
+  queueDecision(input,decision,text,now=Date.now(),{deferComposition=false}={}){
     return this.tx(()=>{
       const i=this.db.prepare('SELECT * FROM inbox WHERE id=?').get(input.id);
       if(!i||i.processed)return false;
       const c=this.getConversation(i.conversation);
       if(TERMINAL.has(c.state.phase)){this.db.prepare('UPDATE inbox SET processed=1 WHERE conversation=? AND (due<? OR (due=? AND rowid<=(SELECT rowid FROM inbox WHERE id=?)))').run(i.conversation,i.due,i.due,i.id);return false;}
       const latest=this.db.prepare('SELECT id FROM inbox WHERE conversation=? AND due<=? ORDER BY due DESC,rowid DESC LIMIT 1').get(c.id,now);
-      if(latest?.id!==i.id||(input.source_state&&input.source_state!==JSON.stringify(c.state))){this.audit('DECISION_STALE',`${c.id}: ${i.id}`,now);return false;}
+      if((input.source_policy&&input.source_policy!==this.policyFingerprint())||latest?.id!==i.id||(input.source_state&&input.source_state!==JSON.stringify(c.state))){this.audit('DECISION_STALE',`${c.id}: ${i.id}`,now);return false;}
       if(this.db.prepare("SELECT id FROM outbox WHERE conversation=? AND status IN ('queued','sending','uncertain')").get(c.id))return false;
-      if(!text){
+      if(!text&&!deferComposition){
         this.db.prepare('UPDATE conversations SET state=?,updated=? WHERE id=?').run(JSON.stringify(decision.state),now,c.id);
         this.db.prepare('UPDATE inbox SET processed=1 WHERE conversation=? AND (due<? OR (due=? AND rowid<=(SELECT rowid FROM inbox WHERE id=?)))').run(i.conversation,i.due,i.due,i.id);
         this.audit(decision.action,`${c.id}: ${decision.reason||''}`,now);return true;
       }
       if(this.usage(c.account,now).total>=Math.min(HARD_TOTAL_MESSAGE_CAP,this.settings().totalMessageCap))return false;
       this.db.prepare(`INSERT INTO outbox(id,conversation,account,input_id,action,price,text,after_state,status,created,day,source_version,source_state) VALUES(?,?,?,?,?,?,?,?,'queued',?,?,?,?)`).run(randomUUID(),c.id,c.account,i.id,decision.action,decision.price,text,JSON.stringify(decision.state),now,localParts(now).day,this.inputVersion(c.id,now),JSON.stringify(c.state));
+      if(deferComposition)this.db.prepare("UPDATE outbox SET composition_status='pending',source_policy=? WHERE input_id=?").run(this.policyFingerprint(),i.id);
       this.db.prepare('UPDATE inbox SET processed=1 WHERE conversation=? AND (due<? OR (due=? AND rowid<=(SELECT rowid FROM inbox WHERE id=?)))').run(i.conversation,i.due,i.due,i.id);
       return true;
     });
   }
-  claimSend(now=Date.now()){
+  conversationHistory(id,now=Date.now()){
+    return this.db.prepare('SELECT role,text,created FROM messages WHERE conversation=? AND created<=? ORDER BY created DESC,rowid DESC LIMIT 16').all(id,now).reverse();
+  }
+  pendingSellerMessages(id,now=Date.now()){
+    return this.db.prepare('SELECT id,text FROM inbox WHERE conversation=? AND processed=0 AND due<=? ORDER BY due,rowid').all(id,now);
+  }
+  claimComposition(now=Date.now()){
     return this.tx(()=>{
-      for(const r of this.db.prepare("SELECT * FROM outbox WHERE status='queued' ORDER BY CASE WHEN action='OPEN' THEN 1 ELSE 0 END,created,id").all()){
+      for(const out of this.db.prepare("SELECT * FROM outbox WHERE status='queued' AND composition_status IN ('pending','legacy') ORDER BY CASE WHEN action='OPEN' THEN 1 ELSE 0 END,created,id").all()){
+        if(this.staleOutbox(out,now)){
+          this.db.prepare("UPDATE outbox SET status='cancelled',error='Concept achterhaald',invalidated_at=? WHERE id=?").run(now,out.id);
+          // A policy change may leave the same message eligible for a fresh decision.
+          if(out.input_id)this.db.prepare('UPDATE inbox SET processed=0 WHERE id=?').run(out.input_id);
+          continue;
+        }
+        this.db.prepare("UPDATE outbox SET composition_status='generating',source_policy=? WHERE id=?").run(this.policyFingerprint(),out.id);
+        return {...out,source_policy:this.policyFingerprint(),after_state:JSON.parse(out.after_state)};
+      }
+      return null;
+    });
+  }
+  completeComposition(id,result,now=Date.now()){
+    return this.tx(()=>{
+      const out=this.db.prepare('SELECT * FROM outbox WHERE id=?').get(id);
+      if(!out||out.status!=='queued'||out.composition_status!=='generating')return false;
+      if(!this.settings().autopilot||this.staleOutbox(out,now)){
+        this.db.prepare("UPDATE outbox SET status='cancelled',invalidated_at=?,error='Concept vervallen tijdens schrijven' WHERE id=?").run(now,id);
+        this.audit('DRAFT_DISCARDED',out.conversation,now);return false;
+      }
+      const d={action:out.action,price:out.price,state:JSON.parse(out.after_state)};
+      const meta=result?.metadata;
+      if(!meta||meta.textHash!==hashText(result.text))throw new Error('Concept mist geldige tekstcontrole.');
+      assertFinalText(result.text,d,meta.validationContext);
+      if(meta.requiresReview){
+        const c=this.getConversation(out.conversation);
+        this.db.prepare("UPDATE outbox SET status='cancelled',composition_status='review',text=?,composition_meta=?,error='Schrijver teruggevallen; menselijke controle vereist' WHERE id=?").run(result.text,JSON.stringify(meta),id);
+        this.db.prepare('UPDATE conversations SET state=?,updated=? WHERE id=?').run(JSON.stringify({...c.state,phase:'REVIEW'}),now,out.conversation);
+        this.audit('DRAFT_REVIEW',out.conversation,now);return false;
+      }
+      this.db.prepare("UPDATE outbox SET text=?,composition_meta=?,composition_status='ready' WHERE id=?").run(result.text,JSON.stringify(meta),id);
+      this.audit(meta.source==='fallback'?'WRITER_FALLBACK':'DRAFT_READY',`${out.conversation}: ${meta.source}`,now);
+      return true;
+    });
+  }
+  validComposedText(out){
+    if(out.composition_status==='legacy')return true; // Compatibility for direct offline adapter contracts.
+    try{
+      const meta=JSON.parse(out.composition_meta);
+      if(out.composition_status!=='ready'||meta.guard!=='validated'||meta.requiresReview||meta.textHash!==hashText(out.text))return false;
+      return assertFinalText(out.text,{action:out.action,price:out.price,state:JSON.parse(out.after_state)},meta.validationContext);
+    }catch{return false;}
+  }
+  claimSend(now=Date.now(),{requireComposed=false}={}){
+    return this.tx(()=>{
+      for(const r of this.db.prepare("SELECT * FROM outbox WHERE status='queued' AND composition_status IN ('ready','legacy') ORDER BY CASE WHEN action='OPEN' THEN 1 ELSE 0 END,created,id").all()){
+        if(requireComposed&&r.composition_status!=='ready')continue;
         if(this.staleOutbox(r,now)){this.db.prepare("UPDATE outbox SET status='cancelled',invalidated_at=?,error='Besluit achterhaald' WHERE id=?").run(now,r.id);this.audit('DECISION_SUPERSEDED',r.conversation,now);continue;}
         const usage=this.dispatchUsage(r.account,now),s=this.settings();
         if(usage.total>=Math.min(s.totalMessageCap,HARD_TOTAL_MESSAGE_CAP)||(r.action==='OPEN'&&usage.openings>=boundedCap(s.dailyCap)))continue;
@@ -177,7 +257,7 @@ export class Store {
       const out=this.db.prepare('SELECT * FROM outbox WHERE id=?').get(id);
       if(!out||out.status!=='sending'||out.dispatch_at!==null)return false;
       const usage=this.dispatchUsage(out.account,now,out.id),s=this.settings();
-      if(this.staleOutbox(out,now)){
+      if(this.staleOutbox(out,now)||!this.validComposedText(out)){
         this.db.prepare("UPDATE outbox SET status='cancelled',invalidated_at=?,error='Besluit achterhaald vóór dispatch' WHERE id=?").run(now,id);
         this.audit('DISPATCH_CANCELLED',out.conversation,now);return false;
       }
@@ -222,6 +302,7 @@ export class Store {
     });
   }
   recover(){
+    this.db.prepare("UPDATE outbox SET composition_status='pending' WHERE composition_status='generating' AND status='queued'").run();
     const rows=this.db.prepare("SELECT id FROM outbox WHERE status='sending'").all();
     for(const r of rows)this.uncertain(r.id,'Proces herstart tijdens verzending.');
     return rows.length;
@@ -238,12 +319,12 @@ export class Store {
     const s=this.settings();
     const candidates=this.db.prepare('SELECT id FROM candidates ORDER BY score DESC LIMIT 200').all().map(x=>this.candidate(x.id));
     const conversations=this.db.prepare('SELECT id FROM conversations ORDER BY updated DESC LIMIT 200').all().map(x=>{
-      const c=this.getConversation(x.id);return {...c,candidate:this.candidate(x.id),messages:this.db.prepare('SELECT role,text,created FROM messages WHERE conversation=? ORDER BY created,rowid').all(x.id)};
+      const c=this.getConversation(x.id);return {...c,candidate:this.candidate(x.id),messages:this.db.prepare('SELECT m.role,m.text,m.created,o.composition_meta FROM messages m LEFT JOIN outbox o ON o.id=m.id WHERE m.conversation=? ORDER BY m.created,m.rowid').all(x.id).map(m=>({...m,composition:m.composition_meta?JSON.parse(m.composition_meta):null,composition_meta:undefined}))};
     });
     const usage=this.usage(this.getMeta('mode')==='live'?(this.getMeta('platformAccount')||'unbound'):'demo',now);
     return {settings:s,installId:this.getMeta('installId'),mode:this.getMeta('mode')||'demo',worker:this.getMeta('worker'),
       stopReason:this.getMeta('stopReason'),createdAt:this.getMeta('createdAt'),candidates,conversations,usage,
-      committedBudget:this.outstandingBudget(),outbox:this.db.prepare('SELECT action,status,created,conversation,error FROM outbox ORDER BY created DESC LIMIT 100').all(),
+      committedBudget:this.outstandingBudget(),outbox:this.db.prepare('SELECT action,status,created,conversation,error,composition_status,composition_meta FROM outbox ORDER BY created DESC LIMIT 100').all(),
       activity:this.db.prepare('SELECT created,kind,detail FROM audit ORDER BY id DESC LIMIT 60').all(),
       ai:{runtime:this.getMeta('aiRuntime')||{provider:'offline',model:null},requests:Number(this.db.prepare('SELECT COUNT(*) n FROM ai_requests WHERE created>?').get(now-86400000).n)},
       gates:{liveBuildReleased:false,platformAuthorization:false,realBrowserTest:false,billingConfigured:false},

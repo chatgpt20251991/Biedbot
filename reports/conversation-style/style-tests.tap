@@ -1,0 +1,148 @@
+TAP version 13
+# Subtest: gespreksopbouw (offline): Onderhoud en reden van verkoop, daarna akkoord
+ok 1 - gespreksopbouw (offline): Onderhoud en reden van verkoop, daarna akkoord
+  ---
+  duration_ms: 446.7491
+  type: 'test'
+  ...
+# Subtest: gespreksopbouw (testwriter): Onderhoud en reden van verkoop, daarna akkoord
+ok 2 - gespreksopbouw (testwriter): Onderhoud en reden van verkoop, daarna akkoord
+  ---
+  duration_ms: 37.6905
+  type: 'test'
+  ...
+# Subtest: gespreksopbouw (offline): Een biedvraag beantwoorden en het bod vasthouden
+ok 3 - gespreksopbouw (offline): Een biedvraag beantwoorden en het bod vasthouden
+  ---
+  duration_ms: 46.2276
+  type: 'test'
+  ...
+# Subtest: gespreksopbouw (testwriter): Een biedvraag beantwoorden en het bod vasthouden
+ok 4 - gespreksopbouw (testwriter): Een biedvraag beantwoorden en het bod vasthouden
+  ---
+  duration_ms: 59.6962
+  type: 'test'
+  ...
+# Subtest: gespreksopbouw (offline): Vaste prijs, twee peilingen en rustig stoppen
+ok 5 - gespreksopbouw (offline): Vaste prijs, twee peilingen en rustig stoppen
+  ---
+  duration_ms: 39.378
+  type: 'test'
+  ...
+# Subtest: gespreksopbouw (testwriter): Vaste prijs, twee peilingen en rustig stoppen
+ok 6 - gespreksopbouw (testwriter): Vaste prijs, twee peilingen en rustig stoppen
+  ---
+  duration_ms: 43.0885
+  type: 'test'
+  ...
+# Subtest: gespreksopbouw (offline): Tegenbiedingen, beperkte concessies en het actuele akkoord
+ok 7 - gespreksopbouw (offline): Tegenbiedingen, beperkte concessies en het actuele akkoord
+  ---
+  duration_ms: 56.9463
+  type: 'test'
+  ...
+# Subtest: gespreksopbouw (testwriter): Tegenbiedingen, beperkte concessies en het actuele akkoord
+ok 8 - gespreksopbouw (testwriter): Tegenbiedingen, beperkte concessies en het actuele akkoord
+  ---
+  duration_ms: 50.247
+  type: 'test'
+  ...
+# Subtest: gespreksopbouw (offline): Vraagprijs blijft staan, daarna een lager verkopersvoorstel
+ok 9 - gespreksopbouw (offline): Vraagprijs blijft staan, daarna een lager verkopersvoorstel
+  ---
+  duration_ms: 43.1268
+  type: 'test'
+  ...
+# Subtest: gespreksopbouw (testwriter): Vraagprijs blijft staan, daarna een lager verkopersvoorstel
+ok 10 - gespreksopbouw (testwriter): Vraagprijs blijft staan, daarna een lager verkopersvoorstel
+  ---
+  duration_ms: 50.3478
+  type: 'test'
+  ...
+# Subtest: gespreksopbouw (offline): De verkoper haakt af
+ok 11 - gespreksopbouw (offline): De verkoper haakt af
+  ---
+  duration_ms: 23.2543
+  type: 'test'
+  ...
+# Subtest: gespreksopbouw (testwriter): De verkoper haakt af
+ok 12 - gespreksopbouw (testwriter): De verkoper haakt af
+  ---
+  duration_ms: 33.3907
+  type: 'test'
+  ...
+# Subtest: gespreksopbouw (offline): Een eerder feit onthouden en een correctie laten voorgaan
+ok 13 - gespreksopbouw (offline): Een eerder feit onthouden en een correctie laten voorgaan
+  ---
+  duration_ms: 58.5245
+  type: 'test'
+  ...
+# Subtest: gespreksopbouw (testwriter): Een eerder feit onthouden en een correctie laten voorgaan
+ok 14 - gespreksopbouw (testwriter): Een eerder feit onthouden en een correctie laten voorgaan
+  ---
+  duration_ms: 40.4851
+  type: 'test'
+  ...
+# Subtest: schrijver krijgt recente verkoperscontext en het profiel, nooit een numerieke prijsopdracht
+ok 15 - schrijver krijgt recente verkoperscontext en het profiel, nooit een numerieke prijsopdracht
+  ---
+  duration_ms: 0.6789
+  type: 'test'
+  ...
+# Subtest: oude bronfeiten blijven geldig tot een latere verkoperscorrectie
+ok 16 - oude bronfeiten blijven geldig tot een latere verkoperscorrectie
+  ---
+  duration_ms: 0.7933
+  type: 'test'
+  ...
+# Subtest: biedvragen en nieuwe informatie lokken geen extra peiling of eenzijdige verhoging uit
+ok 17 - biedvragen en nieuwe informatie lokken geen extra peiling of eenzijdige verhoging uit
+  ---
+  duration_ms: 0.7435
+  type: 'test'
+  ...
+# Subtest: vaste prijs leidt tot maximaal twee verschillende peilingen en daarna afsluiten
+ok 18 - vaste prijs leidt tot maximaal twee verschillende peilingen en daarna afsluiten
+  ---
+  duration_ms: 0.3609
+  type: 'test'
+  ...
+# Subtest: krimpende concessies eindigen met akkoord op de laatste verhoging
+ok 19 - krimpende concessies eindigen met akkoord op de laatste verhoging
+  ---
+  duration_ms: 0.6353
+  type: 'test'
+  ...
+# Subtest: ongewijzigde vraagprijs geeft geen concessie; lagere verkopersprijs wordt niet overboden
+ok 20 - ongewijzigde vraagprijs geeft geen concessie; lagere verkopersprijs wordt niet overboden
+  ---
+  duration_ms: 2.1962
+  type: 'test'
+  ...
+# Subtest: onbekend feit in een verkopersvraag vraagt menselijke beoordeling, geen generieke prijsvraag
+ok 21 - onbekend feit in een verkopersvraag vraagt menselijke beoordeling, geen generieke prijsvraag
+  ---
+  duration_ms: 2.2741
+  type: 'test'
+  ...
+# Subtest: ongeldig hoger bedrag van een testwriter passeert de echte composer niet
+ok 22 - ongeldig hoger bedrag van een testwriter passeert de echte composer niet
+  ---
+  duration_ms: 2.7836
+  type: 'test'
+  ...
+# Subtest: testwriter mag een ingetrokken onderhoudsfeit niet opnieuw bevestigen
+ok 23 - testwriter mag een ingetrokken onderhoudsfeit niet opnieuw bevestigen
+  ---
+  duration_ms: 54.4666
+  type: 'test'
+  ...
+1..23
+# tests 23
+# suites 0
+# pass 23
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1905.8634

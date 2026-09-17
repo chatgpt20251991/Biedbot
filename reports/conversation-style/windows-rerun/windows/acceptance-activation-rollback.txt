@@ -1,0 +1,12 @@
+BiedBot Edge: demonstratie-installatie. Geen automatische afschrijving of echte verkopers.
+INSTALLATIE_GESTOPT: Exception calling "Create" with "5" argument(s): "Het systeem kan het opgegeven pad niet vinden. (Uitzondering van HRESULT: 0x80070003)"
+Diagnoselog: C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot-gespreksherstel\.windows-acceptance\run-8g2J8x\Gebruiker Zoë 李 & Co\Lokale App\logs\install-20260917-225526-077.txt
+Exception calling "Create" with "5" argument(s): "Het systeem kan het opgegeven pad niet vinden. (Uitzondering van HRES
+ULT: 0x80070003)"
+At C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot-gespreksherstel\.windows-ac
+ceptance\run-8g2J8x\Gebruiker Zoë 李 & Co\pakket bron\scripts\New-Shortcut.ps1:43 char:5
++     [BiedBotWindowsShortcut]::Create($Path, $Target, $Arguments, $Wor ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [], MethodInvocationException
+    + FullyQualifiedErrorId : DirectoryNotFoundException
+ 

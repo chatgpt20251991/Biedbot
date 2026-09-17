@@ -20,7 +20,7 @@ test('AI mag bedrag niet verzinnen',()=>assert.equal(validateClassification({kin
 test('AI akkoord op uitnodiging afgewezen',()=>assert.equal(validateClassification({kind:'ACCEPT',confidence:1},'Wanneer kom je?').kind,'UNKNOWN'));
 test('AI stopbericht niet overrulen',()=>assert.equal(validateClassification({kind:'ACCEPT',confidence:1},'Stop met berichten').kind,'OPT_OUT'));
 test('lage zekerheid gaat naar verduidelijking',()=>assert.equal(decide(initialState(10000,25),{kind:'INFO',confidence:.2}).action,'CLARIFY'));
-test('opening bevat geen prijs of verzonnen onderzoek',()=>{const text=opening(candidate(),DEFAULTS);assert.deepEqual(extractPrices(text),[]);assert.ok(!/marktanalyse|verkoopprijzen|deze week/i.test(text));assert.match(text,/onderhoud/);assert.match(text,/reden/);});
+test('opening bevat geen prijs of verzonnen onderzoek',()=>{const text=opening(candidate(),DEFAULTS);assert.deepEqual(extractPrices(text),[]);assert.ok(!/marktanalyse|verkoopprijzen|deze week/i.test(text));assert.match(text,/onderhoud/);assert.match(text,/(?:waarom.*verkoop|reden.*verkoop)/i);});
 test('informatie na ijsbreker geeft anker',()=>{const s=initialState(10000,25);const d=decide(s,{kind:'INFO',confidence:1});assert.equal(d.action,'ANCHOR');assert.equal(d.price,7500);assert.equal(s.lastOffer,null);});
 test('akkoord verwijst naar LAATSTE bod na concessie',()=>{const s={...initialState(10000,25),lastOffer:8170,phase:'NEGOTIATING'};const d=decide(s,{kind:'ACCEPT',confidence:1});assert.equal(d.price,8170);assert.equal(d.state.phase,'HOT_LEAD');});
 test('akkoord zonder prijs is geen gekochte auto',()=>{const d=decide(initialState(10000,25),{kind:'ACCEPT',confidence:1});assert.equal(d.action,'CLARIFY');assert.equal(d.state.agreedPrice,null);});

@@ -1,0 +1,14 @@
+
+> biedbot-edge@0.2.1-pilot.1 test:studio
+> node tests/studio.dom.mjs
+
+PASS Studio navigatie bereikbaar vanuit echte UI
+PASS Offline stand is expliciet, geen verzonnen Claude-label
+PASS Oefenformulier verstuurt juiste contractvelden
+PASS Antwoordformulier verstuurt verkopertekst met idempotentie-ID
+PASS Werkelijke studiouitvoer toont context, bedrag en herkomst
+PASS Studio 390px zonder horizontale overflow
+PASS Nieuw handmatig concept zichtbaar zonder ontvangstclaim
+PASS Handmatige werkstand desktop leesbaar en twee afzonderlijke acties
+PASS Inkoopprofiel toont waarheidsvlaggen en geen vrij bewerkbare expiry
+PASS Geen JavaScript-fouten in studioflows

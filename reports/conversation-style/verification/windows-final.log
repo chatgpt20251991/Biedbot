@@ -1,0 +1,42 @@
+
+> biedbot-edge@0.2.1-pilot.1 test:windows
+> node tests/windows.acceptance.mjs
+
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: acceptance-install: BiedBot Edge: demonstratie-installatie. Geen automatische afschrijving of echte verkopers.
+INSTALLATIE_GESTOPT: Kan een gedeelte van het pad C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot-gespreksherstel\.windows-acceptance\run-xLmgRf\Gebruiker Zoë 李 & Co\Lokale App\versions\0.2.1-pilot.1.staging-41bc384971c94067997006c6b471a11f\scripts\conversation-examples.mjs niet vinden.
+Diagnoselog: C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot-gespreksherstel\.windows-acceptance\run-xLmgRf\Gebruiker Zoë 李 & Co\Lokale App\logs\install-20260917-225056-757.txt
+
+Copy-Item : Kan een gedeelte van het pad C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\wo
+rk\Biedbot-gespreksherstel\.windows-acceptance\run-xLmgRf\Gebruiker Zoë 李 & Co\Lokale App\versions\0.2.1-pilot.1.stagin
+g-41bc384971c94067997006c6b471a11f\scripts\conversation-examples.mjs niet vinden.
+At C:\Users\Han23\Documents\Codex\2026-09-08\voer-codex-start-hier-md-volledig\work\Biedbot-gespreksherstel\.windows-ac
+ceptance\run-xLmgRf\Gebruiker Zoë 李 & Co\uitgepakt pakket\BiedBot_Edge\scripts\Install.ps1:121 char:5
++     Copy-Item -LiteralPath (Join-Path $packageRoot $entry.path) -Dest ...
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:) [Copy-Item], DirectoryNotFoundException
+    + FullyQualifiedErrorId : System.IO.DirectoryNotFoundException,Microsoft.PowerShell.Commands.CopyItemCommand
+ 
+
+
+
+1 !== 0
+
+    at run (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot-gespreksherstel/tests/windows.acceptance.mjs:32:26)
+    at ps (file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot-gespreksherstel/tests/windows.acceptance.mjs:36:41)
+    at file:///C:/Users/Han23/Documents/Codex/2026-09-08/voer-codex-start-hier-md-volledig/work/Biedbot-gespreksherstel/tests/windows.acceptance.mjs:57:3
+    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)
+    at async node:internal/modules/esm/loader:643:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 1,
+  expected: 0,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

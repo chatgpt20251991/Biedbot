@@ -1,0 +1,33 @@
+{
+  "startedAt": "2026-09-17T22:50:41.014Z",
+  "generatedAt": "2026-09-17T22:51:07.602Z",
+  "status": "failed",
+  "allPassed": false,
+  "platform": "win32",
+  "node": "v24.19.0",
+  "activeCommand": "acceptance-install",
+  "error": {
+    "name": "AssertionError",
+    "message": "acceptance-install: BiedBot Edge: demonstratie-installatie. Geen automatische afschrijving of echte verkopers.\nINSTALLATIE_GESTOPT: Kan een gedeelte van het pad C:\\Users\\Han23\\Documents\\Codex\\2026-09-08\\voer-codex-start-hier-md-volledig\\work\\Biedbot-gespreksherstel\\.windows-acceptance\\run-xLmgRf\\Gebruiker Zoë 李 & Co\\Lokale App\\versions\\0.2.1-pilot.1.staging-41bc384971c94067997006c6b471a11f\\scripts\\conversation-examples.mjs niet vinden.\nDiagnoselog: C:\\Users\\Han23\\Documents\\Codex\\2026-09-08\\voer-codex-start-hier-md-volledig\\work\\Biedbot-gespreksherstel\\.windows-acceptance\\run-xLmgRf\\Gebruiker Zoë 李 & Co\\Lokale App\\logs\\install-20260917-225056-757.txt\n\nCopy-Item : Kan een gedeelte van het pad C:\\Users\\Han23\\Documents\\Codex\\2026-09-08\\voer-codex-start-hier-md-volledig\\wo\r\nrk\\Biedbot-gespreksherstel\\.windows-acceptance\\run-xLmgRf\\Gebruiker Zoë 李 & Co\\Lokale App\\versions\\0.2.1-pilot.1.stagin\r\ng-41bc384971c94067997006c6b471a11f\\scripts\\conversation-examples.mjs niet vinden.\r\nAt C:\\Users\\Han23\\Documents\\Codex\\2026-09-08\\voer-codex-start-hier-md-volledig\\work\\Biedbot-gespreksherstel\\.windows-ac\r\nceptance\\run-xLmgRf\\Gebruiker Zoë 李 & Co\\uitgepakt pakket\\BiedBot_Edge\\scripts\\Install.ps1:121 char:5\r\n+     Copy-Item -LiteralPath (Join-Path $packageRoot $entry.path) -Dest ...\r\n+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (:) [Copy-Item], DirectoryNotFoundException\r\n    + FullyQualifiedErrorId : System.IO.DirectoryNotFoundException,Microsoft.PowerShell.Commands.CopyItemCommand\r\n \r\n\n\n\n1 !== 0\n",
+    "code": "ERR_ASSERTION"
+  },
+  "scope": "One real Windows host, PowerShell 5.1, existing officially signed Node; extracted ZIP; isolated paths. Headless launcher switch starts real agent without opening a browser window.",
+  "unproven": [
+    "clean Windows 11 without Node",
+    "second independent machine",
+    "real runtime network download",
+    "SmartScreen and antivirus acceptance",
+    "publisher signing",
+    "production update channel and integrated update/rollback acceptance"
+  ],
+  "results": [
+    {
+      "check": "offline without runtime stops before activation",
+      "status": "passed"
+    },
+    {
+      "check": "unsigned runtime refused before execution",
+      "status": "passed"
+    }
+  ]
+}

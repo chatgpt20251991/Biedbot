@@ -7,7 +7,7 @@ import {deflateRawSync} from 'node:zlib';
 const root=resolve('.');
 const directories=new Set(['src','assets','docs','scripts','tests','marketing','reports','audit-overdracht']);
 const topFiles=new Set(['package.json','README.md','AGENTS.md','CODEX_START_HIER.md','START_HIER.html',
-  'START_BiedBot.cmd','INSTALLER_BiedBot.cmd','DESINSTALLER_BiedBot.cmd']);
+  'START_BiedBot.cmd','START_MET_CLAUDE.cmd','INSTALLER_BiedBot.cmd','DESINSTALLER_BiedBot.cmd']);
 const deniedDirectory=/^(?:\..*|node_modules|release|work|runtime|secrets|credentials|private|browser-profile|ui-profile|marktplaats-profile)$/i;
 const deniedFile=/(?:^\.|\.(?:pem|key|p12|pfx|keystore|sqlite\d?(?:-(?:wal|shm|journal))?|db(?:-(?:wal|shm|journal))?|bak|dmp|log)$|(?:^|[-_.])(?:secret|credentials|private[-_]?key)(?:[-_.]|$))/i;
 function walk(relative=''){

@@ -8,7 +8,7 @@ import {processAlive} from './instance.mjs';
 export const BACKUP_FORMAT='biedbot-sqlite-aes256gcm-v1';
 export const MAX_BACKUP_BYTES=32*1024*1024;
 const TABLES=['meta','candidates','conversations','inbox','outbox','messages','audit','ai_requests'];
-const META=new Set(['settings','installId','salt','createdAt','mode','demoSeeded','inboxSequence','lastRetentionAt']);
+const META=new Set(['settings','installId','salt','createdAt','mode','demoSeeded','inboxSequence','lastRetentionAt','conversationStudio','dispatchEpoch']);
 const AAD=Buffer.from(`${BACKUP_FORMAT}:scrypt-N16384-r8-p1`);
 const digest=value=>createHash('sha256').update(String(value)).digest('hex');
 const passwordCheck=password=>{if(typeof password!=='string'||password.length<12||password.length>200)throw new Error('Gebruik een wachtwoord van 12 tot 200 tekens.');};
@@ -68,6 +68,13 @@ export function restoreBackup(envelope,password,destination,now=Date.now()){
         const columns=store.db.prepare(`PRAGMA table_info(${name})`).all().map(x=>x.name);
         const insert=store.db.prepare(`INSERT INTO ${name} (${columns.join(',')}) VALUES (${columns.map(()=>'?').join(',')})`);
         for(const row of snapshot.tables[name]){
+          // Exact additive migration from pilot.2 backups; unknown columns still
+          // fail closed. Old queue entries are cancelled below, never replayed.
+          if(name==='outbox'&&row&&typeof row==='object'){
+            const added={composition_status:'legacy',composition_meta:null,source_policy:null};
+            const oldColumns=columns.filter(x=>!Object.hasOwn(added,x));
+            if(Object.keys(row).sort().join(',')===[...oldColumns].sort().join(','))Object.assign(row,added);
+          }
           if(!row||typeof row!=='object'||Array.isArray(row)||Object.keys(row).sort().join(',')!==[...columns].sort().join(',')||(name==='meta'&&!META.has(row.key)))throw new Error('Backup bevat onbekende of ontbrekende velden.');
           if(columns.some(column=>row[column]!==null&&!['string','number'].includes(typeof row[column])))throw new Error('Backup bevat een ongeldig veldtype.');
           insert.run(...columns.map(column=>row[column]));
@@ -76,12 +83,14 @@ export function restoreBackup(envelope,password,destination,now=Date.now()){
       const settings=validateSettings(store.settings());
       if(typeof store.getMeta('salt')!=='string'||!(/^[a-f0-9]{64}$/i.test(store.getMeta('salt'))))throw new Error('Deduplicatiebron ontbreekt.');
       if(typeof store.getMeta('installId')!=='string'||!Number.isSafeInteger(store.getMeta('createdAt')))throw new Error('Installatie-identiteit ontbreekt.');
-      for(const [table,columns] of Object.entries({meta:['value'],candidates:['data','reasons'],conversations:['state'],outbox:['after_state','source_state','receipt_evidence']})){
+      for(const [table,columns] of Object.entries({meta:['value'],candidates:['data','reasons'],conversations:['state'],outbox:['after_state','source_state','receipt_evidence','composition_meta']})){
         for(const row of snapshot.tables[table])for(const column of columns)if(row[column]!==null)JSON.parse(row[column]);
       }
       if(store.db.prepare('PRAGMA foreign_key_check').all().length)throw new Error('Backuprelaties ongeldig.');
       store.setMeta('settings',{...settings,autopilot:false});
       store.setMeta('worker',null);
+      const studio=store.getMeta('conversationStudio');
+      if(studio){studio.pending=null;studio.revision++;studio.state.phase='REVIEW';studio.notice='Hersteld uit backup; neem dit gesprek zelf over.';store.setMeta('conversationStudio',studio);} 
       store.setMeta('stopReason','Backup hersteld. Controleer de inhoud en verbind een profiel opnieuw voordat je activeert.');
       // Restored reservations are re-evaluated; a restore is not permission to send them.
       store.db.exec("UPDATE inbox SET processed=0 WHERE id IN (SELECT input_id FROM outbox WHERE status='queued'); UPDATE outbox SET status='cancelled',error='Ingetrokken bij backupherstel' WHERE status='queued';");
@@ -149,6 +158,7 @@ export function runRetention(store,now=Date.now()){
     }
     store.db.prepare("DELETE FROM candidates WHERE created<? AND id NOT IN (SELECT id FROM conversations)").run(cutoff);
     store.db.prepare("UPDATE audit SET detail='' WHERE created<?").run(cutoff);
+    const studio=store.getMeta('conversationStudio');if(studio&&studio.updatedAt<cutoff)store.setMeta('conversationStudio',null);
     store.setMeta('lastRetentionAt',now);store.audit('RETENTION_RUN',`${erased} gesprekken gewist; ${blocked} verzendingen wachten op reconciliatie`,now);
     return {erased,blocked,cutoff};
   });

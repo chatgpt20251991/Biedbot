@@ -49,3 +49,47 @@ export class AnthropicClassifier {
     }catch(e){this.store.completeAi(id,'failed',usage);this.store.audit('AI_FAILED',e?.name==='TimeoutError'?'AI-timeout':'AI-respons kon niet worden gebruikt');return {...UNKNOWN};}
   }
 }
+
+/** Separate opt-in writer. No tools, browser handles, credentials in prompts,
+ * or price-deciding output fields. The app supplies and validates a price token. */
+export class AnthropicWriter {
+  #apiKey;
+  constructor({apiKey,store,model='claude-sonnet-4-6',fetchFn=fetch,timeoutMs=20000,workspaceId}={}) {
+    if(typeof model!=='string'||!/^claude-[a-z0-9.-]{3,80}$/.test(model))throw new Error('Ongeldig AI-model');
+    if(typeof apiKey!=='string'||!apiKey||apiKey.length>4096||/\s/.test(apiKey))throw new Error('Ongeldige AI-sleutelconfiguratie');
+    if(!Number.isSafeInteger(timeoutMs)||timeoutMs<1||timeoutMs>60000)throw new Error('Ongeldige AI-timeout');
+    if(workspaceId!==undefined&&!/^wrkspc_[a-zA-Z0-9_-]{3,100}$/.test(workspaceId))throw new Error('Ongeldige AI-workspace');
+    this.#apiKey=apiKey;this.store=store;this.model=model;this.fetch=fetchFn;this.timeoutMs=timeoutMs;this.workspaceId=workspaceId;
+  }
+  async write(payload,{signal}={}) {
+    if(signal?.aborted)throw new Error('WRITER_ABORTED');
+    if(!payload||typeof payload.system!=='string'||JSON.stringify(payload.context).length>14000)throw new Error('WRITER_CONTEXT');
+    let id;
+    try{id=this.store.reserveAi();}catch{throw new Error('WRITER_BUDGET');}
+    let usage={};
+    try {
+      const timeout=AbortSignal.timeout(this.timeoutMs);
+      const response=await this.fetch('https://api.anthropic.com/v1/messages',{
+        method:'POST',redirect:'error',signal:signal?AbortSignal.any([signal,timeout]):timeout,
+        headers:{'content-type':'application/json','x-api-key':this.#apiKey,'anthropic-version':'2023-06-01',...(this.workspaceId?{'anthropic-workspace-id':this.workspaceId}:{})},
+        body:JSON.stringify({model:this.model,max_tokens:360,system:payload.system,
+          messages:[{role:'user',content:JSON.stringify(payload.context)}],
+          output_config:{format:{type:'json_schema',schema:{type:'object',properties:{message:{type:'string'}},required:['message'],additionalProperties:false}}}})
+      });
+      if(!response.ok)throw new Error('WRITER_HTTP');
+      const body=await boundedJson(response);usage=usageCounts(body?.usage);
+      if(body?.stop_reason!=='end_turn'||!Array.isArray(body.content)||!body.content.length||body.content.some(x=>x?.type!=='text'||typeof x.text!=='string'))throw new Error('WRITER_INCOMPLETE');
+      const raw=body.content.map(x=>x.text).join('');
+      if(raw.length>3000)throw new Error('WRITER_SIZE');
+      const result=JSON.parse(raw);
+      if(!result||Array.isArray(result)||Object.keys(result).join(',')!=='message'||typeof result.message!=='string')throw new Error('WRITER_SCHEMA');
+      this.store.completeAi(id,'done',usage);
+      return {message:result.message,model:this.model,requestId:id};
+    } catch(error) {
+      this.store.completeAi(id,'failed',usage);
+      const code=/^WRITER_[A-Z_]+$/.test(error?.message||'')?error.message:error?.name==='TimeoutError'?'WRITER_TIMEOUT':'WRITER_UNAVAILABLE';
+      this.store.audit('WRITER_FAILED',code);
+      throw new Error(code); // Never forward upstream response bodies or credentials.
+    }
+  }
+}

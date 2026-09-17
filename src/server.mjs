@@ -8,7 +8,11 @@ import {Worker} from 'node:worker_threads';
 import {spawn} from 'node:child_process';
 import {homedir} from 'node:os';
 import {Store} from './core/store.mjs';
+import {browserEnvironment} from './core/process-env.mjs';
 import {VERSION} from './core/policy.mjs';
+import {ConversationStudio} from './core/studio.mjs';
+import {createWorkerWriter} from './worker/writer.mjs';
+import {createWorkerClassifier} from './worker/classifier.mjs';
 import {demoCandidates} from './adapters/demo.mjs';
 import {findBrowser} from './adapters/cdp.mjs';
 import {acquireInstance,releaseInstance,validLaunch} from './core/instance.mjs';
@@ -31,6 +35,7 @@ export async function startServer({dataDir=DATA,port=0,worker=true}={}){
   if(!store.getMeta('demoSeeded')){store.addCandidates(demoCandidates());store.setMeta('demoSeeded',true);}
   // Restart always requires one explicit activation. No surprise contacts after a crash/update.
   store.updateSettings({autopilot:false});store.setMeta('stopReason',null);
+  let studio;try{studio=new ConversationStudio(store,{writer:createWorkerWriter({store}),classifier:createWorkerClassifier({store})});}catch(error){store.close();releaseDataLease();throw error;}
   const bootToken=randomBytes(32).toString('hex'),sessionToken=randomBytes(32).toString('hex'),csrf=randomBytes(32).toString('hex');
   let origin='',workerThread=null,closing=false,restarting=false;
   const startWorker=()=>{
@@ -62,13 +67,25 @@ export async function startServer({dataDir=DATA,port=0,worker=true}={}){
         if(restarting)return send(409,{error:'Demo wordt herstart. Probeer zo opnieuw.'});
         if(url.pathname==='/api/state'&&req.method==='GET')return send(200,{...store.dashboard(),health:healthReport(store,{workerEnabled:worker}),version:VERSION,csrf});
         if(url.pathname==='/api/settings'&&req.method==='POST'){
-          const input=await body(req);if(['autopilot','aiProvider','aiModel','pricingSetup','pricingMonthly','trialDays'].some(k=>Object.hasOwn(input,k)))throw new Error('Gebruik de daarvoor bestemde beheerfunctie; deze instellingen zijn niet vrijgegeven.');const s=store.updateSettings(input);store.rescore();return send(200,{settings:s});
+          const input=await body(req);if(['autopilot','aiProvider','aiModel','pricingSetup','pricingMonthly','trialDays','buyingIntentExpiresAt'].some(k=>Object.hasOwn(input,k)))throw new Error('Gebruik de daarvoor bestemde beheerfunctie; deze instellingen zijn niet vrijgegeven.');const s=store.updateSettings(input);store.rescore();return send(200,{settings:s});
         }
         if(url.pathname==='/api/autopilot'&&req.method==='POST'){
           const b=await body(req);if(typeof b.enabled!=='boolean')throw new Error('Ongeldige schakelaar.');
           if(b.enabled&&!store.settings().onboardingDone)throw new Error('Rond eerst de bedrijfsinstellingen af.');
           if(b.enabled&&store.db.prepare("SELECT id FROM outbox WHERE status='uncertain'").get())throw new Error('Onzekere verzending: eerst controleren of demo herstarten.');
-          store.updateSettings({autopilot:b.enabled});store.audit(b.enabled?'AUTOPILOT_STARTED':'EMERGENCY_STOP');return send(200,{ok:true});
+          store.updateSettings({autopilot:b.enabled});if(!b.enabled)studio.stop();store.audit(b.enabled?'AUTOPILOT_STARTED':'EMERGENCY_STOP');return send(200,{ok:true});
+        }
+        if(url.pathname==='/api/studio'&&req.method==='GET')return send(200,{session:studio.read(),writer:studio.composer.writer?'anthropic':'offline'});
+        if(url.pathname.startsWith('/api/studio/')&&req.method==='POST'){
+          const input=await body(req);let session;
+          if(url.pathname==='/api/studio/start')session=await studio.start(input);
+          else if(url.pathname==='/api/studio/reply')session=await studio.receive(input);
+          else if(url.pathname==='/api/studio/regenerate')session=await studio.regenerate(input);
+          else if(url.pathname==='/api/studio/confirm')session=studio.confirm(input);
+          else if(url.pathname==='/api/studio/stop')session=studio.stop();
+          else if(url.pathname==='/api/studio/clear')session=studio.clear();
+          else return send(404,{error:'Onbekende studioroute.'});
+          return send(200,{session,writer:studio.composer.writer?'anthropic':'offline'});
         }
         if(url.pathname==='/api/demo/reset'&&req.method==='POST'){
           const b=await body(req);if(b.confirm!=='DEMO HERSTARTEN')throw new Error('Bevestiging ontbreekt.');
@@ -101,7 +118,7 @@ export async function startServer({dataDir=DATA,port=0,worker=true}={}){
         }
         if(url.pathname==='/api/open-marktplaats'&&req.method==='POST'){
           const b=findBrowser();if(!b)throw new Error('Edge of Chrome niet gevonden.');
-          const child=spawn(b,[`--user-data-dir=${join(dataDir,'marktplaats-profile')}`,'--no-first-run','https://www.marktplaats.nl/'],{stdio:'ignore',detached:true});child.on('error',()=>{});child.unref();
+          const child=spawn(b,[`--user-data-dir=${join(dataDir,'marktplaats-profile')}`,'--no-first-run','https://www.marktplaats.nl/'],{stdio:'ignore',detached:true,env:browserEnvironment()});child.on('error',()=>{});child.unref();
           store.audit('BROWSER_OPENED','Handmatig inloggen; geen automatische acties, verbinding niet geverifieerd.');
           return send(200,{ok:true,note:'Browser geopend. Dit is geen bevestigde live-koppeling.'});
         }
@@ -124,7 +141,7 @@ export async function startServer({dataDir=DATA,port=0,worker=true}={}){
   async function close(){if(closing)return;closing=true;clearInterval(maintenance);await stopWorker();await new Promise(resolve=>server.close(resolve));store.close();try{await unlink(join(dataDir,'launch.json'));}catch{}releaseDataLease();releaseInstance(dataDir);}
   return {origin,appUrl,bootToken,csrf,store,close,server};
 }
-async function openApp(url,dataDir){const b=findBrowser();if(b){const child=spawn(b,[`--app=${url}`,`--user-data-dir=${join(dataDir,'ui-profile')}`,'--no-first-run'],{stdio:'ignore',detached:true});child.on('error',()=>{});child.unref();}}
+async function openApp(url,dataDir){const b=findBrowser();if(b){const child=spawn(b,[`--app=${url}`,`--user-data-dir=${join(dataDir,'ui-profile')}`,'--no-first-run'],{stdio:'ignore',detached:true,env:browserEnvironment()});child.on('error',()=>{});child.unref();}}
 if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){
   await mkdir(DATA,{recursive:true,mode:0o700});
   const lease=acquireInstance(DATA);

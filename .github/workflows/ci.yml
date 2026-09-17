@@ -4,6 +4,7 @@ permissions:
   contents: read
 env:
   BIEDBOT_AI_PROVIDER: offline
+  BIEDBOT_WRITER_PROVIDER: offline
 jobs:
   core:
     strategy:
@@ -39,6 +40,7 @@ jobs:
         with:
           node-version: '24'
       - run: npm run test:dom
+      - run: npm run test:studio
       - run: npm run test:browser
       - run: npm run test:windows
       - uses: actions/upload-artifact@v4

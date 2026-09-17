@@ -4,6 +4,7 @@ import {join} from 'node:path';
 import {after} from 'node:test';
 // Test processes must never inherit a dealer's live AI opt-in.
 process.env.BIEDBOT_AI_PROVIDER='offline';
+process.env.BIEDBOT_WRITER_PROVIDER='offline';
 import {Store} from '../src/core/store.mjs';
 export const NOW=Date.parse('2026-09-07T10:00:00Z');
 // Suite cleanup follows every test's resource close hook. Windows cannot remove an open SQLite DB.
