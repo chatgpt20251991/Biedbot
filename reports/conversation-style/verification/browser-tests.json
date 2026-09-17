@@ -1,0 +1,112 @@
+{
+  "executedAt": "2026-09-17T22:50:37.831Z",
+  "platform": "win32",
+  "node": "v24.19.0",
+  "fixtureDirectory": "work\\browser-fixtures\\biedbot-browser-uOiCQs",
+  "profileRetention": "Local fixture data retained under ignored work/browser-fixtures for diagnosis; excluded from distribution.",
+  "scope": "Echte Chromium op win32; lokale fixtures en demo. Geen live Marktplaats of twee-pc installatieacceptatie.",
+  "passed": 20,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Echte Chromium: fixturecontract scant kandidaat",
+      "status": "passed",
+      "durationMs": 3652
+    },
+    {
+      "name": "Andere verkoper na chatopening stopt vóór tekstinvoer en verzending",
+      "status": "passed",
+      "durationMs": 325
+    },
+    {
+      "name": "Echte Chromium: opening invullen, eenmaal versturen, receipt lezen",
+      "status": "passed",
+      "durationMs": 477
+    },
+    {
+      "name": "Echte Chromium: inbox importeren met stabiele bericht-ID",
+      "status": "passed",
+      "durationMs": 121
+    },
+    {
+      "name": "Identiek bericht wordt niet blind opnieuw verstuurd",
+      "status": "passed",
+      "durationMs": 405
+    },
+    {
+      "name": "Afwijkende accountidentiteit blokkeert browseractie",
+      "status": "passed",
+      "durationMs": 512
+    },
+    {
+      "name": "Platformwaarschuwing blokkeert browseractie",
+      "status": "passed",
+      "durationMs": 476
+    },
+    {
+      "name": "Andere verkoper blokkeert verzending",
+      "status": "passed",
+      "durationMs": 180
+    },
+    {
+      "name": "Fixturemodus kan niet naar externe website navigeren",
+      "status": "passed",
+      "durationMs": 1
+    },
+    {
+      "name": "Onboarding laadt vanuit beveiligde lokale app",
+      "status": "passed",
+      "durationMs": 768
+    },
+    {
+      "name": "Bedrijfsinstellingen worden daadwerkelijk opgeslagen",
+      "status": "passed",
+      "durationMs": 127
+    },
+    {
+      "name": "Autopilotknop start echte workerthread, niet alleen animatie",
+      "status": "passed",
+      "durationMs": 5159
+    },
+    {
+      "name": "Desktopdashboard renderen zonder JavaScriptfouten",
+      "status": "passed",
+      "durationMs": 228
+    },
+    {
+      "name": "Gesprekkenpagina heeft automatische berichten en prijsplafond",
+      "status": "passed",
+      "durationMs": 287
+    },
+    {
+      "name": "Alle navigatiepagina’s zijn bruikbaar",
+      "status": "passed",
+      "durationMs": 271
+    },
+    {
+      "name": "Mobiel formaat: geen horizontale pagina-overflow",
+      "status": "passed",
+      "durationMs": 437
+    },
+    {
+      "name": "Noodstop zet worker werkelijk uit",
+      "status": "passed",
+      "durationMs": 105
+    },
+    {
+      "name": "Volledige backupknop gebruikt herstelbaar formaat zonder bestandsdownload in test",
+      "status": "passed",
+      "durationMs": 361
+    },
+    {
+      "name": "Gespreksinhoud wissen werkt via interface en bewaart niet-benaderenstatus",
+      "status": "passed",
+      "durationMs": 161
+    },
+    {
+      "name": "Geen runtimefouten na navigatie en noodstop",
+      "status": "passed",
+      "durationMs": 6
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+(node:4933) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+PASS Studio navigatie bereikbaar vanuit echte UI
+PASS Offline stand is expliciet, geen verzonnen Claude-label
+PASS Oefenformulier verstuurt juiste contractvelden
+PASS Antwoordformulier verstuurt verkopertekst met idempotentie-ID
+PASS Werkelijke studiouitvoer toont context, bedrag en herkomst
+PASS Studio 390px zonder horizontale overflow
+PASS Nieuw handmatig concept zichtbaar zonder ontvangstclaim
+PASS Handmatige werkstand desktop leesbaar en twee afzonderlijke acties
+PASS Inkoopprofiel toont waarheidsvlaggen en geen vrij bewerkbare expiry
+PASS Geen JavaScript-fouten in studioflows

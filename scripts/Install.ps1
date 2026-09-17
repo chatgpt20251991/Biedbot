@@ -10,8 +10,22 @@ param(
 )
 $ErrorActionPreference = 'Stop'
 [Console]::OutputEncoding = [Text.UTF8Encoding]::new($false)
+function Get-BiedBotExtendedPath([string]$Path) {
+    $full = [IO.Path]::GetFullPath($Path)
+    if ($full.StartsWith('\\?\')) { return $full }
+    if ($full.StartsWith('\\')) { return '\\?\UNC\' + $full.Substring(2) }
+    return '\\?\' + $full
+}
+function Copy-BiedBotFile([string]$Source, [string]$Destination) {
+    # PowerShell 5.1 Copy-Item can fail at MAX_PATH even when the staging
+    # directory exists. Extended literal paths preserve Unicode and allow the
+    # complete manifest file to be copied without changing system policy.
+    $parent = [IO.Path]::GetDirectoryName([IO.Path]::GetFullPath($Destination))
+    [IO.Directory]::CreateDirectory((Get-BiedBotExtendedPath $parent)) | Out-Null
+    [IO.File]::Copy((Get-BiedBotExtendedPath $Source), (Get-BiedBotExtendedPath $Destination), $false)
+}
 function Get-BiedBotHash([string]$Path) {
-    $stream = [IO.File]::OpenRead($Path)
+    $stream = [IO.File]::OpenRead((Get-BiedBotExtendedPath $Path))
     $sha = [Security.Cryptography.SHA256]::Create()
     try { return [BitConverter]::ToString($sha.ComputeHash($stream)).Replace('-','').ToLowerInvariant() }
     finally { $stream.Dispose(); $sha.Dispose() }
@@ -117,10 +131,9 @@ $stagingRoot = Join-Path $versionsRoot ($version + '.staging-' + [guid]::NewGuid
 New-Item -ItemType Directory -Force -Path $stagingRoot | Out-Null
 foreach ($entry in $manifest.files) {
     $destination = Join-Path $stagingRoot $entry.path
-    New-Item -ItemType Directory -Force -Path (Split-Path -Parent $destination) | Out-Null
-    Copy-Item -LiteralPath (Join-Path $packageRoot $entry.path) -Destination $destination
+    Copy-BiedBotFile (Join-Path $packageRoot $entry.path) $destination
 }
-Copy-Item -LiteralPath $manifestFile -Destination (Join-Path $stagingRoot 'MANIFEST.sha256.json')
+Copy-BiedBotFile $manifestFile (Join-Path $stagingRoot 'MANIFEST.sha256.json')
 # Publish a complete directory only. A failed subsequent activation restores the
 # previous launcher, shortcut, version pointer and installation record.
 if (-not ([IO.Path]::GetFullPath($stagingRoot).StartsWith($versionsRoot + '\',[StringComparison]::OrdinalIgnoreCase)) -or -not ([IO.Path]::GetFullPath($versionRoot).StartsWith($versionsRoot + '\',[StringComparison]::OrdinalIgnoreCase))) { throw 'Onveilig versiepad.' }

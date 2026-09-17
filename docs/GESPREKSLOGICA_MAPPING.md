@@ -1,35 +1,37 @@
-# Herkomst en bewuste wijzigingen in de gesprekslogica
+# Van originele gesprekslogica naar deze app
 
-Revisie 8 september 2026: volledige akkoordzinnen worden gevalideerd, inclusief vragen, negaties, voorwaarden en planningsstaarten. Een losse `Akkoord?` veroorzaakt geen prijsacceptatie. Een verkopersprijs moet een volledige, ondubbelzinnige prijszin zijn. Nieuwe regressies en de expliciet synthetische 128-scenario-evaluatie staan onder de gedateerde rapporten; echte AI-acceptatie blijft vereist.
+Update 18 september: de aangeleverde oorspronkelijke SaaS-bron is nu rechtstreeks vergeleken. De concrete herstelkeuzes en de nieuwe volledige toetsgesprekken staan in `GESPREKSSTIJL_HERSTEL.md`. Historische verkopersfeiten en correcties tellen mee; de toonkeuze werkt ook offline. Het expliciete bezichtigingsvoorbehoud blijft verplicht bij akkoord en hoeft niet in iedere voorafgaande bodzin te worden herhaald.
 
-Basis: aangeleverd `BIEDBOT_GESPREKSLOGICA.md`, met name hoofdstuk 0 en 0B, herbouw 11 juli 2026. Dit is de nieuwere deterministische aanpak. De latere oude Haiku-prompts en oude samenvattingsflow zijn niet opnieuw actief gemaakt. De kop “Alles vanaf hoofdstuk 5 is oud” wordt gelezen samen met de expliciete labels “oud systeem” elders, niet als toestemming om tegenstrijdige oude strategieën te mengen.
+Bronbasis: hoofdstuk 0/0B van `docs/source/BIEDBOT_GESPREKSLOGICA.md` (11 juli-herbouw) en de aangeleverde PDF van 17 juli, met name pagina 10 en 11. De oudere Haiku-openingen met direct een bod en gefingeerde marktanalyse zijn historische achtergrond, geen actieve opdracht.
 
-## Behouden
-
-De strategie staat in code. `plafondPct` kent 80/84/88/91 procent per prijsklasse. Het anker wordt op 50 euro afgerond. De eerste boodschap noemt geen prijs en vraagt naar onderhoud en reden van verkoop. Daarna volgt het anker. Maximaal twee peilingen en drie aflopende concessies. De concessiereeks gebruikt 50%, 75% en 87,5% van de ruimte, met afronding en begrenzing. Een lagere verkopersprijs binnen het plafond wordt niet voor hem verhoogd. Akkoord leidt tot overdracht en het stoppen van de bot. Er worden geen eigen datums of tijdstippen verzonnen. De korte, zakelijke Nederlandse stijl zonder markdown of contant-/spoedtaal blijft behouden.
-
-## Expliciet aangepast, niet letterlijk uit de bron overgenomen
-
-| Bron / risico | Nieuwe implementatie |
+| Bronprincipe | Huidige implementatie |
 |---|---|
-| `Math.max(anker, min(banded, 92%))` kan een te hoog/afgerond anker laten winnen | Plafond eerst hard bepalen; anker naar dat plafond begrenzen |
-| `AKKOORD` bevestigt altijd het oorspronkelijke anker | Bevestig het laatste daadwerkelijk verzonden eigen bod |
-| Gespreksfase wordt teruggelezen uit losse teksten | Gestructureerde fase, peilingen, concessies en laatste prijs persistent opslaan |
-| Oud akkoorddetectiepatroon ziet uitnodigingen als akkoord | Uitnodiging alleen is een vraag, geen prijsakkoord |
-| “Prima” of “goed” in onderhoudstekst kan verkeerd gelezen worden | Striktere akkoordcontext; “goed onderhouden” is geen akkoord |
-| Kaartje “geen akkoord”, bedragen bij eerdere bieders of kenteken-/km-getallen | Conservatieve herkenning, geen automatische acceptatie daarvan |
-| Zelf blijven bieden bij herhaalde hoge vraagprijs | Geen nieuwe concessie zonder dalende verkopersvraag; hoogstens peilen en stoppen |
-| Oud prijskader noemt 25 per dag | De gebruiker vroeg eerder om 20: hard 20, niet een officieel geverifieerde platformlimiet |
-| Alleen openingscap | Extra 80 totale berichten als productguardrail; rollend 24 uur én Nederlandse kalenderdag |
-| Meerdere inkomende berichten vóór de volgende tick | Nieuwste bericht bepaalt, oudere ongelezen prijsvoorstellen worden niet alsnog later geaccepteerd |
-| Stopverzoek wacht op normale inboxronde | Meteen niet-benaderenstatus en intrekken van klaarstaande acties |
-| Model schrijft ook financiële zinnen | In deze pilot zijn financiële zinnen vaste, controleerbare tekst; optionele AI alleen als geverifieerde classifier |
-| “Mijn bod is wat auto’s echt opbrengen” zonder data | Geen claim over gerealiseerde verkoopprijzen zonder bewijs; nu geen dergelijke claims |
-| Planning direct bij akkoord | Vraag wanneer het schikt; menselijke handoff; geen afspraak zelf bevestigen |
-| Onvoorwaardelijke kooptaal | Prijs wordt onder voorbehoud van bezichtiging en controle bevestigd. Dit is een bewuste productsafeguard, geen juridische garantie |
+| Code kiest strategie; model verwoordt | negotiation.mjs + communication.mjs + AnthropicWriter |
+| Warm openen zonder bod | OPEN in voice.mjs; writer-route actief na expliciete opt-in |
+| Reageren op inhoud | bounded/redacted sellerText + twaalf recente berichten; dealercontext |
+| Anker en prijsklasseplafond | Bestaande calculateLimits/initialState; extra individuele/marge/budgetgrenzen behouden |
+| Maximaal twee peilingen, drie krimpende concessies | Bestaande deterministische counters; geen automatische verhoging als de verkoper stil blijft staan |
+| Sluiten binnen plafond, mens neemt over | Correct actueel bod of concreet verkopersbedrag; HOT_LEAD is terminaal |
+| Geen eigen ophaaldatum of tijd | Prompt, tekstguard en vaste veilige afsluiting |
+| Geen cash/spoed, markdown of lange streepjes | Centrale validatie vóór en na prijsinvulling |
+| Waarheid schaalt | Geen verzonnen marktwaarde/vergelijkingen; weekclaim alleen na tijdelijke dealerbevestiging |
+| Signoff niet dubbel | Schrijver schrijft geen signoff; code plaatst exact één gecontroleerde afzender |
+| Custom-template valkuil vermijden | Geen nieuw vrij templateveld; openingsroute gebruikt MessageComposer |
 
-## Grenzen van de AI-implementatie
+## Bewuste veiligheidswijzigingen ten opzichte van de oude voorbeeldcode
 
-`src/adapters/anthropic.mjs` ondersteunt het opgegeven Sonnet-model-ID als configureerbare module en behandelt verkopertekst als onbetrouwbare data. Er zijn geen tools of browserrechten aan het taalmodel gegeven. Bedragen moeten letterlijk onderbouwd en door code gevalideerd zijn. De uitgeleverde demo gebruikt geen echt taalmodel; ze werkt zonder API-sleutel via regels en fictieve verkopersscenario’s. Deze broncodemodule is nog niet aan de productieworker gekoppeld.
+Er wordt niet opnieuw vertrouwd op het teruglezen van getallen uit eigen zinnen om de fase te bepalen. De bevestigde onderhandelstaat zit in SQLite. De phase/lastOffer verandert pas na demo-/adapterreceipt; in handmatige studio pas nadat de dealer het exacte concept als verstuurd bevestigt.
 
-De prijsscore is een rangschikking, geen wetenschappelijk gekalibreerde conversiekans. Fictieve demo-verkoopramingen zijn geen marktprijzen. Reparaties of onderhoud worden niet als fysiek gecontroleerd gepresenteerd.
+Akkoord gebruikt niet altijd het oorspronkelijke anker. Een akkoord op het laatst bevestigde bod hoort bij dat bod. Een concreet lagere verkopersprijs kan meteen worden bevestigd zonder eerst een hoger bod neer te leggen. Zo hoeft de app een gunstiger aanbod niet onnodig te overbieden. Extra voorwaarden, risicosignalen en ambigue berichtreeksen worden niet stilzwijgend als akkoord behandeld.
+
+De oude claim “dit bedrag is wat auto's werkelijk opbrengen” wordt zonder echte databron niet uitgesproken. Ook “ik koop deze week” en “ik heb alternatieven” staan niet standaard aan. Dat behoudt de eigen bronregel tegen verzonnen onderbouwing.
+
+De originele appcap twintig nieuwe contacten blijft behouden. De oudere documentclaim over vijfentwintig is niet overgenomen als feitelijke platformgarantie. Ook lager volume is geen toestemming.
+
+Financiële tekst heeft onder voorbehoud van bezichtiging/controle een plaats gekregen. Dit is een operationele voorzorg, geen juridisch oordeel dat elk bericht niet-bindend is. Er is geen juridische of commerciële vrijgave gegeven.
+
+De nieuwe handmatige studio is een extra bruikbare werkstand, geen terugdraaiing van de gekozen Edge/autopilot-productrichting. De autonome worker werkt met demo-events; echte platformdispatch blijft een aparte vrijgavestap.
+
+## Verificatie
+
+`communication-audit-regression.test.mjs` legt de vijf concrete klachten vast. `voice.test.mjs` test formuleringen, bronclaims, geld, stijl en geschiedenis. `writer-integration.test.mjs` test de echte API-client met geïnjecteerde HTTP-responses. `composition-races.test.mjs` test wijzigingen tijdens genereren en vlak voor dispatch. `studio.test.mjs` en `studio-api.test.mjs` testen bruikbare handmatige bediening en echte lokale API-opslag. Oude testbestanden zijn niet afgezwakt om de nieuwe implementatie groen te maken.

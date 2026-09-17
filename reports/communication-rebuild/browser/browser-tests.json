@@ -1,0 +1,17 @@
+{
+  "executedAt": "2026-09-10T21:14:44.141Z",
+  "platform": "linux",
+  "node": "v22.16.0",
+  "fixtureDirectory": "work/browser-fixtures/biedbot-browser-eBR4Xn",
+  "profileRetention": "Local fixture data retained under ignored work/browser-fixtures for diagnosis; excluded from distribution.",
+  "scope": "Echte Chromium op linux; lokale fixtures en demo. Geen live Marktplaats of twee-pc installatieacceptatie.",
+  "passed": 0,
+  "failed": 1,
+  "results": [
+    {
+      "name": "BROWSER_TEST_FAILURE",
+      "status": "failed",
+      "error": "Error: net::ERR_BLOCKED_BY_ADMINISTRATOR\n    at CDPBrowser.navigate (file:///mnt/data/biedbot_build/app/src/adapters/cdp.mjs:63:136)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async ApprovedBrowserAdapter.discover (file:///mnt/data/biedbot_build/app/src/adapters/approved-browser.mjs:35:45)\n    at async file:///mnt/data/biedbot_build/app/tests/browser.e2e.mjs:10:83\n    at async check (file:///mnt/data/biedbot_build/app/tests/browser.e2e.mjs:7:54)\n    at async file:///mnt/data/biedbot_build/app/tests/browser.e2e.mjs:10:3"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 /** Product limits, not published platform quotas and not an account-safety guarantee. */
-export const VERSION = '0.1.0-pilot.2';
+export const VERSION = '0.2.1-pilot.1';
 export const HARD_NEW_CONTACT_CAP = 20;
 export const HARD_TOTAL_MESSAGE_CAP = 80;
 export const DEFAULTS = Object.freeze({
@@ -12,7 +12,7 @@ export const DEFAULTS = Object.freeze({
   requireMarginEvidence: false, retentionDays: 30,
   includeBusinessSellers: false, autopilot: false,
   aiProvider: 'offline', aiModel: 'claude-sonnet-4-6', aiMaxRequestsDaily: 120,
-  onboardingDone: false, buyingThisWeek: false,
+  onboardingDone: false, buyingThisWeek: false, buyingIntentExpiresAt:0, hasAlternatives:false, tone:'zakelijk',
   trialDays: 7, pricingSetup: 249, pricingMonthly: 149
 });
 const integer = (v, min, max, key) => {
@@ -46,9 +46,11 @@ export function validateSettings(input, previous = DEFAULTS) {
   integer(v.replyGapSeconds, 60, 86400, 'antwoordinterval');
   integer(v.retentionDays, 7, 365, 'bewaartermijn');
   integer(v.aiMaxRequestsDaily, 1, 500, 'AI-limiet');
-  for (const key of ['autopilot','requireMarginEvidence','includeBusinessSellers','onboardingDone','buyingThisWeek']) {
+  for (const key of ['autopilot','requireMarginEvidence','includeBusinessSellers','onboardingDone','buyingThisWeek','hasAlternatives']) {
     if (typeof v[key] !== 'boolean') throw new Error(`Ongeldige schakelaar ${key}.`);
   }
+  if(!['zakelijk','vriendelijk','kort'].includes(v.tone))throw new Error('Ongeldige gesprekstoon.');
+  if(!Number.isSafeInteger(v.buyingIntentExpiresAt)||v.buyingIntentExpiresAt<0)throw new Error('Ongeldige geldigheid koopintentie.');
   if (v.includeBusinessSellers) throw new Error('Deze pilot selecteert alleen expliciet particuliere verkopers.');
   if (!['offline','anthropic'].includes(v.aiProvider)) throw new Error('Onbekende AI-aanbieder.');
   if (typeof v.aiModel !== 'string' || !/^claude-[a-z0-9.-]{3,80}$/.test(v.aiModel)) throw new Error('Ongeldig model-ID.');
@@ -66,3 +68,11 @@ export function localParts(now) {
 }
 export function withinHours(now, s) { const h = localParts(now).hour; return h >= s.hoursStart && h < s.hoursEnd; }
 export function boundedCap(...values) { return Math.min(HARD_NEW_CONTACT_CAP, ...values.map(x => Number.isInteger(x) && x > 0 ? x : 0)); }
+
+/** End of the current Amsterdam calendar week, respecting the UTC offset then. */
+export function buyingIntentExpiry(now=Date.now()) {
+  const day=localParts(now).day,date=new Date(day+'T12:00:00Z');
+  const delta=(8-date.getUTCDay())%7||7;date.setUTCDate(date.getUTCDate()+delta);
+  const midnight=Date.parse(date.toISOString().slice(0,10)+'T00:00:00Z');
+  return midnight-localParts(midnight).hour*3600000;
+}

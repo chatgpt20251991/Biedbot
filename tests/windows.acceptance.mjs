@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {mkdtempSync,mkdirSync,cpSync,readFileSync,writeFileSync,existsSync,readdirSync,rmSync} from 'node:fs';
 import {join,resolve} from 'node:path';
 import {spawnSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
 import {setTimeout as delay} from 'node:timers/promises';
 
 // Explicit acceptance command, excluded from generic unit runs. Every install,
@@ -55,6 +56,17 @@ try {
   assert.match(unsigned.stdout+unsigned.stderr,/handtekening/);
   assert(!existsSync(join(app,'runtime/node.exe')));results.push({check:'unsigned runtime refused before execution',status:'passed'});
   ps(installer,[...args,'-RuntimePath',process.execPath,'-Offline'],{label:'acceptance-install'});
+  const packageVersion=JSON.parse(readFileSync(join(packageRoot,'package.json'),'utf8')).version;
+  const installedManifest=JSON.parse(readFileSync(join(app,'versions',packageVersion,'MANIFEST.sha256.json'),'utf8'));
+  let longStagingPaths=0;
+  for(const entry of installedManifest.files){
+    const installed=join(app,'versions',packageVersion,entry.path);
+    assert.equal(createHash('sha256').update(readFileSync(installed)).digest('hex'),entry.sha256,`installed integrity: ${entry.path}`);
+    // The random GUID has a fixed width. Preserve the full Unicode fixture path
+    // and record how many copies cross the Win32 legacy MAX_PATH boundary.
+    if(join(app,'versions',packageVersion+'.staging-'+'0'.repeat(32),entry.path).length>=260)longStagingPaths++;
+  }
+  results.push({check:'every manifest file copied intact through Unicode staging paths',status:'passed',filesChecked:installedManifest.files.length,stagingPathsOver260:longStagingPaths});
   assert(existsSync(join(desktop,'BiedBot Edge.lnk')));
   const launcher=join(app,'BiedBot-Open.vbs'),launcherBytes=readFileSync(launcher);
   assert.equal(launcherBytes.readUInt16LE(0),0xfeff);assert(launcherBytes.toString('utf16le').includes('Zoë 李 & Co'));

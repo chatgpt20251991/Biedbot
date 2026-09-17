@@ -1,0 +1,340 @@
+TAP version 13
+# Subtest: writer krijgt context en symbolisch bod, geen prijsbevoegdheid of budget
+ok 1 - writer krijgt context en symbolisch bod, geen prijsbevoegdheid of budget
+  ---
+  duration_ms: 17.439933
+  type: 'test'
+  ...
+# Subtest: verschillende bronreacties geven inhoudelijk verschillende offline brug
+ok 2 - verschillende bronreacties geven inhoudelijk verschillende offline brug
+  ---
+  duration_ms: 1.183595
+  type: 'test'
+  ...
+# Subtest: ongeldige modeltekst 1 wordt afgewezen, niet gerepareerd tot hoger bod
+ok 3 - ongeldige modeltekst 1 wordt afgewezen, niet gerepareerd tot hoger bod
+  ---
+  duration_ms: 0.452883
+  type: 'test'
+  ...
+# Subtest: ongeldige modeltekst 2 wordt afgewezen, niet gerepareerd tot hoger bod
+ok 4 - ongeldige modeltekst 2 wordt afgewezen, niet gerepareerd tot hoger bod
+  ---
+  duration_ms: 0.431771
+  type: 'test'
+  ...
+# Subtest: ongeldige modeltekst 3 wordt afgewezen, niet gerepareerd tot hoger bod
+ok 5 - ongeldige modeltekst 3 wordt afgewezen, niet gerepareerd tot hoger bod
+  ---
+  duration_ms: 0.291059
+  type: 'test'
+  ...
+# Subtest: ongeldige modeltekst 4 wordt afgewezen, niet gerepareerd tot hoger bod
+ok 6 - ongeldige modeltekst 4 wordt afgewezen, niet gerepareerd tot hoger bod
+  ---
+  duration_ms: 0.949121
+  type: 'test'
+  ...
+# Subtest: ongeldige modeltekst 5 wordt afgewezen, niet gerepareerd tot hoger bod
+ok 7 - ongeldige modeltekst 5 wordt afgewezen, niet gerepareerd tot hoger bod
+  ---
+  duration_ms: 0.375447
+  type: 'test'
+  ...
+# Subtest: ongeldige modeltekst 6 wordt afgewezen, niet gerepareerd tot hoger bod
+ok 8 - ongeldige modeltekst 6 wordt afgewezen, niet gerepareerd tot hoger bod
+  ---
+  duration_ms: 0.450279
+  type: 'test'
+  ...
+# Subtest: ongeldige modeltekst 7 wordt afgewezen, niet gerepareerd tot hoger bod
+ok 9 - ongeldige modeltekst 7 wordt afgewezen, niet gerepareerd tot hoger bod
+  ---
+  duration_ms: 0.640526
+  type: 'test'
+  ...
+# Subtest: ongeldige modeltekst 8 wordt afgewezen, niet gerepareerd tot hoger bod
+ok 10 - ongeldige modeltekst 8 wordt afgewezen, niet gerepareerd tot hoger bod
+  ---
+  duration_ms: 0.505712
+  type: 'test'
+  ...
+# Subtest: ongeldige modeltekst 9 wordt afgewezen, niet gerepareerd tot hoger bod
+ok 11 - ongeldige modeltekst 9 wordt afgewezen, niet gerepareerd tot hoger bod
+  ---
+  duration_ms: 0.32468
+  type: 'test'
+  ...
+# Subtest: ongeldige modeltekst 10 wordt afgewezen, niet gerepareerd tot hoger bod
+ok 12 - ongeldige modeltekst 10 wordt afgewezen, niet gerepareerd tot hoger bod
+  ---
+  duration_ms: 0.236466
+  type: 'test'
+  ...
+# Subtest: ongeldige modeltekst 11 wordt afgewezen, niet gerepareerd tot hoger bod
+ok 13 - ongeldige modeltekst 11 wordt afgewezen, niet gerepareerd tot hoger bod
+  ---
+  duration_ms: 0.212691
+  type: 'test'
+  ...
+# Subtest: ongeldige modeltekst 12 wordt afgewezen, niet gerepareerd tot hoger bod
+ok 14 - ongeldige modeltekst 12 wordt afgewezen, niet gerepareerd tot hoger bod
+  ---
+  duration_ms: 0.203096
+  type: 'test'
+  ...
+# Subtest: ongeldige modeltekst 13 wordt afgewezen, niet gerepareerd tot hoger bod
+ok 15 - ongeldige modeltekst 13 wordt afgewezen, niet gerepareerd tot hoger bod
+  ---
+  duration_ms: 0.204659
+  type: 'test'
+  ...
+# Subtest: ongeldige modeltekst 14 wordt afgewezen, niet gerepareerd tot hoger bod
+ok 16 - ongeldige modeltekst 14 wordt afgewezen, niet gerepareerd tot hoger bod
+  ---
+  duration_ms: 0.352952
+  type: 'test'
+  ...
+# Subtest: ongeldige modeltekst 15 wordt afgewezen, niet gerepareerd tot hoger bod
+ok 17 - ongeldige modeltekst 15 wordt afgewezen, niet gerepareerd tot hoger bod
+  ---
+  duration_ms: 0.208725
+  type: 'test'
+  ...
+# Subtest: ongeldige modeltekst 16 wordt afgewezen, niet gerepareerd tot hoger bod
+ok 18 - ongeldige modeltekst 16 wordt afgewezen, niet gerepareerd tot hoger bod
+  ---
+  duration_ms: 0.201144
+  type: 'test'
+  ...
+# Subtest: ongeldige modeltekst 17 wordt afgewezen, niet gerepareerd tot hoger bod
+ok 19 - ongeldige modeltekst 17 wordt afgewezen, niet gerepareerd tot hoger bod
+  ---
+  duration_ms: 0.297479
+  type: 'test'
+  ...
+# Subtest: ongeldige modeltekst 18 wordt afgewezen, niet gerepareerd tot hoger bod
+ok 20 - ongeldige modeltekst 18 wordt afgewezen, niet gerepareerd tot hoger bod
+  ---
+  duration_ms: 0.202115
+  type: 'test'
+  ...
+# Subtest: ongeldige modeltekst 19 wordt afgewezen, niet gerepareerd tot hoger bod
+ok 21 - ongeldige modeltekst 19 wordt afgewezen, niet gerepareerd tot hoger bod
+  ---
+  duration_ms: 0.181123
+  type: 'test'
+  ...
+# Subtest: ongeldige modeltekst 20 wordt afgewezen, niet gerepareerd tot hoger bod
+ok 22 - ongeldige modeltekst 20 wordt afgewezen, niet gerepareerd tot hoger bod
+  ---
+  duration_ms: 0.25871
+  type: 'test'
+  ...
+# Subtest: ongeldige modeltekst 21 wordt afgewezen, niet gerepareerd tot hoger bod
+ok 23 - ongeldige modeltekst 21 wordt afgewezen, niet gerepareerd tot hoger bod
+  ---
+  duration_ms: 0.26549
+  type: 'test'
+  ...
+# Subtest: ongeldige modeltekst 22 wordt afgewezen, niet gerepareerd tot hoger bod
+ok 24 - ongeldige modeltekst 22 wordt afgewezen, niet gerepareerd tot hoger bod
+  ---
+  duration_ms: 0.334314
+  type: 'test'
+  ...
+# Subtest: ongeldige modeltekst 23 wordt afgewezen, niet gerepareerd tot hoger bod
+ok 25 - ongeldige modeltekst 23 wordt afgewezen, niet gerepareerd tot hoger bod
+  ---
+  duration_ms: 0.197318
+  type: 'test'
+  ...
+# Subtest: zonder Claude is de terugval expliciet offline, nooit als modeloutput gelabeld
+ok 26 - zonder Claude is de terugval expliciet offline, nooit als modeloutput gelabeld
+  ---
+  duration_ms: 0.262236
+  type: 'test'
+  ...
+# Subtest: modelstoring in niet-demo levert alleen een reviewconcept op
+ok 27 - modelstoring in niet-demo levert alleen een reviewconcept op
+  ---
+  duration_ms: 0.367043
+  type: 'test'
+  ...
+# Subtest: akkoord en identiteit blijven korte codebepaalde veiligheidsstappen
+ok 28 - akkoord en identiteit blijven korte codebepaalde veiligheidsstappen
+  ---
+  duration_ms: 0.524802
+  type: 'test'
+  ...
+# Subtest: OPEN gebruikt de modelroute en bevat geen bod
+ok 29 - OPEN gebruikt de modelroute en bevat geen bod
+  ---
+  duration_ms: 0.484862
+  type: 'test'
+  ...
+# Subtest: bevestigde koopintentie en alternatieven zijn onafhankelijke verklaringen
+ok 30 - bevestigde koopintentie en alternatieven zijn onafhankelijke verklaringen
+  ---
+  duration_ms: 0.426404
+  type: 'test'
+  ...
+# Subtest: koopintentie vervalt aan einde Nederlandse week: 2026-03-28T14:00:00Z
+ok 31 - koopintentie vervalt aan einde Nederlandse week: 2026-03-28T14:00:00Z
+  ---
+  duration_ms: 3.815515
+  type: 'test'
+  ...
+# Subtest: koopintentie vervalt aan einde Nederlandse week: 2026-10-24T14:00:00Z
+ok 32 - koopintentie vervalt aan einde Nederlandse week: 2026-10-24T14:00:00Z
+  ---
+  duration_ms: 0.489659
+  type: 'test'
+  ...
+# Subtest: koopintentie vervalt aan einde Nederlandse week: 2026-09-13T21:59:00Z
+ok 33 - koopintentie vervalt aan einde Nederlandse week: 2026-09-13T21:59:00Z
+  ---
+  duration_ms: 0.284239
+  type: 'test'
+  ...
+# Subtest: telefoonnummer en email worden niet in modelcontext herhaald
+ok 34 - telefoonnummer en email worden niet in modelcontext herhaald
+  ---
+  duration_ms: 0.167933
+  type: 'test'
+  ...
+# Subtest: advertentiemodel met instructie wordt niet in een opening gekopieerd
+ok 35 - advertentiemodel met instructie wordt niet in een opening gekopieerd
+  ---
+  duration_ms: 0.122014
+  type: 'test'
+  ...
+# Subtest: MODEL met cijfer blijft toegestaan maar is geen bedrag
+ok 36 - MODEL met cijfer blijft toegestaan maar is geen bedrag
+  ---
+  duration_ms: 0.243217
+  type: 'test'
+  ...
+# Subtest: negatief genoemde koppeling wordt niet als vervangen bevestigd
+ok 37 - negatief genoemde koppeling wordt niet als vervangen bevestigd
+  ---
+  duration_ms: 0.149806
+  type: 'test'
+  ...
+# Subtest: gecontroleerde natuurlijke prijszin: Voor 8000 mag je hem ophalen.
+ok 38 - gecontroleerde natuurlijke prijszin: Voor 8000 mag je hem ophalen.
+  ---
+  duration_ms: 4.524654
+  type: 'test'
+  ...
+# Subtest: gecontroleerde natuurlijke prijszin: Ik wil er 8000 voor hebben.
+ok 39 - gecontroleerde natuurlijke prijszin: Ik wil er 8000 voor hebben.
+  ---
+  duration_ms: 1.845394
+  type: 'test'
+  ...
+# Subtest: gecontroleerde natuurlijke prijszin: Voor 8.000 mag u de auto meenemen.
+ok 40 - gecontroleerde natuurlijke prijszin: Voor 8.000 mag u de auto meenemen.
+  ---
+  duration_ms: 0.107573
+  type: 'test'
+  ...
+# Subtest: gecontroleerde natuurlijke prijszin: 8000 is mijn minimumprijs.
+ok 41 - gecontroleerde natuurlijke prijszin: 8000 is mijn minimumprijs.
+  ---
+  duration_ms: 0.070036
+  type: 'test'
+  ...
+# Subtest: gecontroleerde natuurlijke prijszin: 8k
+ok 42 - gecontroleerde natuurlijke prijszin: 8k
+  ---
+  duration_ms: 0.074342
+  type: 'test'
+  ...
+# Subtest: geen stilzwijgende koop bij: Een ander bood 8000
+ok 43 - geen stilzwijgende koop bij: Een ander bood 8000
+  ---
+  duration_ms: 0.804253
+  type: 'test'
+  ...
+# Subtest: geen stilzwijgende koop bij: 8000 aan reparaties
+ok 44 - geen stilzwijgende koop bij: 8000 aan reparaties
+  ---
+  duration_ms: 0.424651
+  type: 'test'
+  ...
+# Subtest: geen stilzwijgende koop bij: Niet voor 8000
+ok 45 - geen stilzwijgende koop bij: Niet voor 8000
+  ---
+  duration_ms: 0.09239
+  type: 'test'
+  ...
+# Subtest: geen stilzwijgende koop bij: Voor 8000?
+ok 46 - geen stilzwijgende koop bij: Voor 8000?
+  ---
+  duration_ms: 0.144398
+  type: 'test'
+  ...
+# Subtest: geen stilzwijgende koop bij: Voor 8000 mag je hem morgen ophalen.
+ok 47 - geen stilzwijgende koop bij: Voor 8000 mag je hem morgen ophalen.
+  ---
+  duration_ms: 0.154373
+  type: 'test'
+  ...
+# Subtest: geen stilzwijgende koop bij: Voor 8000 mag je hem ophalen, mits je aanbetaalt.
+ok 48 - geen stilzwijgende koop bij: Voor 8000 mag je hem ophalen, mits je aanbetaalt.
+  ---
+  duration_ms: 0.087181
+  type: 'test'
+  ...
+# Subtest: geen stilzwijgende koop bij: Voor USD 8000 mag je hem ophalen.
+ok 49 - geen stilzwijgende koop bij: Voor USD 8000 mag je hem ophalen.
+  ---
+  duration_ms: 0.065599
+  type: 'test'
+  ...
+# Subtest: geen stilzwijgende koop bij: Voor £8000 mag je hem ophalen.
+ok 50 - geen stilzwijgende koop bij: Voor £8000 mag je hem ophalen.
+  ---
+  duration_ms: 0.124498
+  type: 'test'
+  ...
+# Subtest: negatie van schade verbergt een kapotte motor niet
+ok 51 - negatie van schade verbergt een kapotte motor niet
+  ---
+  duration_ms: 0.16547
+  type: 'test'
+  ...
+# Subtest: op vraag naar bestaand bod niet verhogen
+ok 52 - op vraag naar bestaand bod niet verhogen
+  ---
+  duration_ms: 0.124508
+  type: 'test'
+  ...
+# Subtest: informatie na bod wordt beantwoord zonder een eenzijdige concessie
+ok 53 - informatie na bod wordt beantwoord zonder een eenzijdige concessie
+  ---
+  duration_ms: 0.11258
+  type: 'test'
+  ...
+# Subtest: vasthouden aan oorspronkelijke vraagprijs is geen prijsbeweging
+ok 54 - vasthouden aan oorspronkelijke vraagprijs is geen prijsbeweging
+  ---
+  duration_ms: 0.194874
+  type: 'test'
+  ...
+# Subtest: beschikbaarheid leidt naar ontbrekende informatie, niet naar generieke prijsvraag
+ok 55 - beschikbaarheid leidt naar ontbrekende informatie, niet naar generieke prijsvraag
+  ---
+  duration_ms: 0.312702
+  type: 'test'
+  ...
+1..55
+# tests 55
+# suites 0
+# pass 55
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 118.396125

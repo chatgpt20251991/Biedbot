@@ -1,6 +1,6 @@
 {
   "name": "biedbot-edge",
-  "version": "0.1.0-pilot.2",
+  "version": "0.2.1-pilot.1",
   "private": true,
   "type": "module",
   "description": "Lokale auto-inkoopagent met deterministische onderhandeling en ge\u00efsoleerde demonstratieomgeving",
@@ -18,7 +18,9 @@
     "test:dom": "node tests/browser.dom.mjs",
     "test:windows": "node tests/windows.acceptance.mjs",
     "evaluate": "node scripts/evaluate-classifier.mjs",
-    "verify": "node scripts/verify-release.mjs"
+    "verify": "node scripts/verify-release.mjs",
+    "test:studio": "node tests/studio.dom.mjs",
+    "review:conversations": "node scripts/conversation-style-review.mjs"
   },
   "license": "UNLICENSED"
 }

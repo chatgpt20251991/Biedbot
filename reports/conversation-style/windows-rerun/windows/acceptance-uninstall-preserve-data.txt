@@ -1,0 +1,1 @@
+App verwijderd. Zonder de tweede expliciete bevestiging blijven de lokale gegevens bewaard.

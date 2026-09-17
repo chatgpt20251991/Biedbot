@@ -1,0 +1,50 @@
+{
+  "executedAt": "2026-09-17T22:50:11.590Z",
+  "platform": "win32",
+  "node": "v24.19.0",
+  "scope": "Echte Chromium DOM/render met gemockte netwerkresponsen uit de echte studiocode; geen Windows- of platformtest.",
+  "passed": 10,
+  "failed": 0,
+  "results": [
+    {
+      "name": "Studio navigatie bereikbaar vanuit echte UI",
+      "status": "passed"
+    },
+    {
+      "name": "Offline stand is expliciet, geen verzonnen Claude-label",
+      "status": "passed"
+    },
+    {
+      "name": "Oefenformulier verstuurt juiste contractvelden",
+      "status": "passed"
+    },
+    {
+      "name": "Antwoordformulier verstuurt verkopertekst met idempotentie-ID",
+      "status": "passed"
+    },
+    {
+      "name": "Werkelijke studiouitvoer toont context, bedrag en herkomst",
+      "status": "passed"
+    },
+    {
+      "name": "Studio 390px zonder horizontale overflow",
+      "status": "passed"
+    },
+    {
+      "name": "Nieuw handmatig concept zichtbaar zonder ontvangstclaim",
+      "status": "passed"
+    },
+    {
+      "name": "Handmatige werkstand desktop leesbaar en twee afzonderlijke acties",
+      "status": "passed"
+    },
+    {
+      "name": "Inkoopprofiel toont waarheidsvlaggen en geen vrij bewerkbare expiry",
+      "status": "passed"
+    },
+    {
+      "name": "Geen JavaScript-fouten in studioflows",
+      "status": "passed"
+    }
+  ]
+}

@@ -1,0 +1,1593 @@
+{
+  "scope": "Fictieve verkopersinput, daadwerkelijke uitvoer van de huidige offline code. Geen echte Claude-uitvoer en geen platformverzending.",
+  "results": [
+    {
+      "name": "Onderhoud, leaseauto en akkoord",
+      "settings": {
+        "ask": 10000,
+        "anchor": 7500,
+        "ceiling": 8400
+      },
+      "history": [
+        {
+          "id": "532f5d43-40c4-44c4-8103-c2489b2116ac",
+          "role": "assistant",
+          "text": "Ik bekijk je Golf. Kun je iets vertellen over het onderhoud en recent vervangen onderdelen? Wat is de reden van verkoop?\n\nInkoopteam",
+          "created": 1789041600000,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "444b2af4d0a9c1b68d3b230afe9304e7755568199485a942eb591e628c4fbc43",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          },
+          "simulated": true
+        },
+        {
+          "id": "example-0000",
+          "role": "seller",
+          "text": "Onderhoud is bijgehouden. Ik krijg een leaseauto.",
+          "created": 1789041600000
+        },
+        {
+          "id": "c53d8241-47ae-4e85-b033-b24d3f723dfc",
+          "role": "assistant",
+          "text": "Helder, dus je stapt over op een leaseauto. Mijn bod is EUR 7.500, als de auto bij het bekijken is zoals beschreven. Dat is waarschijnlijk lager dan je in gedachten had.\n\nInkoopteam",
+          "created": 1789041600000,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "6dff34c11cf0bced4d20e2c1da24657f14bc1e8c53f272a3f3e55a4d114ee58f",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": [
+                "leaseauto",
+                "onderhoud"
+              ]
+            }
+          },
+          "simulated": true
+        },
+        {
+          "id": "example-0001",
+          "role": "seller",
+          "text": "Voor 8000 mag je hem ophalen.",
+          "created": 1789041600000
+        },
+        {
+          "id": "119a2391-b732-4aab-886b-a62c98cc806e",
+          "role": "assistant",
+          "text": "Top, dan houden we EUR 8.000 aan, onder voorbehoud van bezichtiging en controle. Wanneer schikt het bij jou?\n\nInkoopteam",
+          "created": 1789041600000,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "89a36d5bb08245055c51d054deb948fca421d09bb9be9a26b4da6d33326e21a0",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          },
+          "simulated": true
+        }
+      ],
+      "state": {
+        "phase": "HOT_LEAD",
+        "anchor": 7500,
+        "ceiling": 8400,
+        "lastOffer": 7500,
+        "peilingen": 0,
+        "concessies": 0,
+        "lastSellerPrice": 8000,
+        "agreedPrice": 8000,
+        "clarificationCount": 0
+      },
+      "steps": [
+        {
+          "action": "OPEN",
+          "price": null,
+          "reason": "",
+          "classification": null,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "444b2af4d0a9c1b68d3b230afe9304e7755568199485a942eb591e628c4fbc43",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          }
+        },
+        {
+          "action": "ANCHOR",
+          "price": 7500,
+          "reason": "",
+          "classification": {
+            "kind": "INFO",
+            "confidence": 0.9
+          },
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "6dff34c11cf0bced4d20e2c1da24657f14bc1e8c53f272a3f3e55a4d114ee58f",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": [
+                "leaseauto",
+                "onderhoud"
+              ]
+            }
+          }
+        },
+        {
+          "action": "ACCEPT",
+          "price": 8000,
+          "reason": "",
+          "classification": {
+            "kind": "PRICE",
+            "price": 8000,
+            "confidence": 0.99,
+            "evidence": "Voor 8000 mag je hem ophalen."
+          },
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "89a36d5bb08245055c51d054deb948fca421d09bb9be9a26b4da6d33326e21a0",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Nieuwe koppeling en vasthouden",
+      "settings": {
+        "ask": 10000,
+        "anchor": 7500,
+        "ceiling": 8400
+      },
+      "history": [
+        {
+          "id": "ffc8491f-8937-47a9-b21e-40680dcf8fbc",
+          "role": "assistant",
+          "text": "Ik bekijk je Golf. Kun je iets vertellen over het onderhoud en recent vervangen onderdelen? Wat is de reden van verkoop?\n\nInkoopteam",
+          "created": 1789041600000,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "444b2af4d0a9c1b68d3b230afe9304e7755568199485a942eb591e628c4fbc43",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          },
+          "simulated": true
+        },
+        {
+          "id": "example-0000",
+          "role": "seller",
+          "text": "Ik ben de tweede eigenaar en er is vorig jaar een nieuwe koppeling in gegaan.",
+          "created": 1789041600000
+        },
+        {
+          "id": "e9fd0a1e-5723-4a95-8721-8877911cb6bf",
+          "role": "assistant",
+          "text": "Helder, je geeft aan dat de koppeling is vervangen. Mijn bod is EUR 7.500, als de auto bij het bekijken is zoals beschreven. Dat is waarschijnlijk lager dan je in gedachten had.\n\nInkoopteam",
+          "created": 1789041600000,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "dd138821e1592783525f9d434ffd6a98c7ff103843c0e0bcf4271d26943beb17",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": [
+                "koppeling",
+                "tweede_eigenaar"
+              ]
+            }
+          },
+          "simulated": true
+        },
+        {
+          "id": "example-0001",
+          "role": "seller",
+          "text": "De vraagprijs staat vast.",
+          "created": 1789041600000
+        },
+        {
+          "id": "a811923e-d34a-4cdf-abb2-a8d8822c9919",
+          "role": "assistant",
+          "text": "Begrijp ik. Wat is je scherpste prijs waarvoor je de auto zou verkopen?\n\nInkoopteam",
+          "created": 1789041600000,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "adf9c5c5538f97363d4d748281653c9449bdfca33e58cdcfa2e7d27ec8735f23",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          },
+          "simulated": true
+        },
+        {
+          "id": "example-0002",
+          "role": "seller",
+          "text": "De vraagprijs staat vast.",
+          "created": 1789041600000
+        },
+        {
+          "id": "cad482a9-c8bc-4ed3-b988-1d5f4342168a",
+          "role": "assistant",
+          "text": "Dan liggen we nog uit elkaar. Welk bedrag zou voor jou wel werken?\n\nInkoopteam",
+          "created": 1789041600000,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "3da662eb88d208f532904e463920c8c2b2dac80dfac861d67d4ff21ae31ec2f1",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          },
+          "simulated": true
+        },
+        {
+          "id": "example-0003",
+          "role": "seller",
+          "text": "De vraagprijs staat vast.",
+          "created": 1789041600000
+        },
+        {
+          "id": "32196d1e-db80-4700-b50e-458c86e29fed",
+          "role": "assistant",
+          "text": "Helder, dan komen we er deze keer niet uit. Mocht je alsnog willen terugkomen op mijn bod, dan hoor ik het.\n\nInkoopteam",
+          "created": 1789041600000,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "ed48b7715fa02ccf747b93b4e5913668d699717284bd62aa303557d9c3622d7f",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          },
+          "simulated": true
+        }
+      ],
+      "state": {
+        "phase": "DECLINED",
+        "anchor": 7500,
+        "ceiling": 8400,
+        "lastOffer": 7500,
+        "peilingen": 2,
+        "concessies": 0,
+        "lastSellerPrice": 10000,
+        "agreedPrice": null,
+        "clarificationCount": 0
+      },
+      "steps": [
+        {
+          "action": "OPEN",
+          "price": null,
+          "reason": "",
+          "classification": null,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "444b2af4d0a9c1b68d3b230afe9304e7755568199485a942eb591e628c4fbc43",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          }
+        },
+        {
+          "action": "ANCHOR",
+          "price": 7500,
+          "reason": "",
+          "classification": {
+            "kind": "INFO",
+            "confidence": 0.9
+          },
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "dd138821e1592783525f9d434ffd6a98c7ff103843c0e0bcf4271d26943beb17",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": [
+                "koppeling",
+                "tweede_eigenaar"
+              ]
+            }
+          }
+        },
+        {
+          "action": "PROBE",
+          "price": null,
+          "reason": "",
+          "classification": {
+            "kind": "FIRM",
+            "confidence": 0.95
+          },
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "adf9c5c5538f97363d4d748281653c9449bdfca33e58cdcfa2e7d27ec8735f23",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          }
+        },
+        {
+          "action": "PROBE",
+          "price": null,
+          "reason": "",
+          "classification": {
+            "kind": "FIRM",
+            "confidence": 0.95
+          },
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "3da662eb88d208f532904e463920c8c2b2dac80dfac861d67d4ff21ae31ec2f1",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          }
+        },
+        {
+          "action": "DECLINE",
+          "price": null,
+          "reason": "",
+          "classification": {
+            "kind": "FIRM",
+            "confidence": 0.95
+          },
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "ed48b7715fa02ccf747b93b4e5913668d699717284bd62aa303557d9c3622d7f",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Normale biedvraag",
+      "settings": {
+        "ask": 10000,
+        "anchor": 7500,
+        "ceiling": 8400
+      },
+      "history": [
+        {
+          "id": "9a1b92ab-7d39-433e-af56-aef23ccccd92",
+          "role": "assistant",
+          "text": "Ik bekijk je Golf. Kun je iets vertellen over het onderhoud en recent vervangen onderdelen? Wat is de reden van verkoop?\n\nInkoopteam",
+          "created": 1789041600000,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "444b2af4d0a9c1b68d3b230afe9304e7755568199485a942eb591e628c4fbc43",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          },
+          "simulated": true
+        },
+        {
+          "id": "example-0000",
+          "role": "seller",
+          "text": "Wat zou je ervoor willen geven?",
+          "created": 1789041600000
+        },
+        {
+          "id": "7e0ca652-0d1a-4521-b3c2-0d236ba3c610",
+          "role": "assistant",
+          "text": "Helder. Mijn bod is EUR 7.500, als de auto bij het bekijken is zoals beschreven. Dat is waarschijnlijk lager dan je in gedachten had.\n\nInkoopteam",
+          "created": 1789041600000,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "6492f42c82063ea5aef0629056005c468662314dea1e41217e8c85b15444014c",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          },
+          "simulated": true
+        },
+        {
+          "id": "example-0001",
+          "role": "seller",
+          "text": "Akkoord",
+          "created": 1789041600000
+        },
+        {
+          "id": "3a29289e-aed0-41aa-b06e-7914102463ca",
+          "role": "assistant",
+          "text": "Top, dan houden we EUR 7.500 aan, onder voorbehoud van bezichtiging en controle. Wanneer schikt het bij jou?\n\nInkoopteam",
+          "created": 1789041600000,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "b7fe479660045f874b1866411d75faeb179a0a405d659ead9bc394dac72f35c2",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          },
+          "simulated": true
+        }
+      ],
+      "state": {
+        "phase": "HOT_LEAD",
+        "anchor": 7500,
+        "ceiling": 8400,
+        "lastOffer": 7500,
+        "peilingen": 0,
+        "concessies": 0,
+        "lastSellerPrice": 10000,
+        "agreedPrice": 7500,
+        "clarificationCount": 0
+      },
+      "steps": [
+        {
+          "action": "OPEN",
+          "price": null,
+          "reason": "",
+          "classification": null,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "444b2af4d0a9c1b68d3b230afe9304e7755568199485a942eb591e628c4fbc43",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          }
+        },
+        {
+          "action": "ANCHOR",
+          "price": 7500,
+          "reason": "",
+          "classification": {
+            "kind": "QUESTION",
+            "confidence": 0.98,
+            "topic": "offer"
+          },
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "6492f42c82063ea5aef0629056005c468662314dea1e41217e8c85b15444014c",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          }
+        },
+        {
+          "action": "ACCEPT",
+          "price": 7500,
+          "reason": "",
+          "classification": {
+            "kind": "ACCEPT",
+            "confidence": 0.98
+          },
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "b7fe479660045f874b1866411d75faeb179a0a405d659ead9bc394dac72f35c2",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Aflopende concessies en rustig weglopen",
+      "settings": {
+        "ask": 10000,
+        "anchor": 7500,
+        "ceiling": 8400
+      },
+      "history": [
+        {
+          "id": "ef8d6384-077a-40df-a792-7fd63739289b",
+          "role": "assistant",
+          "text": "Ik bekijk je Golf. Kun je iets vertellen over het onderhoud en recent vervangen onderdelen? Wat is de reden van verkoop?\n\nInkoopteam",
+          "created": 1789041600000,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "444b2af4d0a9c1b68d3b230afe9304e7755568199485a942eb591e628c4fbc43",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          },
+          "simulated": true
+        },
+        {
+          "id": "example-0000",
+          "role": "seller",
+          "text": "Wat bied je?",
+          "created": 1789041600000
+        },
+        {
+          "id": "c0f6fc36-e33c-425c-8311-23c917a0683b",
+          "role": "assistant",
+          "text": "Helder. Mijn bod is EUR 7.500, als de auto bij het bekijken is zoals beschreven. Dat is waarschijnlijk lager dan je in gedachten had.\n\nInkoopteam",
+          "created": 1789041600000,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "6492f42c82063ea5aef0629056005c468662314dea1e41217e8c85b15444014c",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          },
+          "simulated": true
+        },
+        {
+          "id": "example-0001",
+          "role": "seller",
+          "text": "Mijn prijs is EUR 9500",
+          "created": 1789041600000
+        },
+        {
+          "id": "373e36f6-e2f7-4377-a780-87d1cd21740d",
+          "role": "assistant",
+          "text": "Dan kom ik je tegemoet met EUR 7.950, als de auto bij het bekijken is zoals beschreven. Kunnen we het daarop afronden?\n\nInkoopteam",
+          "created": 1789041600000,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "012a7af1e6a1730aa5d1fc3858cca5e1f5afd6e8cb122293607fb68c5b19ad17",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          },
+          "simulated": true
+        },
+        {
+          "id": "example-0002",
+          "role": "seller",
+          "text": "Mijn prijs is EUR 9000",
+          "created": 1789041600000
+        },
+        {
+          "id": "5985530c-7537-45b6-9aaa-2cfa0dcd0520",
+          "role": "assistant",
+          "text": "Dan kom ik je tegemoet met EUR 8.180, als de auto bij het bekijken is zoals beschreven. Kunnen we het daarop afronden?\n\nInkoopteam",
+          "created": 1789041600000,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "21ad8c5a33ec6a8f4e8b16e3f1ba79ba41caaa327e6db902a8c7abc4a41db87a",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          },
+          "simulated": true
+        },
+        {
+          "id": "example-0003",
+          "role": "seller",
+          "text": "Mijn prijs is EUR 8700",
+          "created": 1789041600000
+        },
+        {
+          "id": "9adf591a-0c86-48f0-bda2-8c24a8e2a949",
+          "role": "assistant",
+          "text": "Dan kom ik je tegemoet met EUR 8.290, als de auto bij het bekijken is zoals beschreven. Kunnen we het daarop afronden?\n\nInkoopteam",
+          "created": 1789041600000,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "4bee42e33b389d8570a3379955c756d474ce0c462f96a4a7fe8afa587c76e234",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          },
+          "simulated": true
+        },
+        {
+          "id": "example-0004",
+          "role": "seller",
+          "text": "Mijn prijs is EUR 8600",
+          "created": 1789041600000
+        },
+        {
+          "id": "8385e809-bb32-4757-87f8-f85baa001803",
+          "role": "assistant",
+          "text": "Helder, bedankt voor je reactie en succes met de verkoop.\n\nInkoopteam",
+          "created": 1789041600000,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "874672f37631970d4c2b1f8255ec98c0e296924d0d356d719cc594bc8730a837",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          },
+          "simulated": true
+        }
+      ],
+      "state": {
+        "phase": "DECLINED",
+        "anchor": 7500,
+        "ceiling": 8400,
+        "lastOffer": 8290,
+        "peilingen": 0,
+        "concessies": 3,
+        "lastSellerPrice": 8700,
+        "agreedPrice": null,
+        "clarificationCount": 0
+      },
+      "steps": [
+        {
+          "action": "OPEN",
+          "price": null,
+          "reason": "",
+          "classification": null,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "444b2af4d0a9c1b68d3b230afe9304e7755568199485a942eb591e628c4fbc43",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          }
+        },
+        {
+          "action": "ANCHOR",
+          "price": 7500,
+          "reason": "",
+          "classification": {
+            "kind": "QUESTION",
+            "confidence": 0.98,
+            "topic": "offer"
+          },
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "6492f42c82063ea5aef0629056005c468662314dea1e41217e8c85b15444014c",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          }
+        },
+        {
+          "action": "CONCESSION",
+          "price": 7950,
+          "reason": "",
+          "classification": {
+            "kind": "PRICE",
+            "price": 9500,
+            "confidence": 0.99,
+            "evidence": "Mijn prijs is EUR 9500"
+          },
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "012a7af1e6a1730aa5d1fc3858cca5e1f5afd6e8cb122293607fb68c5b19ad17",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          }
+        },
+        {
+          "action": "CONCESSION",
+          "price": 8180,
+          "reason": "",
+          "classification": {
+            "kind": "PRICE",
+            "price": 9000,
+            "confidence": 0.99,
+            "evidence": "Mijn prijs is EUR 9000"
+          },
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "21ad8c5a33ec6a8f4e8b16e3f1ba79ba41caaa327e6db902a8c7abc4a41db87a",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          }
+        },
+        {
+          "action": "CONCESSION",
+          "price": 8290,
+          "reason": "",
+          "classification": {
+            "kind": "PRICE",
+            "price": 8700,
+            "confidence": 0.99,
+            "evidence": "Mijn prijs is EUR 8700"
+          },
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "4bee42e33b389d8570a3379955c756d474ce0c462f96a4a7fe8afa587c76e234",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          }
+        },
+        {
+          "action": "DECLINE",
+          "price": null,
+          "reason": "",
+          "classification": {
+            "kind": "PRICE",
+            "price": 8600,
+            "confidence": 0.99,
+            "evidence": "Mijn prijs is EUR 8600"
+          },
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "874672f37631970d4c2b1f8255ec98c0e296924d0d356d719cc594bc8730a837",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Direct stoppen",
+      "settings": {
+        "ask": 10000,
+        "anchor": 7500,
+        "ceiling": 8400
+      },
+      "history": [
+        {
+          "id": "fa76adf7-825f-4b86-98bc-80952eceb77b",
+          "role": "assistant",
+          "text": "Ik bekijk je Golf. Kun je iets vertellen over het onderhoud en recent vervangen onderdelen? Wat is de reden van verkoop?\n\nInkoopteam",
+          "created": 1789041600000,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "444b2af4d0a9c1b68d3b230afe9304e7755568199485a942eb591e628c4fbc43",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          },
+          "simulated": true
+        },
+        {
+          "id": "example-0000",
+          "role": "seller",
+          "text": "Ik wil niet meer benaderd worden",
+          "created": 1789041600000
+        }
+      ],
+      "state": {
+        "phase": "SUPPRESSED",
+        "anchor": 7500,
+        "ceiling": 8400,
+        "lastOffer": null,
+        "peilingen": 0,
+        "concessies": 0,
+        "lastSellerPrice": 10000,
+        "agreedPrice": null,
+        "clarificationCount": 0
+      },
+      "steps": [
+        {
+          "action": "OPEN",
+          "price": null,
+          "reason": "",
+          "classification": null,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "444b2af4d0a9c1b68d3b230afe9304e7755568199485a942eb591e628c4fbc43",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          }
+        },
+        {
+          "action": "SILENT_STOP",
+          "price": null,
+          "reason": "Verkoper wil niet meer worden benaderd",
+          "classification": {
+            "kind": "OPT_OUT",
+            "confidence": 1
+          },
+          "composition": {
+            "source": "deterministic",
+            "promptVersion": "biedbot-voice-2026-09-10-v1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Extra voorwaarden vragen menselijke beoordeling",
+      "settings": {
+        "ask": 10000,
+        "anchor": 7500,
+        "ceiling": 8400
+      },
+      "history": [
+        {
+          "id": "d596a9f6-1f9b-4c7f-a8aa-457c0e12fdea",
+          "role": "assistant",
+          "text": "Ik bekijk je Golf. Kun je iets vertellen over het onderhoud en recent vervangen onderdelen? Wat is de reden van verkoop?\n\nInkoopteam",
+          "created": 1789041600000,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "444b2af4d0a9c1b68d3b230afe9304e7755568199485a942eb591e628c4fbc43",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          },
+          "simulated": true
+        },
+        {
+          "id": "example-0000",
+          "role": "seller",
+          "text": "Wat bied je?",
+          "created": 1789041600000
+        },
+        {
+          "id": "de11fcbb-62bc-4229-90af-cf3edf06b02c",
+          "role": "assistant",
+          "text": "Helder. Mijn bod is EUR 7.500, als de auto bij het bekijken is zoals beschreven. Dat is waarschijnlijk lager dan je in gedachten had.\n\nInkoopteam",
+          "created": 1789041600000,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "6492f42c82063ea5aef0629056005c468662314dea1e41217e8c85b15444014c",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          },
+          "simulated": true
+        },
+        {
+          "id": "example-0001",
+          "role": "seller",
+          "text": "Akkoord als je eerst een aanbetaling doet.",
+          "created": 1789041600000
+        }
+      ],
+      "state": {
+        "phase": "REVIEW",
+        "anchor": 7500,
+        "ceiling": 8400,
+        "lastOffer": 7500,
+        "peilingen": 0,
+        "concessies": 0,
+        "lastSellerPrice": 10000,
+        "agreedPrice": null,
+        "clarificationCount": 0
+      },
+      "steps": [
+        {
+          "action": "OPEN",
+          "price": null,
+          "reason": "",
+          "classification": null,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "444b2af4d0a9c1b68d3b230afe9304e7755568199485a942eb591e628c4fbc43",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          }
+        },
+        {
+          "action": "ANCHOR",
+          "price": 7500,
+          "reason": "",
+          "classification": {
+            "kind": "QUESTION",
+            "confidence": 0.98,
+            "topic": "offer"
+          },
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "6492f42c82063ea5aef0629056005c468662314dea1e41217e8c85b15444014c",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          }
+        },
+        {
+          "action": "REVIEW",
+          "price": null,
+          "reason": "Risico of betalingsverzoek: geen automatische toezegging",
+          "classification": {
+            "kind": "RISK",
+            "confidence": 1
+          },
+          "composition": {
+            "source": "deterministic",
+            "promptVersion": "biedbot-voice-2026-09-10-v1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Onduidelijkheid niet wegpoetsen",
+      "settings": {
+        "ask": 10000,
+        "anchor": 7500,
+        "ceiling": 8400
+      },
+      "history": [
+        {
+          "id": "79278c1b-1c61-4b0d-9e7c-c606dbfdca06",
+          "role": "assistant",
+          "text": "Ik bekijk je Golf. Kun je iets vertellen over het onderhoud en recent vervangen onderdelen? Wat is de reden van verkoop?\n\nInkoopteam",
+          "created": 1789041600000,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "444b2af4d0a9c1b68d3b230afe9304e7755568199485a942eb591e628c4fbc43",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          },
+          "simulated": true
+        },
+        {
+          "id": "example-0000",
+          "role": "seller",
+          "text": "Blauwe dinsdag ergens richting negen misschien",
+          "created": 1789041600000
+        },
+        {
+          "id": "64e9aa72-16d0-4e9a-ab42-17b98cf38850",
+          "role": "assistant",
+          "text": "Wat bedoel je precies? Ik wil je reactie goed begrijpen.\n\nInkoopteam",
+          "created": 1789041600000,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "5be5b04aabedd8f7b553eb8d611da6895268f03681d0aecaa03ab5923eb46b21",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          },
+          "simulated": true
+        },
+        {
+          "id": "example-0001",
+          "role": "seller",
+          "text": "Je weet toch wel wat ik bedoel",
+          "created": 1789041600000
+        }
+      ],
+      "state": {
+        "phase": "REVIEW",
+        "anchor": 7500,
+        "ceiling": 8400,
+        "lastOffer": null,
+        "peilingen": 0,
+        "concessies": 0,
+        "lastSellerPrice": 10000,
+        "agreedPrice": null,
+        "clarificationCount": 1
+      },
+      "steps": [
+        {
+          "action": "OPEN",
+          "price": null,
+          "reason": "",
+          "classification": null,
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "444b2af4d0a9c1b68d3b230afe9304e7755568199485a942eb591e628c4fbc43",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          }
+        },
+        {
+          "action": "CLARIFY",
+          "price": null,
+          "reason": "Betekenis onduidelijk",
+          "classification": {
+            "kind": "UNKNOWN",
+            "confidence": 0.4
+          },
+          "composition": {
+            "source": "offline",
+            "model": null,
+            "requestId": null,
+            "promptVersion": "biedbot-voice-2026-09-10-v1",
+            "guard": "validated",
+            "fallbackReason": null,
+            "requiresReview": false,
+            "createdAt": 1789041600000,
+            "expiresAt": 1789042500000,
+            "textHash": "5be5b04aabedd8f7b553eb8d611da6895268f03681d0aecaa03ab5923eb46b21",
+            "validationContext": {
+              "model": "Golf",
+              "company": "Autobedrijf Voorbeeld",
+              "signoff": "Inkoopteam",
+              "tone": "zakelijk",
+              "buyingThisWeek": false,
+              "hasAlternatives": false,
+              "allowedFacts": []
+            }
+          }
+        },
+        {
+          "action": "REVIEW",
+          "price": null,
+          "reason": "Betekenis blijft onzeker",
+          "classification": {
+            "kind": "UNKNOWN",
+            "confidence": 0.2
+          },
+          "composition": {
+            "source": "deterministic",
+            "promptVersion": "biedbot-voice-2026-09-10-v1"
+          }
+        }
+      ]
+    }
+  ]
+}

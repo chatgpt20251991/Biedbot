@@ -1,0 +1,5 @@
+
+> biedbot-edge@0.2.0-pilot.1 check
+> node scripts/check.mjs
+
+62 JavaScriptbestanden syntactisch gecontroleerd; geen externe npm-runtimeafhankelijkheden.
